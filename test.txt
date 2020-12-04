@@ -4,3 +4,4 @@ hei jeg er Snoke :)
 test 2
 test 3
 banan
+test 
