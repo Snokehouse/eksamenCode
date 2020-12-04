@@ -7,6 +7,10 @@ const StyledNav = styled.nav`
   font-family: Lato;
   width: 100%;
 `;
+const Logo = styled.p`
+  margin: auto 10px;
+  font-weight: bold;
+`;
 
 const NavMenu = styled.ul`
   display: flex;
@@ -51,6 +55,7 @@ const Nav = () => (
   >
     <StyledNav>
       <NavMenu>
+        <Logo>LG</Logo>
         <NavMenuItem>
           <NavLink exact to="/home" activeClassName="active">
             Home
