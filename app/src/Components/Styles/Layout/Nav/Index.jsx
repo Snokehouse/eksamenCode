@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Break from 'react-break';
 
 const StyledNav = styled.nav`
   font-family: Lato;
@@ -13,6 +14,7 @@ const NavMenu = styled.ul`
   padding: 0;
   list-style: none;
 `;
+
 
 const NavMenuItem = styled.li`
   padding: 0 20px;
@@ -37,7 +39,14 @@ const NavMenuItem = styled.li`
   }
 `;
 
+const NavBreakpoints = {
+  mobile: 0,
+  tablet: 768,
+  desktop: 992,
+}
+
 const Nav = () => (
+  <Break breakpoints = {NavBreakpoints} query = {{ method: 'is', breakpoint: 'desktop' }}>
   <StyledNav>
     <NavMenu>
       <NavMenuItem>
@@ -62,6 +71,7 @@ const Nav = () => (
       </NavMenuItem>
     </NavMenu>
   </StyledNav>
+  </Break>
 );
 
 export default Nav;
