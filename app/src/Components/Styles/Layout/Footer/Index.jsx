@@ -7,9 +7,11 @@ const FooterSection = styled.section`
   bottom: 0;
   width: 100%;
   text-align: center;
+  border-top: 0.5px outset grey;
 `;
 const FooterItem = styled.p`
-  margin: 0;
+  display: inline-block;
+  margin: 10px;
 `;
 
 const Footer = () => (
