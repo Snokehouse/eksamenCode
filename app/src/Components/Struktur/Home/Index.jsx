@@ -1,23 +1,21 @@
 import React from 'react';
-import { Container, Paragraph, HomeArticle } from './Style';
+import { Tittel, Container, Paragraph, HomeArticle } from './Style';
 
 const Home = () => (
-  <Container>
-    <Container>
-      <Paragraph>Her er det tekst!</Paragraph>
-    </Container>
+  <>
+    <Tittel>Velkommen til FG Rørleggerservice AS</Tittel>
     <Container>
       <HomeArticle>
-        <Paragraph>Her er det tekst!</Paragraph>
+        <Paragraph>Kontorer</Paragraph>
       </HomeArticle>
       <HomeArticle>
-        <Paragraph>Her er det tekst!</Paragraph>
+        <Paragraph>Kontakt</Paragraph>
       </HomeArticle>
       <HomeArticle>
-        <Paragraph>Her er det tekst!</Paragraph>
+        <Paragraph>Se våre fagartikler om oppussing av bad</Paragraph>
       </HomeArticle>
     </Container>
-  </Container>
+  </>
 );
 
 export default Home;
