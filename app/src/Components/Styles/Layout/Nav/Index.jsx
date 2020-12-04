@@ -40,8 +40,8 @@ const NavMenuItem = styled.li`
 
 const NavBreakpoints = {
   mobile: 0,
-  tablet: 768,
-  desktop: 992,
+  tablet: 500,
+  desktop: 800,
 };
 
 const Nav = () => (
