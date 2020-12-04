@@ -15,7 +15,6 @@ const NavMenu = styled.ul`
   list-style: none;
 `;
 
-
 const NavMenuItem = styled.li`
   padding: 0 20px;
 
@@ -43,34 +42,37 @@ const NavBreakpoints = {
   mobile: 0,
   tablet: 768,
   desktop: 992,
-}
+};
 
 const Nav = () => (
-  <Break breakpoints = {NavBreakpoints} query = {{ method: 'is', breakpoint: 'desktop' }}>
-  <StyledNav>
-    <NavMenu>
-      <NavMenuItem>
-        <NavLink exact to="/home" activeClassName="active">
-          Home
-        </NavLink>
-      </NavMenuItem>
-      <NavMenuItem>
-        <NavLink to="/kontorer" activeClassName="active">
-          Kontorer
-        </NavLink>
-      </NavMenuItem>
-      <NavMenuItem>
-        <NavLink to="/fagartikler" activeClassName="active">
-          Fagartikler
-        </NavLink>
-      </NavMenuItem>
-      <NavMenuItem>
-        <NavLink to="/kontakt" activeClassName="active">
-          Kontakt
-        </NavLink>
-      </NavMenuItem>
-    </NavMenu>
-  </StyledNav>
+  <Break
+    breakpoints={NavBreakpoints}
+    query={{ method: 'is', breakpoint: 'desktop' }}
+  >
+    <StyledNav>
+      <NavMenu>
+        <NavMenuItem>
+          <NavLink exact to="/home" activeClassName="active">
+            Home
+          </NavLink>
+        </NavMenuItem>
+        <NavMenuItem>
+          <NavLink to="/kontorer" activeClassName="active">
+            Kontorer
+          </NavLink>
+        </NavMenuItem>
+        <NavMenuItem>
+          <NavLink to="/fagartikler" activeClassName="active">
+            Fagartikler
+          </NavLink>
+        </NavMenuItem>
+        <NavMenuItem>
+          <NavLink to="/kontakt" activeClassName="active">
+            Kontakt
+          </NavLink>
+        </NavMenuItem>
+      </NavMenu>
+    </StyledNav>
   </Break>
 );
 
