@@ -10,14 +10,11 @@ const StyledNav = styled.nav`
 const Logo = styled.p`
   margin: auto 10px;
   font-weight: bold;
-
 `;
 
 const NavMenu = styled.ul`
   display: grid;
   grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
-
- 
 
   margin: 0;
   padding: 0;
@@ -50,41 +47,71 @@ const NavMenuItem = styled.li`
 
 const NavBreakpoints = {
   mobile: 0,
-  //tablet: 500,
   desktop: 500,
 };
 
 const Nav = () => (
-  <Break
-    breakpoints={NavBreakpoints}
-    query={{ method: 'is', breakpoint: 'desktop' }}
-  >
-    <StyledNav>
-      <NavMenu>
-        <Logo>LG</Logo>
-        <NavMenuItem>
-          <NavLink exact to="/home" activeClassName="active">
-            Home
-          </NavLink>
-        </NavMenuItem>
-        <NavMenuItem>
-          <NavLink to="/kontorer" activeClassName="active">
-            Kontorer
-          </NavLink>
-        </NavMenuItem>
-        <NavMenuItem>
-          <NavLink to="/fagartikler" activeClassName="active">
-            Fagartikler
-          </NavLink>
-        </NavMenuItem>
-        <NavMenuItem>
-          <NavLink to="/kontakt" activeClassName="active">
-            Kontakt
-          </NavLink>
-        </NavMenuItem>
-      </NavMenu>
-    </StyledNav>
-  </Break>
+  <>
+    <Break
+      breakpoints={NavBreakpoints}
+      query={{ method: 'is', breakpoint: 'mobile' }}
+    >
+      <StyledNav>
+        <NavMenu>
+          <NavMenuItem>
+            <NavLink exact to="/home" activeClassName="active">
+              Home
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/kontorer" activeClassName="active">
+              Kontorer
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/fagartikler" activeClassName="active">
+              Fagartikler
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/kontakt" activeClassName="active">
+              Kontakt
+            </NavLink>
+          </NavMenuItem>
+        </NavMenu>
+      </StyledNav>
+    </Break>
+    <Break
+      breakpoints={NavBreakpoints}
+      query={{ method: 'is', breakpoint: 'desktop' }}
+    >
+      <StyledNav>
+        <NavMenu>
+          <Logo>LG</Logo>
+          <NavMenuItem>
+            <NavLink exact to="/home" activeClassName="active">
+              Home
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/kontorer" activeClassName="active">
+              Kontorer
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/fagartikler" activeClassName="active">
+              Fagartikler
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/kontakt" activeClassName="active">
+              Kontakt
+            </NavLink>
+          </NavMenuItem>
+        </NavMenu>
+      </StyledNav>
+    </Break>
+  </>
 );
 
 export default Nav;
