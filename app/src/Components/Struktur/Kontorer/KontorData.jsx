@@ -1,8 +1,15 @@
 import React from 'react';
 import { Container, Filter, KnappCard, KnappListe } from './Style';
 
-const KontorData = () => (
-  // hmm
+import KontorList from './KontorList';
+import KontorCard from './KontorCard';
+
+const KontorData = (
+  setFilter,
+  innLastetData,
+  ListeVisning,
+  setlisteVisning
+) => (
   <>
     <Container>
       <Filter>Filter</Filter>
@@ -10,21 +17,20 @@ const KontorData = () => (
       <KnappCard>Card</KnappCard>
     </Container>
     <Container>
-      {/* pollData.length < 1 ? (
-        <p>Ingen polls idag :(</p>
+      {innLastetData.length < 1 && ListeVisning ? (
+        <p>404 Finner ingen data.</p>
       ) : (
-        pollData.map((
-          poll // sette id til poll setId(data[0]._id);
-        ) => (
-          <PollForm
-            key={poll.sporsmal}
-            submitHandle={submitHandle}
-            svarData={svarData}
-            updateValue={updateValue}
-            poll={poll}
-          />
+        innLastetData.map((kontor) => (
+          <KontorList key={kontor.kontaktInfo.navn} kontor={kontor} />
         ))
-        ) */}
+      )}
+      {innLastetData.length < 1 && !ListeVisning ? (
+        <p>404 Finner ingen data.</p>
+      ) : (
+        innLastetData.map((kontor) => (
+          <KontorCard key={kontor.kontaktInfo.navn} kontor={kontor} />
+        ))
+      )}
     </Container>
   </>
 );
