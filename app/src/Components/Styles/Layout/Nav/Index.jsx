@@ -14,8 +14,12 @@ const Logo = styled.p`
 
 const NavMenu = styled.ul`
   display: grid;
-  grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
-
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media screen and (min-width: 500px) {
+    grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
+  }
   margin: 0;
   padding: 0;
   list-style: none;
