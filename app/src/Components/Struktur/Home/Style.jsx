@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+export const Tittel = styled.h1`
+  margin: 0;
+`;
 export const Container = styled.section`
   margin: 0 auto;
   width: 100%;
