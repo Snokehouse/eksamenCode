@@ -10,10 +10,15 @@ const StyledNav = styled.nav`
 const Logo = styled.p`
   margin: auto 10px;
   font-weight: bold;
+
 `;
 
 const NavMenu = styled.ul`
-  display: flex;
+  display: grid;
+  grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
+
+ 
+
   margin: 0;
   padding: 0;
   list-style: none;
@@ -24,6 +29,7 @@ const NavMenuItem = styled.li`
 
   &:first-child {
     padding-left: 0;
+    color: red;
   }
 
   & > a {
@@ -44,8 +50,8 @@ const NavMenuItem = styled.li`
 
 const NavBreakpoints = {
   mobile: 0,
-  tablet: 500,
-  desktop: 800,
+  //tablet: 500,
+  desktop: 500,
 };
 
 const Nav = () => (
