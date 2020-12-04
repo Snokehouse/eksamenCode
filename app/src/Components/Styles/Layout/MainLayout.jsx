@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from '../../Styles/Styled';
-import Nav from '../Nav/Index';
+import { Container } from '../Styled';
+import Nav from '../../Struktur/Nav/Index';
 
 const MainLayoutContainer = styled.div`
   padding-bottom: 20px;

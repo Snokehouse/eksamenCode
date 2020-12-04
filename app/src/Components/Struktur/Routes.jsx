@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import MainLayout from './Layout/MainLayout';
+import MainLayout from '../Styles/Layout/MainLayout';
 
 import Home from './Home/Index';
 import Kontorer from './Kontorer/Index';
