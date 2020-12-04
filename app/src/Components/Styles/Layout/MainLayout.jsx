@@ -1,7 +1,10 @@
 import React from 'react';
+
 import styled from 'styled-components';
 import { Container } from '../Styled';
-import Nav from '../../Struktur/Nav/Index';
+
+import Nav from './Nav/Index';
+import Footer from './Footer/Index';
 
 const MainLayoutContainer = styled.div`
   padding-bottom: 20px;
@@ -23,6 +26,7 @@ const MainLayout = ({ children }) => (
       <Nav />
     </StyledHeader>
     <Container>{children}</Container>
+    <Footer />
   </MainLayoutContainer>
 );
 
