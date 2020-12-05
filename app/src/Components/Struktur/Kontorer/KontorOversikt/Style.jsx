@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
+
+
 export const Container = styled.section`
   margin: 0 auto;
   width: 90%;
+  //background-color: black;
 `;
 // Overskrifter
 export const Tittel = styled.h1`
@@ -14,29 +17,40 @@ export const Tittel = styled.h1`
 `;
 export const UnderTittel = styled.h2`
   margin: 0;
-  grid-area: title;
 `;
 // Artikkel elementer
 export const KontorArticle = styled.article`
   margin: 0 auto;
   background-color: grey;
-  grid-area: main;
+  width: 100%;
 `;
 export const Paragraf = styled.p`
   margin: 0 auto;
+  width: 100%;
 `;
 // Knapper
+export const KnappContainer = styled.div`
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+`;
+
 export const KnappListe = styled.button`
-  margin: 0;
-  grid-area: buttons;
+  margin: 0px 5px 0px 5px;
 `;
 export const KnappCard = styled.button`
-  margin: 0;
+  margin: 0px 5px 0px 5px;
 `;
 // Dropdown
 export const Dropdown = styled.section`
   position: relative;
   display: inline-block;
+  margin: 0px 5px 0px 5px;
+
+  & .hidden {
+    display: none !important; 
+  }
+
 `;
 export const Dropdownbtn = styled.button`
   background-color: #4caf50;

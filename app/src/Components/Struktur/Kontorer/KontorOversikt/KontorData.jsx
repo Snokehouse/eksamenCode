@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Container,
+  KnappContainer,
   KnappCard,
   KnappListe,
   Dropdown,
@@ -31,16 +32,18 @@ const KontorData = ({
     return (
       <>
         <Container>
-          <Dropdown>
-            <Dropdownbtn>Dropdown</Dropdownbtn>
-            <DropdownContent>
-              <DropdownItem href="#">Link 1</DropdownItem>
-              <DropdownItem href="#">Link 2</DropdownItem>
-              <DropdownItem href="#">Link 3</DropdownItem>
-            </DropdownContent>
-          </Dropdown>
-          <KnappListe onClick={() => setListeVisning(true)}>List</KnappListe>
-          <KnappCard onClick={() => setListeVisning(false)}>Card</KnappCard>
+          <KnappContainer>
+            <Dropdown>
+              <Dropdownbtn id = "hamburgerbutton">Dropdown</Dropdownbtn>
+              <DropdownContent id="jsnav" class="nav hidden">
+                <DropdownItem href="#">Link 1</DropdownItem>
+                <DropdownItem href="#">Link 2</DropdownItem>
+                <DropdownItem href="#">Link 3</DropdownItem>
+              </DropdownContent>
+            </Dropdown>
+            <KnappListe onClick={() => setListeVisning(true)}>List</KnappListe>
+            <KnappCard onClick={() => setListeVisning(false)}>Card</KnappCard>
+          </KnappContainer>
         </Container>
         <Container>
           {innLastetData.length < 1 ? (
@@ -60,6 +63,12 @@ const KontorData = ({
   }
   return (
     <>
+      <script>
+        {document.getElementById("hamburgerbutton").addEventListener("click", clickykode)} 
+        {function clickykode() {
+            document.getElementById("jsnav").classList.toggle("hidden");
+        }}
+      </script>
       <Container>
         <Dropdown>
           <Dropdownbtn>Dropdown</Dropdownbtn>

@@ -8,13 +8,22 @@ const Container = styled.section`
 `;
 const UnderTittel = styled.h2`
   margin: 0;
+  grid-area: title;
 `;
 
 const KontorArticle = styled.article`
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  //grid-area: main;
+  background-color: yellow;
+  width: 100%;
 `;
 const Paragraf = styled.p`
-  margin: 0 auto;
+  margin: 10px auto 10px auto;
+  width: 100%;
+  //background-color: purple;
+  //grid-area: main;
 `;
 
 const KontorList = ({ kontor, kontaktInfo }) => {
