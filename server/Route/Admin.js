@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.post('/', adminController.createAdmin);
 router.get('/:id', adminController.getAdmin);
+router.get('/', adminController.list);
 
 export default router;
