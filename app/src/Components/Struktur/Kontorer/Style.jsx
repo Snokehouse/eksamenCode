@@ -4,14 +4,14 @@ export const Container = styled.section`
   margin: 0 auto;
   width: 100%;
 `;
+// Overskrifter
 export const Tittel = styled.h1`
   margin: 0;
 `;
-
 export const UnderTittel = styled.h2`
   margin: 0;
 `;
-
+// Artikkel elementer
 export const KontorArticle = styled.article`
   margin: 0 auto;
   background-color: grey;
@@ -19,13 +19,37 @@ export const KontorArticle = styled.article`
 export const Paragraf = styled.p`
   margin: 0 auto;
 `;
-
-export const Filter = styled.button`
-  margin: 0;
-`;
+// Knapper
 export const KnappListe = styled.button`
   margin: 0;
 `;
 export const KnappCard = styled.button`
   margin: 0;
+`;
+// Dropdown
+export const Dropdown = styled.section`
+  position: relative;
+  display: inline-block;
+`;
+export const Dropdownbtn = styled.button`
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+`;
+export const DropdownContent = styled.section`
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+`;
+export const DropdownItem = styled.a`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 `;

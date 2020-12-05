@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 import { Container } from '../Styled';
@@ -20,14 +21,19 @@ const StyledHeader = styled.header`
   padding: 0 2rem;
 `;
 
-const MainLayout = ({ children }) => (
-  <MainLayoutContainer>
-    <StyledHeader>
-      <Nav />
-    </StyledHeader>
-    <Container>{children}</Container>
-    <Footer />
-  </MainLayoutContainer>
-);
+const MainLayout = ({ children }) => {
+  MainLayout.propTypes = {
+    children: PropTypes.string,
+  };
+  return (
+    <MainLayoutContainer>
+      <StyledHeader>
+        <Nav />
+      </StyledHeader>
+      <Container>{children}</Container>
+      <Footer />
+    </MainLayoutContainer>
+  );
+};
 
 export default MainLayout;

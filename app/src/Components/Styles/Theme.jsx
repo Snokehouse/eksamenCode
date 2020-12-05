@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './Global';
 
@@ -19,11 +20,16 @@ const theme = {
   },
 };
 
-const Theme = ({ children }) => (
-  <>
-    <GlobalStyles />
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  </>
-);
+const Theme = ({ children }) => {
+  Theme.propTypes = {
+    children: PropTypes.string,
+  };
+  return (
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </>
+  );
+};
 
 export default Theme;
