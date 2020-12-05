@@ -9,7 +9,7 @@ import {
 import MainLayout from '../Styles/Layout/MainLayout';
 
 import Home from './Home/Index';
-import Kontorer from './Kontorer/Index';
+import Kontorer from './Kontorer/KontorOversikt/Index';
 
 import FagArtikler from './Fagartikler/Artikkel/Index';
 import NyArtikkel from './Fagartikler/NyArtikkel/index';
