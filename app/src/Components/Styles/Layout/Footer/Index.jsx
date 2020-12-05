@@ -8,6 +8,7 @@ const FooterSection = styled.section`
   width: 100%;
   text-align: center;
   border-top: 0.5px outset grey;
+  background-color: white;
 `;
 const FooterItem = styled.p`
   display: inline-block;
