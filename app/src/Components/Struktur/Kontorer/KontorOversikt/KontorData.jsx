@@ -91,6 +91,7 @@ const KontorData = ({
   return (
     <>
       <Container>
+      <KnappContainer>
         <Dropdown>
           <Dropdownbtn>Filter</Dropdownbtn>
           <DropdownContent>
@@ -108,6 +109,7 @@ const KontorData = ({
         </Dropdown>
         <KnappListe onClick={() => setListeVisning(true)}>List</KnappListe>
         <KnappCard onClick={() => setListeVisning(false)}>Card</KnappCard>
+        </KnappContainer>
       </Container>
       <Container>
         {innLastetData.length < 1 ? (

@@ -6,21 +6,17 @@ const Container = styled.section`
   margin: 0 auto;
   width: 100%;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 
-  
-  "main main main main";
 `;
+
 const UnderTittel = styled.h2`
   margin: 0;
-  grid-area: title;
 `;
 
 const KontorArticle = styled.article`
-  grid-area: main;
   margin: 0 auto;
-  background-color:purple;
+  border: 1px solid black;
 `;
 const Paragraf = styled.p`
   margin: 0 auto;
