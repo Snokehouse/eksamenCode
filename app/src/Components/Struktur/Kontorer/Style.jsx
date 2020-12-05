@@ -32,7 +32,7 @@ export const Dropdown = styled.section`
   display: inline-block;
 `;
 export const Dropdownbtn = styled.button`
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -44,7 +44,7 @@ export const DropdownContent = styled.section`
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 `;
 export const DropdownItem = styled.a`

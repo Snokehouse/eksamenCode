@@ -10,7 +10,10 @@ import MainLayout from '../Styles/Layout/MainLayout';
 
 import Home from './Home/Index';
 import Kontorer from './Kontorer/Index';
-import FagArtikler from './Fagartikler/Index';
+
+import FagArtikler from './Fagartikler/Artikkel/Index';
+import NyArtikkel from './Fagartikler/NyArtikkel/index';
+
 import Kontakt from './Kontakt/Index';
 import NoMatch from './NoMatch/Index';
 
@@ -26,6 +29,9 @@ const Routes = () => (
         </Route>
         <Route exact path="/fagartikler">
           <FagArtikler />
+        </Route>
+        <Route exact path="/fagartikler/new">
+          <NyArtikkel />
         </Route>
         <Route exact path="/kontakt">
           <Kontakt />
