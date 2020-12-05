@@ -12,8 +12,9 @@ import Home from './Home/Index';
 import Kontorer from './Kontorer/KontorOversikt/Index';
 import KontorSide from './Kontorer/KontorSide/Index';
 
-import FagArtikler from './Fagartikler/Artikkel/Index';
+import FagArtikler from './Fagartikler/ArtikkelOversikt/Index';
 import NyArtikkel from './Fagartikler/NyArtikkel/index';
+import Artikkel from './Fagartikler/Artikkel/Index';
 
 import Kontakt from './Kontakt/Index';
 import NoMatch from './NoMatch/Index';
@@ -39,6 +40,9 @@ const Routes = () => (
         </Route>
         <Route exact path="/fagartikler/new">
           <NyArtikkel />
+        </Route>
+        <Route path="/fagartikkel/:artikkelID">
+          <Artikkel />
         </Route>
         <Route exact path="/kontakt">
           <Kontakt />

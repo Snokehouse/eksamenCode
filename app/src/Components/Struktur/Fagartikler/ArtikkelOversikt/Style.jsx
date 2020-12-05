@@ -26,6 +26,10 @@ export const Paragraf = styled.p`
 export const Linkbtn = styled.a`
   margin: 0;
 `;
+// link-wrapper
+export const LinkWrapper = styled.a`
+  margin: 0;
+`;
 // Søkefelt
 export const SokeFelt = styled.input`
   margin: 0;
