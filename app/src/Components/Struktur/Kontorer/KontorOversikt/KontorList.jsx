@@ -8,7 +8,6 @@ const Container = styled.section`
 `;
 const UnderTittel = styled.h2`
   margin: 0;
-  grid-area: title;
 `;
 
 const KontorArticle = styled.article`
