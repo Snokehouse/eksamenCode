@@ -43,15 +43,22 @@ const Kontorer = () => {
   ]);
 
   const { kontorerID } = useParams();
-
   console.log(kontorerID);
+
   useEffect(() => {
     if (kontorerID === undefined) {
       console.log('No Change');
     } else if (kontorerID !== undefined) {
-      console.log('Something Changed');
+      setInnLastetData();
+      const lastetData = innLastetData.filter(
+        (value) => value.sted === kontorerID
+      );
+      setInnLastetData(lastetData);
     }
-  });
+    setInnLastetData(innLastetData);
+  }, [innLastetData, kontorerID]);
+  console.log('Data lastet fra useEffect');
+  console.log(innLastetData);
   return (
     <>
       <Tittel>Våre Kontorer</Tittel>

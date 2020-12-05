@@ -28,11 +28,19 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
         <Container>
           <KnappContainer>
             <Dropdown>
-              <Dropdownbtn id = "hamburgerbutton">Dropdown</Dropdownbtn>
-              <DropdownContent id="jsnav" class="nav hidden">
-                <DropdownItem href="#">Link 1</DropdownItem>
-                <DropdownItem href="#">Link 2</DropdownItem>
-                <DropdownItem href="#">Link 3</DropdownItem>
+              <Dropdownbtn>Filter</Dropdownbtn>
+              <DropdownContent>
+                <DropdownItem href="/kontorer">Fjern Filter</DropdownItem>
+                {innLastetData.length < 1 ? (
+                  <DropdownItem href="/kontorer">Mangler data</DropdownItem>
+                ) : (
+                  innLastetData.map((kontor) => (
+                    <DropdownItem
+                      key={kontor.id}
+                      href={`/kontorer/${kontor.sted}`}
+                    >{`${kontor.sted}`}</DropdownItem>
+                  ))
+                )}
               </DropdownContent>
             </Dropdown>
             <KnappListe onClick={() => setListeVisning(true)}>List</KnappListe>
@@ -57,19 +65,20 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
   }
   return (
     <>
-      <script>
-        {document.getElementById("hamburgerbutton").addEventListener("click", clickykode)} 
-        {function clickykode() {
-            document.getElementById("jsnav").classList.toggle("hidden");
-        }}
-      </script>
       <Container>
         <Dropdown>
-          <Dropdownbtn>Dropdown</Dropdownbtn>
+          <Dropdownbtn>Filter</Dropdownbtn>
           <DropdownContent>
-            <DropdownItem href="#/id">Link 1</DropdownItem>
-            <DropdownItem href="#/id">Link 2</DropdownItem>
-            <DropdownItem href="#/id">Link 3</DropdownItem>
+            {innLastetData.length < 1 ? (
+              <DropdownItem href="#">Mangler data</DropdownItem>
+            ) : (
+              innLastetData.map((kontor) => (
+                <DropdownItem
+                  key={kontor.id}
+                  href={`/kontorer/${kontor.sted}`}
+                >{`${kontor.sted}`}</DropdownItem>
+              ))
+            )}
           </DropdownContent>
         </Dropdown>
         <KnappListe onClick={() => setListeVisning(true)}>List</KnappListe>

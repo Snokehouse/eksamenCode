@@ -31,9 +31,13 @@ export const SokeFelt = styled.input`
   margin: 0;
 `;
 // Dropdown
-export const Dropdown = styled.section`
-  position: relative;
-  display: inline-block;
+export const DropdownContent = styled.section`
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 `;
 export const Dropdownbtn = styled.button`
   background-color: #4caf50;
@@ -43,17 +47,25 @@ export const Dropdownbtn = styled.button`
   border: none;
   cursor: pointer;
 `;
-export const DropdownContent = styled.section`
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+export const Dropdown = styled.section`
+  position: relative;
+  display: inline-block;
+  margin: 0px 5px 0px 5px;
+
+  & :hover ${DropdownContent} {
+    display: Block;
+  }
+  & :hover ${Dropdownbtn} {
+    background-color: #3e8e41;
+  }
 `;
 export const DropdownItem = styled.a`
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+
+  & :hover {
+    background-color: #f1f1f1;
+  }
 `;
