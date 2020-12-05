@@ -8,8 +8,7 @@ import errorMiddleware from './middleware/errors.js';
 
 
 import connectDatabase from './Config/db.js'
-import user from './Route/User.js';
-import poll from './Route/Poll.js';
+import admin from './Route/Admin.js';
 
 //lager "app" med express slik at vi får satt opp server
 const app = express();
@@ -29,9 +28,7 @@ app.use(cors({
 
 
 //url som blir brukt localhost:5000/api/v1/user
-app.use(`${process.env.BASEURL}/user`, user);
-//url som blir brukt localhost:5000/api/v1/poll
-app.use(`${process.env.BASEURL}/poll`, poll);
+app.use(`${process.env.BASEURL}/admin`, admin);
 
 
 //global error håndtering
