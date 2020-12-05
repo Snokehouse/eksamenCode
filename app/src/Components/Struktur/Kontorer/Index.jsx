@@ -42,7 +42,6 @@ const Kontorer = () => {
       ],
     },
   ]);
-  console.log(innLastetData);
   /* useEffect(() => {
     setInnLastetData([1, 2, 3, 4, 5, 6]);
     setInnLastetData();
