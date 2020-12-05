@@ -17,3 +17,8 @@ export const createArtikkel = catchAsyncErrors(async (req, res, next) => {
     const artikkel = await artikkelService.createArtikkel(req.body);
     res.status(201).json(artikkel);
 });
+
+export const list = catchAsyncErrors(async (req, res, next) => {
+    const result = await artikkelService.listArtikkel();
+    res.status(200).json(result);
+  });
