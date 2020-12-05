@@ -10,6 +10,7 @@ import MainLayout from '../Styles/Layout/MainLayout';
 
 import Home from './Home/Index';
 import Kontorer from './Kontorer/KontorOversikt/Index';
+import KontorSide from './Kontorer/KontorSide/Index';
 
 import FagArtikler from './Fagartikler/Artikkel/Index';
 import NyArtikkel from './Fagartikler/NyArtikkel/index';
@@ -26,6 +27,12 @@ const Routes = () => (
         </Route>
         <Route exact path="/kontorer">
           <Kontorer />
+        </Route>
+        <Route path="/kontorer/:kontorerID">
+          <Kontorer />
+        </Route>
+        <Route path="/kontor/:kontorID">
+          <KontorSide />
         </Route>
         <Route exact path="/fagartikler">
           <FagArtikler />

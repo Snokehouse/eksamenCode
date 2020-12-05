@@ -9,7 +9,7 @@ const Container = styled.section`
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: auto;
   grid-template-areas: 
-  "title . . buttons"
+  
   "main main main main";
 `;
 const UnderTittel = styled.h2`
