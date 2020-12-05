@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { Tittel } from './Style';
-
 import KontorData from './KontorData';
 
 const Kontorer = () => {
-  const [filter, setFilter] = useState(null);
   const [ListeVisning, setListeVisning] = useState(true);
   const [innLastetData, setInnLastetData] = useState([
     {
@@ -42,16 +41,21 @@ const Kontorer = () => {
       ],
     },
   ]);
-  /* useEffect(() => {
-    setInnLastetData([1, 2, 3, 4, 5, 6]);
-    setInnLastetData();
-  }, [innLastetData]);
-  console.log(innLastetData); */
+
+  const { kontorerID } = useParams();
+
+  console.log(kontorerID);
+  useEffect(() => {
+    if (kontorerID === undefined) {
+      console.log('No Change');
+    } else if (kontorerID !== undefined) {
+      console.log('Something Changed');
+    }
+  });
   return (
     <>
       <Tittel>Våre Kontorer</Tittel>
       <KontorData
-        setFilter={setFilter}
         innLastetData={innLastetData}
         ListeVisning={ListeVisning}
         setListeVisning={setListeVisning}
