@@ -10,19 +10,19 @@ const UnderTittel = styled.h2`
   margin: 0;
 `;
 
-const KontorArticle = styled.article`
+const KontorArticle = styled.a`
   margin: 0 auto;
+  padding: 5px;
   display: flex;
   justify-content: space-between;
-  //grid-area: main;
-  background-color: yellow;
   width: 100%;
+  & :hover {
+    background-color: #c0c0c0;
+  }
 `;
 const Paragraf = styled.p`
   margin: 10px auto 10px auto;
   width: 100%;
-  //background-color: purple;
-  //grid-area: main;
 `;
 
 const KontorList = ({ kontor, kontaktInfo }) => {
@@ -35,7 +35,10 @@ const KontorList = ({ kontor, kontaktInfo }) => {
       <UnderTittel>{`${kontor.sted} liste`}</UnderTittel>
       <Container>
         {kontaktInfo.map((value) => (
-          <KontorArticle key={`${value.ansattNr}${kontor.sted}`}>
+          <KontorArticle
+            key={`${value.ansattNr}${kontor.sted}`}
+            href={`/kontor/${kontor.sted}&${value.ansattNr}`}
+          >
             <Paragraf key={value.ansattNr}>{`${value.ansattNr}`}</Paragraf>
             <Paragraf
               key={value.navn}

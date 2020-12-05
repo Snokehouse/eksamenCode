@@ -14,9 +14,12 @@ const UnderTittel = styled.h2`
   margin: 0;
 `;
 
-const KontorArticle = styled.article`
+const KontorArticle = styled.a`
   margin: 0 auto;
   border: 1px solid black;
+  & :hover {
+    background-color: #c0c0c0;
+  }
 `;
 const Paragraf = styled.p`
   margin: 0 auto;
@@ -32,7 +35,10 @@ const KontorCard = ({ kontor, kontaktInfo }) => {
       <UnderTittel>{`${kontor.sted} card`}</UnderTittel>
       <Container>
         {kontaktInfo.map((value) => (
-          <KontorArticle key={`${value.ansattNr}${kontor.sted}`}>
+          <KontorArticle
+            key={`${value.ansattNr}${kontor.sted}`}
+            href={`/kontor/${kontor.sted}&${value.ansattNr}`}
+          >
             <Paragraf key={value.ansattNr}>{`${value.ansattNr}`}</Paragraf>
             <Paragraf
               key={value.navn}
