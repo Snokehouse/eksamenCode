@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
 import { Container, Tittel } from './Style';
+import Modal from './Modal';
 
 const NyArtikkel = () => {
+  const [modal, setModal] = useState(false);
   const [formdata, setFormdata] = useState([
     {
       id: 0,
@@ -14,6 +16,9 @@ const NyArtikkel = () => {
     },
   ]);
 
+  const addKategori = () => {
+    console.log('Ny Kategori laget!');
+  };
   const updateValue = (event) => {
     const inputValue = { [event.target.name]: event.target.value };
     setFormdata((prev) => ({
@@ -66,7 +71,15 @@ const NyArtikkel = () => {
             value={formdata.beskrivelse}
             onChange={updateValue}
           />
-
+          <select name="cars" id="cars" form="carform">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+          <button type="button" onClick={() => setModal(!modal)}>
+            Ny
+          </button>
           <label htmlFor="txtForfatter">Forfatter: </label>
           <input
             id="txtForfatter"
@@ -75,8 +88,12 @@ const NyArtikkel = () => {
             value={formdata.forfatter}
             onChange={updateValue}
           />
+          <button type="submit" form="form1" value="Submit">
+            Create
+          </button>
         </form>
       </Container>
+      {modal && <Modal addKategori={addKategori} setModal={setModal} />}
     </>
   );
 };
