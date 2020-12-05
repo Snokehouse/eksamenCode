@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import { Tittel } from './Style';
 import KontorData from './KontorData';
@@ -41,28 +40,11 @@ const Kontorer = () => {
       ],
     },
   ]);
-
-  const { kontorerID } = useParams();
-  console.log(kontorerID);
-
-  useEffect(() => {
-    if (kontorerID === undefined) {
-      console.log('No Change');
-    } else if (kontorerID !== undefined) {
-      setInnLastetData();
-      const lastetData = innLastetData.filter(
-        (value) => value.sted === kontorerID
-      );
-      setInnLastetData(lastetData);
-    }
-    setInnLastetData(innLastetData);
-  }, [innLastetData, kontorerID]);
-  console.log('Data lastet fra useEffect');
-  console.log(innLastetData);
   return (
     <>
       <Tittel>Våre Kontorer</Tittel>
       <KontorData
+        setInnLastetData={setInnLastetData}
         innLastetData={innLastetData}
         ListeVisning={ListeVisning}
         setListeVisning={setListeVisning}

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
+
 import {
   Container,
   KnappContainer,
@@ -14,14 +16,37 @@ import {
 import KontorList from './KontorList';
 import KontorCard from './KontorCard';
 
-const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
+const KontorData = ({
+  setInnLastetData,
+  innLastetData,
+  ListeVisning,
+  setListeVisning,
+}) => {
   KontorData.propTypes = {
+    setInnLastetData: PropTypes.func,
     innLastetData: PropTypes.array,
     ListeVisning: PropTypes.bool,
     setListeVisning: PropTypes.func,
   };
-  console.log('filter kommer senere');
-  console.log(ListeVisning);
+
+  const { kontorerID } = useParams();
+  console.log(kontorerID);
+
+  useEffect(() => {
+    const updateData = () => {
+      if (kontorerID === undefined) {
+        console.log('No Change');
+      } else if (kontorerID !== undefined) {
+        setInnLastetData();
+        const lastetData = innLastetData.filter(
+          (value) => value.sted === kontorerID
+        );
+        setInnLastetData(lastetData);
+      }
+    };
+    updateData();
+  }, [innLastetData, kontorerID, setInnLastetData]);
+
   if (ListeVisning) {
     return (
       <>
