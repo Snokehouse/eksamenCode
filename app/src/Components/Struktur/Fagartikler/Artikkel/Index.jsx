@@ -1,39 +1,15 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
-import {
-  Container,
-  Linkbtn,
-  SokeFelt,
-  Dropdown,
-  DropdownContent,
-  DropdownItem,
-  Dropdownbtn,
-} from './Style';
-
-const Fagartikler = () => {
-  const handleChange = () => {
-    console.log('fagartikkel');
-  };
+const Artikkel = () => {
+  console.log('KontorSide');
+  const { artikkelID } = useParams();
   return (
-    <Container>
-      <Linkbtn href="#/new">Ny Artikkel</Linkbtn>
-      <SokeFelt
-        id="sokTxt"
-        name="sokTxt"
-        placeholder="Søk"
-        type="text"
-        onChange={handleChange}
-      />
-      <Dropdown>
-        <Dropdownbtn>Filter</Dropdownbtn>
-        <DropdownContent>
-          <DropdownItem href="#">Link 1</DropdownItem>
-          <DropdownItem href="#">Link 2</DropdownItem>
-          <DropdownItem href="#">Link 3</DropdownItem>
-        </DropdownContent>
-      </Dropdown>
-    </Container>
+    <>
+      <h1>Artikkelside</h1>
+      <p>Atrikkelen du leter etter er {`${artikkelID}`}</p>
+    </>
   );
 };
 
-export default Fagartikler;
+export default Artikkel;
