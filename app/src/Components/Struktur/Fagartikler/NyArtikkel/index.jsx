@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { create } from '../../../Utils/Artikkel.js';
 
 import {
   Wrapper,
@@ -64,7 +65,7 @@ const NyArtikkel = () => {
       const { data, error } = await create(formdata);
       if (error) {
         console.log(error);
-        setError(error);
+        //setError(error);
       } else {
         /*setArtikkel(true);
         setArtikkelData({ 

@@ -17,3 +17,11 @@ export const getArtikkel = async (id) => {
     return feilmelding.response.data;
   }
 };
+
+export const create = async (data) => {
+    try {
+      return await http.post(`${API_URL}`, data);
+    } catch (feilmelding) {
+      return feilmelding.response.data;
+    }
+  };
