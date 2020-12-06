@@ -28,16 +28,29 @@ export const Paragraf = styled.p`
 `;
 // Knapper
 export const KnappContainer = styled.div`
-  margin: 0;
+  margin: 20px auto auto auto;
   display: flex;
   justify-content: flex-end;
 `;
 
-export const KnappListe = styled.button`
-  margin: 0px 5px 0px 5px;
+export const KnappListe = styled.div`
+  margin: auto 5px auto 5px;
+  font-size: 20px;
+  color:black;
+
+  &:active {
+    color: #4caf50;
+  }
+
 `;
-export const KnappCard = styled.button`
-  margin: 0px 5px 0px 5px;
+export const KnappCard = styled.div`
+  margin: auto 5px auto 5px;
+  font-size: 20px;
+  color:black;
+
+  &:active {
+    color: #4caf50;
+  }
 `;
 // Dropdown
 export const DropdownContent = styled.section`
