@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import {
-  Container,
+  Wrapper,
   Tittel,
   ArtikkelForm,
   ArtikkelInput,
@@ -24,6 +24,11 @@ const NyArtikkel = () => {
       kategori: '',
       forfatter: '',
     },
+  ]);
+  const [kategoriData, setkategoriData] = useState([
+    'Kategori1',
+    'Kategori2',
+    'Kategori3',
   ]);
 
   const addKategori = () => {
@@ -55,8 +60,8 @@ const NyArtikkel = () => {
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
-      <Container className="ArtikkelForm">
-        <ArtikkelForm onSubmit={submitHandle}>
+      <Wrapper>
+        <ArtikkelForm id="artikkelForm" onSubmit={submitHandle}>
           <ArtikkelLabel htmlFor="txtTittel">Tittel: </ArtikkelLabel>
           <ArtikkelInput
             id="txtTittel"
@@ -81,11 +86,21 @@ const NyArtikkel = () => {
             value={formdata.beskrivelse}
             onChange={updateValue}
           />
-          <ArtikkelSelect name="cars" id="cars" form="carform">
-            <ArtikkelOption value="volvo">Volvo</ArtikkelOption>
-            <ArtikkelOption value="saab">Saab</ArtikkelOption>
-            <ArtikkelOption value="opel">Opel</ArtikkelOption>
-            <ArtikkelOption value="audi">Audi</ArtikkelOption>
+          <ArtikkelSelect name="kategori" id="kategori" form="artikkelForm">
+            <ArtikkelOption value="" hidden>
+              Velg Kategori
+            </ArtikkelOption>
+            {kategoriData < 1 ? (
+              <ArtikkelOption value={null}>
+                Ingen kategorier funnet, lag en ny!
+              </ArtikkelOption>
+            ) : (
+              kategoriData.map((kategori) => (
+                <ArtikkelOption
+                  value={`${kategori}`}
+                >{`${kategori}`}</ArtikkelOption>
+              ))
+            )}
           </ArtikkelSelect>
           <Nybutton type="button" onClick={() => setModal(!modal)}>
             Ny
@@ -102,7 +117,7 @@ const NyArtikkel = () => {
             Create
           </ArtikkelButton>
         </ArtikkelForm>
-      </Container>
+      </Wrapper>
       {modal && <Modal addKategori={addKategori} setModal={setModal} />}
     </>
   );

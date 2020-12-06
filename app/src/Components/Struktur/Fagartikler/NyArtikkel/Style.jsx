@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0 auto;
+`;
+export const Wrapper = styled.section`
+  margin: 10px auto;
   width: 50%;
   max-width: 900px;
   text-align: center;
@@ -30,6 +33,7 @@ export const ArtikkelInput = styled.input`
 `;
 export const ArtikkelLabel = styled.label`
   margin: 0;
+  padding: 10px;
 `;
 export const ArtikkelButton = styled.button`
   width: 100%;
@@ -63,7 +67,39 @@ export const Nybutton = styled.button`
   border-radius: 4px;
   cursor: pointer;
 `;
-
+// Modal
+export const ModalContainer = styled.section`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+`;
+export const ModalWrapper = styled.section`
+  width: 350px;
+  box-shadow: 0px 1px 8px #00000029;
+  border-radius: 8px;
+  background: #fff;
+`;
+export const ModalHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  padding: 1.7rem 2rem;
+  border-bottom: 1px solid #f1f1f1;
+`;
+export const ModalUnderTittel = styled.h3`
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 1.4rem;
+`;
+export const ModalButton = styled.button`
+  margin: 0;
+`;
 // Dropdown
 export const DropdownContent = styled.section`
   display: none;

@@ -1,6 +1,17 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
+
+import {
+  ModalContainer,
+  ModalWrapper,
+  ModalHeader,
+  ModalUnderTittel,
+  ModalButton,
+  ArtikkelForm,
+  ArtikkelInput,
+  ArtikkelLabel,
+  ArtikkelButton,
+} from './Style';
 
 const Modal = ({ setModal, addKategori }) => {
   Modal.propTypes = {
@@ -9,7 +20,6 @@ const Modal = ({ setModal, addKategori }) => {
   };
   let kategoriValue = '';
   const handleSubmit = (event) => {
-    // TODO: Prevent default form handeling
     event.preventDefault();
     addKategori(kategoriValue);
   };
@@ -22,26 +32,26 @@ const Modal = ({ setModal, addKategori }) => {
     setModal(false);
   };
   return (
-    <section id="modal">
-      <section className="modal_inner_wrapper">
-        <header>
-          <h3>New todo</h3>
-          <button type="button" onClick={() => handleClose()}>
+    <ModalContainer id="modal">
+      <ModalWrapper className="modal_inner_wrapper">
+        <ModalHeader>
+          <ModalUnderTittel>New todo</ModalUnderTittel>
+          <ModalButton type="button" onClick={() => handleClose()}>
             X
-          </button>
-        </header>
-        <form id="todo_form" onSubmit={handleSubmit}>
-          <label htmlFor="txtKategori">Kategori: </label>
-          <input
+          </ModalButton>
+        </ModalHeader>
+        <ArtikkelForm id="todo_form" onSubmit={handleSubmit}>
+          <ArtikkelLabel htmlFor="txtKategori">Kategori: </ArtikkelLabel>
+          <ArtikkelInput
             id="txtKategori"
             name="kategori"
             value={kategoriValue}
             onChange={updateValue}
           />
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-    </section>
+          <ArtikkelButton type="submit">Submit</ArtikkelButton>
+        </ArtikkelForm>
+      </ModalWrapper>
+    </ModalContainer>
   );
 };
 
