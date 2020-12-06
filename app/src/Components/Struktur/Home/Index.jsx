@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tittel, Container, Paragraph, HomeArticle } from './Style';
+import { Tittel, Container, Paragraph, HomeArticle } from './Style.jsx';
 
 const Home = () => (
   <>

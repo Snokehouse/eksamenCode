@@ -18,7 +18,7 @@ const NavMenu = styled.ul`
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   @media screen and (min-width: 500px) {
-    grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 10fr 1fr 1fr 1fr 1fr 2fr;
   }
   margin: 0;
   padding: 0;
@@ -28,9 +28,11 @@ const NavMenu = styled.ul`
 const NavMenuItem = styled.li`
   padding: 0 20px;
 
+  text-align: center;
+
   &:first-child {
     padding-left: 0;
-    color: red;
+    //color: red;
   }
 
   & > a {
@@ -46,7 +48,22 @@ const NavMenuItem = styled.li`
       color: #007b5f;
       border-bottom: 4px solid #007b5f;
     }
+    
   }
+
+  &:nth-child(6) {
+    background-color: #007b5f;
+
+    & > a {
+      color: white;
+
+      &.active {
+        color: yellow;
+        border-bottom: 4px solid yellow;
+      }
+    }
+  }
+
 `;
 
 const NavBreakpoints = {
@@ -82,6 +99,11 @@ const Nav = () => (
               Kontakt
             </NavLink>
           </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/logginn" activeClassName="active">
+              Logg inn
+            </NavLink>
+          </NavMenuItem>
         </NavMenu>
       </StyledNav>
     </Break>
@@ -110,6 +132,11 @@ const Nav = () => (
           <NavMenuItem>
             <NavLink to="/kontakt" activeClassName="active">
               Kontakt
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/logginn" activeClassName="active">
+              Logg inn
             </NavLink>
           </NavMenuItem>
         </NavMenu>

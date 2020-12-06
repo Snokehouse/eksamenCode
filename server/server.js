@@ -10,6 +10,7 @@ import errorMiddleware from './middleware/errors.js';
 import connectDatabase from './Config/db.js'
 import admin from './Route/Admin.js';
 import kontorer from './Route/Kontorer.js';
+import artikkel from './Route/Artikkel.js'
 
 //lager "app" med express slik at vi får satt opp server
 const app = express();
@@ -35,6 +36,9 @@ app.use(`${process.env.BASEURL}/kontorer`, kontorer);
 
 //url som blir brukt localhost:5000/api/v1/kontorer
 app.use(`${process.env.BASEURL}/kontorer`, kontorer);
+
+//url som blir brukt localhost:5000/api/v1/artikkel
+app.use(`${process.env.BASEURL}/artikkel`, artikkel);
 
 //global error håndtering
 app.use(errorMiddleware);
