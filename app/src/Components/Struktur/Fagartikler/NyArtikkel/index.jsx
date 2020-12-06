@@ -22,7 +22,7 @@ const NyArtikkel = () => {
       tittel: '',
       dato: '',
       beskrivelse: '',
-      kategori: 'banan',
+      kategori: '',
       forfatter: '',
     },
   ]);
@@ -118,7 +118,13 @@ const NyArtikkel = () => {
             value={formdata.beskrivelse}
             onChange={updateValue}
           />
-          <ArtikkelSelect name="kategori" id="kategori" form="artikkelForm">
+          <ArtikkelSelect
+            id="kategori"
+            name="kategori"
+            form="artikkelForm"
+            value={formdata.kategori}
+            onChange={updateValue}
+          >
             <ArtikkelOption value="" hidden>
               Velg Kategori
             </ArtikkelOption>
