@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { create } from '../../../Utils/Artikkel.js';
+import { list, lagKategori } from '../../../Utils/Kategori.js';
 
 import {
   Wrapper,
@@ -26,13 +27,30 @@ const NyArtikkel = () => {
     },
   ]);
   // Kategori
-  const [kategoriData, setkategoriData] = useState([
-    'Kategori1',
-    'Kategori2',
-    'Kategori3',
+  const [modalData, setModalData] = useState([
+    {
+      modalValue: '',
+    },
   ]);
-  const addKategori = () => {
-    console.log('Ny Kategori laget!');
+  const [kategoriData, setkategoriData] = useState([]);
+  useEffect(() => {
+    const updateData = async () => {
+      const { data, error } = await list();
+      if (error) {
+        console.log(`Error: ${error}`);
+      } else {
+        setkategoriData(data);
+      }
+    };
+    updateData();
+  }, []);
+  const addKategori = async (value) => {
+    const { data, error } = await lagKategori(value);
+    if (error) {
+      console.log(`Error: ${error}`);
+    } else {
+      setModal(!modal);
+    }
   };
   // Oppdater inputs
   const updateValue = (event) => {
@@ -108,9 +126,9 @@ const NyArtikkel = () => {
             ) : (
               kategoriData.map((kategori) => (
                 <ArtikkelOption
-                  key={`${kategori}`}
-                  value={`${kategori}`}
-                >{`${kategori}`}</ArtikkelOption>
+                  key={`${kategori.kategori}`}
+                  value={`${kategori.kategori}`}
+                >{`${kategori.kategori}`}</ArtikkelOption>
               ))
             )}
           </ArtikkelSelect>
@@ -130,7 +148,14 @@ const NyArtikkel = () => {
           </ArtikkelButton>
         </ArtikkelForm>
       </Wrapper>
-      {modal && <Modal addKategori={addKategori} setModal={setModal} />}
+      {modal && (
+        <Modal
+          addKategori={addKategori}
+          setModal={setModal}
+          modalData={modalData}
+          setModalData={setModalData}
+        />
+      )}
     </>
   );
 };

@@ -13,21 +13,28 @@ import {
   ArtikkelButton,
 } from './Style';
 
-const Modal = ({ setModal, addKategori }) => {
+const Modal = ({ setModal, addKategori, modalData, setModalData }) => {
+  // validere props
   Modal.propTypes = {
     setModal: PropTypes.func,
     addKategori: PropTypes.func,
+    modalData: PropTypes.object,
+    setModalData: PropTypes.func,
   };
-  let kategoriValue = '';
+  // legge til kategori
   const handleSubmit = (event) => {
     event.preventDefault();
-    addKategori(kategoriValue);
+    addKategori(modalData);
   };
+  // oppdatere verdi
   const updateValue = (event) => {
     const inputValue = { [event.target.name]: event.target.value };
-    kategoriValue += inputValue;
+    setModalData((prev) => ({
+      ...prev,
+      ...inputValue,
+    }));
   };
-
+  // lukke modal
   const handleClose = () => {
     setModal(false);
   };
@@ -45,7 +52,7 @@ const Modal = ({ setModal, addKategori }) => {
           <ArtikkelInput
             id="txtKategori"
             name="kategori"
-            value={kategoriValue}
+            value={modalData.modalValue}
             onChange={updateValue}
           />
           <ArtikkelButton type="submit">Submit</ArtikkelButton>
