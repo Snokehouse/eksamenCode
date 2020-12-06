@@ -1,0 +1,26 @@
+{
+    "kontorer": [
+        {
+        "sted": "Halden",
+        "kontaktInfo": [
+            {
+            "navn": "test tester",
+            "adresse": "Ola nordmanns gate",
+            "telefon": "69990000",
+            "email": "test@tester.no"
+            }
+        ]
+        },
+        {
+        "sted": "Fredrikstad",
+        "kontaktInfo": [
+            {
+            "navn": "test tester",
+            "adresse": "Ola nordmanns gate",
+            "telefon": "69990000",
+            "email": "test@tester2.no"
+            }
+        ]
+        }
+    ]
+}
