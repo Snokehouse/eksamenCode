@@ -23,12 +23,11 @@ const Fagartikler = () => {
       if (error) {
         console.log(`Error: ${error}`);
       } else {
-        setInnLastetData(data.data);
+        setInnLastetData(data);
       }
     };
     updateData();
   }, []);
-
   const handleChange = () => {
     console.log('fagartikkel');
   };
