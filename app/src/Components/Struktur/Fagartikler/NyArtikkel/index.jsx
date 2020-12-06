@@ -97,6 +97,7 @@ const NyArtikkel = () => {
             ) : (
               kategoriData.map((kategori) => (
                 <ArtikkelOption
+                  key={`${kategori}`}
                   value={`${kategori}`}
                 >{`${kategori}`}</ArtikkelOption>
               ))
