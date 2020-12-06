@@ -78,6 +78,10 @@ export const ModalContainer = styled.section`
   justify-content: center;
   align-items: center;
   z-index: 1;
+
+  & .section-backdrop {
+    opacity:0.5 !important;
+  }
 `;
 export const ModalWrapper = styled.section`
   width: 350px;
