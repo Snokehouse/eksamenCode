@@ -1,8 +1,9 @@
 import express from 'express';
-import { writeJson } from '../Controller/Kontorer.js';
+import { kontorerController } from '../Controller/Index.js';
+import { getKontorer } from '../Controller/Kontorer.js';
 
 const router = express.Router();
 
-router.get('/json', writeJson);
+router.get('/', getKontorer);
 
 export default router;

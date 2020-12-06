@@ -1,7 +1,11 @@
-const toJson = () => {
-    const file = utils.writeJson('...', [...feedbacks]);
-    if (file && file.error) return file;
-    return { status: 200, data: 'File saved' };
+import kontorer from '../Data/Kontorer.js';
+
+
+const list = () => {
+    if (kontorer.size === 0) {
+      return { status: 200, data: 'No kontorer' };
+    }
+    return { status: 200, data: Object.fromEntries(kontorer) };
 };
 
-export { toJson };
+export {list};

@@ -1,10 +1,6 @@
-import { toJson } from '../Modell/Kontorer.js';
+import {list} from '../Modell/Kontorer.js';
 
-export const writeJson = (req, res, next) => {
-    const { status, data, error } = toJson();
-    res.status(status).json({
-        status,
-        data,
-        error,
-    });
-};
+export const getKontorer = (req, res, next) => {
+    const { error, status, data } = list();
+    res.status(status).json({ status, error, data });
+  };
