@@ -55,7 +55,7 @@ const NyArtikkel = () => {
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
-      <Container>
+      <Container className="ArtikkelForm">
         <ArtikkelForm onSubmit={submitHandle}>
           <ArtikkelLabel htmlFor="txtTittel">Tittel: </ArtikkelLabel>
           <ArtikkelInput
