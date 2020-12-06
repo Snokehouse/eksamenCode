@@ -17,7 +17,6 @@ const NyArtikkel = () => {
   const [modal, setModal] = useState(false);
   const [formdata, setFormdata] = useState([
     {
-      id: 0,
       tittel: '',
       dato: '',
       beskrivelse: '',
@@ -25,15 +24,16 @@ const NyArtikkel = () => {
       forfatter: '',
     },
   ]);
+  // Kategori
   const [kategoriData, setkategoriData] = useState([
     'Kategori1',
     'Kategori2',
     'Kategori3',
   ]);
-
   const addKategori = () => {
     console.log('Ny Kategori laget!');
   };
+  // Oppdater inputs
   const updateValue = (event) => {
     const inputValue = { [event.target.name]: event.target.value };
     setFormdata((prev) => ({
@@ -41,32 +41,15 @@ const NyArtikkel = () => {
       ...inputValue,
     }));
   };
-
-  /*const submitHandle = (event) => {
-    console.log('Du prøvde å sende inn ny artikkel!');
-    /* event.preventDefault();
-    pollData.author = inloggetData.id;
-    const createData = async () => {
-      const { data, error } = await create(pollData);
-      if (error) {
-        console.log(error);
-        setError(error);
-      } else {
-        setPollData({ sporsmal: '' });
-      }
-    };
-    createData(); 
-  };*/
-
+  // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
     const createData = async () => {
       const { data, error } = await create(formdata);
       if (error) {
         console.log(error);
-        setError(error);
       } else {
-        /*setArtikkel(true);
+        /* setArtikkel(true);
         setArtikkelData({ 
           id: `${data._id}`, 
           tittel: `${data.tittel}`, 
@@ -74,8 +57,8 @@ const NyArtikkel = () => {
           beskrivelse: `${data.beskrivelse}`,
           kategori: `${data.kategori}`,
           forfatter: `${data.forfatter}`,
-        });*/
-        alert("Artikkel Registrert");
+        }); */
+        alert('Artikkel Registrert');
       }
     };
     createData();
