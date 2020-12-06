@@ -1,5 +1,7 @@
 import React, { useState, useEffect }from 'react';
 
+import { list } from '../../../Utils/Artikkel.js';
+
 import ArtikkelItem from './ArtikkelItem';
 import {
   Container,
