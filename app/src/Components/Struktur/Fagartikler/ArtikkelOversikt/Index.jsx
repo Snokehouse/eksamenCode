@@ -28,7 +28,6 @@ const Fagartikler = () => {
     };
     updateData();
   }, []);
-
   const handleChange = () => {
     console.log('fagartikkel');
   };
