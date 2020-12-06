@@ -18,7 +18,8 @@ const NavMenu = styled.ul`
     grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
   }
   @media screen and (max-width: 800px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+    display: flex;
+    justify-content: space-between;
   }
   @media screen and (max-width: 1050px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
