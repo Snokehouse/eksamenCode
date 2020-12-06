@@ -8,6 +8,29 @@ export const Container = styled.section`
 export const Tittel = styled.h1`
   margin: 0;
 `;
+// Form Artikkel
+export const ArtikkelForm = styled.form`
+  margin: 0;
+`;
+export const ArtikkelInput = styled.input`
+  margin: 0;
+`;
+export const ArtikkelLabel = styled.label`
+  margin: 0;
+`;
+export const ArtikkelButton = styled.button`
+  margin: 0;
+`;
+export const ArtikkelSelect = styled.select`
+  margin: 0;
+`;
+export const ArtikkelOption = styled.option`
+  margin: 0;
+`;
+export const Nybutton = styled.button`
+  margin: 0;
+`;
+
 // Dropdown
 export const DropdownContent = styled.section`
   display: none;

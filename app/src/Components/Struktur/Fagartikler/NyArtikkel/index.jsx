@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 
-import { Container, Tittel } from './Style';
+import {
+  Container,
+  Tittel,
+  ArtikkelForm,
+  ArtikkelInput,
+  ArtikkelLabel,
+  ArtikkelSelect,
+  ArtikkelOption,
+  ArtikkelButton,
+  Nybutton,
+} from './Style';
 import Modal from './Modal';
 
 const NyArtikkel = () => {
@@ -46,52 +56,52 @@ const NyArtikkel = () => {
     <>
       <Tittel>Ny Artikkel</Tittel>
       <Container>
-        <form onSubmit={submitHandle}>
-          <label htmlFor="txtTittel">Tittel: </label>
-          <input
+        <ArtikkelForm onSubmit={submitHandle}>
+          <ArtikkelLabel htmlFor="txtTittel">Tittel: </ArtikkelLabel>
+          <ArtikkelInput
             id="txtTittel"
             name="tittel"
             type="text"
             value={formdata.tittel}
             onChange={updateValue}
           />
-          <label htmlFor="txtDato">Dato: </label>
-          <input
+          <ArtikkelLabel htmlFor="txtDato">Dato: </ArtikkelLabel>
+          <ArtikkelInput
             id="txtDato"
             name="dato"
             type="date"
             value={formdata.dato}
             onChange={updateValue}
           />
-          <label htmlFor="txtBeskrivelse">Beskrivelse: </label>
-          <input
+          <ArtikkelLabel htmlFor="txtBeskrivelse">Beskrivelse: </ArtikkelLabel>
+          <ArtikkelInput
             id="txtBeskrivelse"
             name="beskrivelse"
             type="text"
             value={formdata.beskrivelse}
             onChange={updateValue}
           />
-          <select name="cars" id="cars" form="carform">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
-          </select>
-          <button type="button" onClick={() => setModal(!modal)}>
+          <ArtikkelSelect name="cars" id="cars" form="carform">
+            <ArtikkelOption value="volvo">Volvo</ArtikkelOption>
+            <ArtikkelOption value="saab">Saab</ArtikkelOption>
+            <ArtikkelOption value="opel">Opel</ArtikkelOption>
+            <ArtikkelOption value="audi">Audi</ArtikkelOption>
+          </ArtikkelSelect>
+          <Nybutton type="button" onClick={() => setModal(!modal)}>
             Ny
-          </button>
-          <label htmlFor="txtForfatter">Forfatter: </label>
-          <input
+          </Nybutton>
+          <ArtikkelLabel htmlFor="txtForfatter">Forfatter: </ArtikkelLabel>
+          <ArtikkelInput
             id="txtForfatter"
             name="forfatter"
             type="text"
             value={formdata.forfatter}
             onChange={updateValue}
           />
-          <button type="submit" form="form1" value="Submit">
+          <ArtikkelButton type="submit" form="form1" value="Submit">
             Create
-          </button>
-        </form>
+          </ArtikkelButton>
+        </ArtikkelForm>
       </Container>
       {modal && <Modal addKategori={addKategori} setModal={setModal} />}
     </>
