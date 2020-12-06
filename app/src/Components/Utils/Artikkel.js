@@ -19,9 +19,9 @@ export const getArtikkel = async (id) => {
 };
 
 export const create = async (data) => {
-    try {
-      return await http.post(`${API_URL}`, data);
-    } catch (feilmelding) {
-      return feilmelding.response.data;
-    }
-  };
+  try {
+    return await http.post(`${API_URL}`, data);
+  } catch (feilmelding) {
+    return feilmelding.response.data;
+  }
+};

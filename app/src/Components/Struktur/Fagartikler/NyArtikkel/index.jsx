@@ -18,7 +18,6 @@ const NyArtikkel = () => {
   const [modal, setModal] = useState(false);
   const [formdata, setFormdata] = useState([
     {
-      id: 0,
       tittel: '',
       dato: '',
       beskrivelse: '',
@@ -26,15 +25,16 @@ const NyArtikkel = () => {
       forfatter: '',
     },
   ]);
+  // Kategori
   const [kategoriData, setkategoriData] = useState([
     'Kategori1',
     'Kategori2',
     'Kategori3',
   ]);
-
   const addKategori = () => {
     console.log('Ny Kategori laget!');
   };
+  // Oppdater inputs
   const updateValue = (event) => {
     const inputValue = { [event.target.name]: event.target.value };
     setFormdata((prev) => ({
@@ -42,27 +42,29 @@ const NyArtikkel = () => {
       ...inputValue,
     }));
   };
-
+  // sende data til api og lage data
+  const createData = async () => {
+    const { data, error } = await create(formdata);
+    if (error) {
+      console.log(error);
+    } else {
+      /* setArtikkel(true);
+      setArtikkelData({ 
+        id: `${data._id}`, 
+        tittel: `${data.tittel}`, 
+        dato: `${data.dato}`, 
+        beskrivelse: `${data.beskrivelse}`,
+        kategori: `${data.kategori}`,
+        forfatter: `${data.forfatter}`,
+      }); */
+      console.log(data);
+      alert('Artikkel Registrert');
+    }
+  };
+  // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
-    const createData = async () => {
-      const { data, error } = await create(formdata);
-      if (error) {
-        console.log(error);
-        //setError(error);
-      } else {
-        /*setArtikkel(true);
-        setArtikkelData({ 
-          id: `${data._id}`, 
-          tittel: `${data.tittel}`, 
-          dato: `${data.dato}`, 
-          beskrivelse: `${data.beskrivelse}`,
-          kategori: `${data.kategori}`,
-          forfatter: `${data.forfatter}`,
-        });*/
-        alert("Artikkel Registrert");
-      }
-    };
+    console.log('pressed create');
     createData();
   };
 
@@ -123,9 +125,7 @@ const NyArtikkel = () => {
             value={formdata.forfatter}
             onChange={updateValue}
           />
-          <ArtikkelButton type="submit" value="Submit">
-            Create
-          </ArtikkelButton>
+          <ArtikkelButton type="submit" value = "Submit">Create</ArtikkelButton>
         </ArtikkelForm>
       </Wrapper>
       {modal && <Modal addKategori={addKategori} setModal={setModal} />}
