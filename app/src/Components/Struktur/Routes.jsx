@@ -17,6 +17,8 @@ import NyArtikkel from './Fagartikler/NyArtikkel/index';
 import Artikkel from './Fagartikler/Artikkel/Index';
 
 import Kontakt from './Kontakt/Index';
+
+import LoggInn from './LoggInn/Index'
 import NoMatch from './NoMatch/Index';
 
 const Routes = () => (
@@ -46,6 +48,9 @@ const Routes = () => (
         </Route>
         <Route exact path="/kontakt">
           <Kontakt />
+        </Route>
+        <Route exact path="/logginn">
+          <LoggInn />
         </Route>
         <Redirect exact from="/" to="/home" />
         <Route path="*">
