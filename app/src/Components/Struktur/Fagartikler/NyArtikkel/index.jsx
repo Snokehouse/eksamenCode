@@ -33,6 +33,7 @@ const NyArtikkel = () => {
     },
   ]);
   const [kategoriData, setkategoriData] = useState([]);
+  const [updateRender, setUpdateRender] = useState(false);
   useEffect(() => {
     const updateData = async () => {
       const { data, error } = await list();
@@ -43,12 +44,14 @@ const NyArtikkel = () => {
       }
     };
     updateData();
-  }, []);
+    console.log('re-rendering snoke');
+  }, [updateRender]);
   const addKategori = async (value) => {
     const { data, error } = await lagKategori(value);
     if (error) {
       console.log(`Error: ${error}`);
     } else {
+      setUpdateRender(true);
       setModal(!modal);
     }
   };
