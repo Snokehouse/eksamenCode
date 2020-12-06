@@ -15,9 +15,15 @@ const Logo = styled.p`
 const NavMenu = styled.ul`
   display: grid;
   @media screen and (max-width: 500px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
   }
-  @media screen and (min-width: 500px) {
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+  }
+  @media screen and (max-width: 1050px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+  }
+  @media screen and (min-width: 1050px) {
     grid-template-columns: 10fr 1fr 1fr 1fr 1fr 2fr;
   }
   margin: 0;
@@ -51,7 +57,7 @@ const NavMenuItem = styled.li`
     
   }
 
-  &:nth-child(6) {
+  &:last-child {
     background-color: #007b5f;
 
     & > a {
@@ -68,7 +74,8 @@ const NavMenuItem = styled.li`
 
 const NavBreakpoints = {
   mobile: 0,
-  desktop: 500,
+  tablet: 500,
+  desktop: 800,
 };
 
 const Nav = () => (
@@ -76,6 +83,40 @@ const Nav = () => (
     <Break
       breakpoints={NavBreakpoints}
       query={{ method: 'is', breakpoint: 'mobile' }}
+    >
+      <StyledNav>
+        <NavMenu>
+          <NavMenuItem>
+            <NavLink exact to="/home" activeClassName="active">
+              Home
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/kontorer" activeClassName="active">
+              Kontorer
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/fagartikler" activeClassName="active">
+              Fagartikler
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/kontakt" activeClassName="active">
+              Kontakt
+            </NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/logginn" activeClassName="active">
+              Logg inn
+            </NavLink>
+          </NavMenuItem>
+        </NavMenu>
+      </StyledNav>
+    </Break>
+    <Break
+      breakpoints={NavBreakpoints}
+      query={{ method: 'is', breakpoint: 'tablet' }}
     >
       <StyledNav>
         <NavMenu>
