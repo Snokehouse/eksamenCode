@@ -28,7 +28,7 @@ export const Paragraf = styled.p`
 `;
 // Knapper
 export const KnappContainer = styled.div`
-  margin: 0;
+  margin: 20px auto auto auto;
   display: flex;
   justify-content: flex-end;
 `;
