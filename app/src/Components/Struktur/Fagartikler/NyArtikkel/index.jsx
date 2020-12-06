@@ -21,7 +21,7 @@ const NyArtikkel = () => {
       tittel: '',
       dato: '',
       beskrivelse: '',
-      kategori: '',
+      kategori: 'banan',
       forfatter: '',
     },
   ]);
@@ -125,7 +125,9 @@ const NyArtikkel = () => {
             value={formdata.forfatter}
             onChange={updateValue}
           />
-          <ArtikkelButton type="submit" value = "Submit">Create</ArtikkelButton>
+          <ArtikkelButton type="submit" value="Submit">
+            Create
+          </ArtikkelButton>
         </ArtikkelForm>
       </Wrapper>
       {modal && <Modal addKategori={addKategori} setModal={setModal} />}

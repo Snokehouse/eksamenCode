@@ -38,7 +38,7 @@ const KontorList = ({ kontor, kontaktInfo }) => {
   };
   return (
     <>
-      <UnderTittel>{`${kontor.sted} liste`}</UnderTittel>
+      <UnderTittel>{`${kontor.sted} (${kontaktInfo.length} kontorer)`}</UnderTittel>
       <Container>
         {kontaktInfo.map((value) => (
           <KontorArticle

@@ -36,11 +36,11 @@ export const ArtikkelLabel = styled.label`
   padding: 10px;
 `;
 export const ArtikkelButton = styled.button`
-  width: 100%;
+  float: right;
   background-color: #4caf50;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 8px 5px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -78,10 +78,6 @@ export const ModalContainer = styled.section`
   justify-content: center;
   align-items: center;
   z-index: 1;
-
-  & .section-backdrop {
-    opacity:0.5 !important;
-  }
 `;
 export const ModalWrapper = styled.section`
   width: 350px;
