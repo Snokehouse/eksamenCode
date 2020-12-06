@@ -2,7 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0 auto;
+  padding: 20px;
   width: 100%;
+
+  & .MenyItems {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1.5fr 1fr;
+  }
 `;
 // Overskrifter
 export const Tittel = styled.h1`
@@ -24,15 +31,40 @@ export const Paragraf = styled.p`
 `;
 // Link
 export const Linkbtn = styled.a`
-  margin: 0;
+  margin: 0 auto;
+  padding: 20px 5px;
+  width: 65px;
+  height: 55px;
+  background-color: green;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.031rem;
+
+  & :link,
+  :visited {
+    text-decoration: none;
+  }
+  & :hover {
+    background-color: darkgreen;
+  }
 `;
 // link-wrapper
 export const LinkWrapper = styled.a`
   margin: 0;
+  color: black;
+
+  & :link,
+  :visited {
+    text-decoration: none;
+  }
+  & :hover ${Container} {
+    background-color: darkgrey;
+  }
 `;
 // Søkefelt
 export const SokeFelt = styled.input`
-  margin: 0;
+  margin: 0 auto;
 `;
 // Dropdown
 export const DropdownContent = styled.section`

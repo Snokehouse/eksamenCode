@@ -14,13 +14,13 @@ const ArtikkelItem = ({ artikkel }) => {
     artikkel: PropTypes.object,
   };
   return (
-    <Container>
-      <LinkWrapper href={`/fagartikkel/${artikkel.id}`}>
+    <LinkWrapper href={`/fagartikkel/${artikkel.id}`}>
+      <Container>
         <UnderTittel>{`${artikkel.tittel}`}</UnderTittel>
         <SmallTittel>{`${artikkel.kategori}`}</SmallTittel>
         <Paragraf>{`${artikkel.beskrivelse}`}</Paragraf>
-      </LinkWrapper>
-    </Container>
+      </Container>
+    </LinkWrapper>
   );
 };
 export default ArtikkelItem;

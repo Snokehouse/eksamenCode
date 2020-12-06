@@ -17,6 +17,13 @@ const UnderTittel = styled.h2`
 const KontorArticle = styled.a`
   margin: 0 auto;
   border: 1px solid black;
+  padding: 15px;
+
+  color: black;
+  & :link,
+  :visited {
+    text-decoration: none;
+  }
   & :hover {
     background-color: #c0c0c0;
   }

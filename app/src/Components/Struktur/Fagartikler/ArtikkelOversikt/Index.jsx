@@ -40,7 +40,7 @@ const Fagartikler = () => {
   };
   return (
     <Container>
-      <Container>
+      <Container className="MenyItems">
         <Linkbtn href="/fagartikler/new">Ny Artikkel</Linkbtn>
         <SokeFelt
           id="sokTxt"

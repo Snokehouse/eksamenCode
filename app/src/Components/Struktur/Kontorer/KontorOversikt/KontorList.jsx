@@ -16,6 +16,12 @@ const KontorArticle = styled.a`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  color: black;
+  & :link,
+  :visited {
+    text-decoration: none;
+  }
   & :hover {
     background-color: #c0c0c0;
   }
