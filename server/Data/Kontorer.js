@@ -1,3 +1,61 @@
+const kontorer = [
+  {
+    id: 0,
+    sted: 'Halden',
+    kontaktInfo: [
+      {
+        ansattNr: 0,
+        navn: 'test tester',
+        adresse: 'Ola nordmanns gate 1',
+        telefon: '69990000',
+        email: 'test@tester.no',
+      },
+    ],
+  },
+  {
+    id: 1,
+    sted: 'Fredrikstad',
+    kontaktInfo: [
+      {
+        ansattNr: 0,
+        navn: 'test tester2',
+        adresse: 'Ola nordmanns gate 2',
+        telefon: '69990000',
+        email: 'test@tester2.no',
+      },
+    ],
+  },
+];
+
+export default kontorer;
+/*
+const dataArr = 
+      [
+        {
+          sted: 'Halden',
+          kontaktInfo: [
+            {
+              navn: 'test tester',
+              adresse: 'Ola nordmanns gate 1',
+              telefon: '69990000',
+              email: 'test@tester.no',
+            },
+          ],
+        },
+        {
+          sted: 'Fredrikstad',
+          kontaktInfo: [
+            {
+              navn: 'test tester2',
+              adresse: 'Ola nordmanns gate 2',
+              telefon: '69990000',
+              email: 'test@tester2.no',
+            },
+          ],
+        },
+      ];
+
+
 export default new Map([
   [
     '1',
@@ -37,4 +95,4 @@ export default new Map([
     ],
     },
   ],
-]);
+]); */

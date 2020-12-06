@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaBars, FaThLarge } from 'react-icons/fa';
 
+import { useParams } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import {
   Container,
@@ -22,6 +24,15 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
     ListeVisning: PropTypes.bool,
     setListeVisning: PropTypes.func,
   };
+  const { kontorerID } = useParams();
+  let dataValues = innLastetData;
+  if (kontorerID !== undefined) {
+    dataValues = innLastetData.filter((value) => value.sted === kontorerID);
+  }
+  console.log('Here comes data');
+  console.log(innLastetData);
+  console.log(dataValues);
+
   if (ListeVisning) {
     return (
       <>
@@ -31,10 +42,10 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
               <Dropdownbtn>Filter</Dropdownbtn>
               <DropdownContent>
                 <DropdownItem href="/kontorer">Fjern Filter</DropdownItem>
-                {innLastetData.length < 1 ? (
+                {dataValues.length < 1 ? (
                   <DropdownItem href="/kontorer">Mangler data</DropdownItem>
                 ) : (
-                  innLastetData.map((kontor) => (
+                  dataValues.map((kontor) => (
                     <DropdownItem
                       key={kontor.id}
                       href={`/kontorer/${kontor.sted}`}
@@ -52,10 +63,10 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
           </KnappContainer>
         </Container>
         <Container>
-          {innLastetData.length < 1 ? (
+          {dataValues.length < 1 ? (
             <p>404 Finner ingen data.</p>
           ) : (
-            innLastetData.map((kontor) => (
+            dataValues.map((kontor) => (
               <KontorList
                 key={kontor.id}
                 kontor={kontor}
@@ -75,10 +86,10 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
             <Dropdownbtn>Filter</Dropdownbtn>
             <DropdownContent>
               <DropdownItem href="/kontorer">Fjern Filter</DropdownItem>
-              {innLastetData.length < 1 ? (
+              {dataValues.length < 1 ? (
                 <DropdownItem href="/kontorer">Mangler data</DropdownItem>
               ) : (
-                innLastetData.map((kontor) => (
+                dataValues.map((kontor) => (
                   <DropdownItem
                     key={kontor.id}
                     href={`/kontorer/${kontor.sted}`}
@@ -96,10 +107,10 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
         </KnappContainer>
       </Container>
       <Container>
-        {innLastetData.length < 1 ? (
+        {dataValues.length < 1 ? (
           <p>404 Finner ingen data.</p>
         ) : (
-          innLastetData.map((kontor) => (
+          dataValues.map((kontor) => (
             <KontorCard
               key={kontor.id}
               kontor={kontor}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
 import { list } from '../../../Utils/Kontorer.js';
 
@@ -10,23 +9,17 @@ const Kontorer = () => {
   const [ListeVisning, setListeVisning] = useState(true);
   const [innLastetData, setInnLastetData] = useState([]);
 
-  const { kontorerID } = useParams();
   useEffect(() => {
     const updateData = async () => {
-      let { lastetData, error } = await list();
+      const { data, error } = await list();
       if (error) {
-        console.log(error);
-      } else if (kontorerID === undefined) {
-        setInnLastetData(lastetData);
-      } else if (kontorerID !== undefined) {
-        setInnLastetData();
-        lastetData = innLastetData.filter((value) => value.sted === kontorerID);
-        setInnLastetData(lastetData);
+        console.log(`Error: ${error}`);
+      } else {
+        setInnLastetData(data.data);
       }
     };
     updateData();
-  }, [innLastetData, kontorerID]);
-  console.log(innLastetData);
+  }, []);
   return (
     <>
       <Tittel>Våre Kontorer</Tittel>
