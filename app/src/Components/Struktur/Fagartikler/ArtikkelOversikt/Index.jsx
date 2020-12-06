@@ -16,6 +16,8 @@ const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([
     {
       id: 0,
+      forfatter: 'Random0',
+      dato: '01-01-2020',
       tittel: 'Katten ville være hund!',
       kategori: 'Katter',
       beskrivelse:
@@ -24,6 +26,8 @@ const Fagartikler = () => {
     },
     {
       id: 1,
+      forfatter: 'Random1',
+      dato: '01-01-2020',
       tittel: 'Hunden ville ikke være katt!',
       kategori: 'Hunder',
       beskrivelse:
@@ -37,7 +41,7 @@ const Fagartikler = () => {
   return (
     <Container>
       <Container>
-        <Linkbtn href="#/new">Ny Artikkel</Linkbtn>
+        <Linkbtn href="/fagartikler/new">Ny Artikkel</Linkbtn>
         <SokeFelt
           id="sokTxt"
           name="sokTxt"

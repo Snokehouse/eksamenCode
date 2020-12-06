@@ -29,8 +29,10 @@ app.use(cors({
 }))
 
 
-//url som blir brukt localhost:5000/api/v1/user
+//url som blir brukt localhost:5000/api/v1/admin
 app.use(`${process.env.BASEURL}/admin`, admin);
+//url som blir brukt localhost:5000/api/v1/kontorer
+app.use(`${process.env.BASEURL}/kontorer`, kontorer);
 
 //url som blir brukt localhost:5000/api/v1/kontorer
 app.use(`${process.env.BASEURL}/kontorer`, kontorer);
