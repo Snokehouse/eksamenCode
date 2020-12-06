@@ -29,10 +29,6 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
   if (kontorerID !== undefined) {
     dataValues = innLastetData.filter((value) => value.sted === kontorerID);
   }
-  console.log('Here comes data');
-  console.log(innLastetData);
-  console.log(dataValues);
-
   if (ListeVisning) {
     return (
       <>

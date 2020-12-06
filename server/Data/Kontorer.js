@@ -4,11 +4,60 @@ const kontorer = [
     sted: 'Halden',
     kontaktInfo: [
       {
-        ansattNr: 0,
-        navn: 'test tester',
-        adresse: 'Ola nordmanns gate 1',
-        telefon: '69990000',
-        email: 'test@tester.no',
+        ansattNr: 1,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
+      },
+      {
+        ansattNr: 2,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
+      },
+      {
+        ansattNr: 3,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
+      },
+      {
+        ansattNr: 4,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
+      },
+      {
+        ansattNr: 5,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
+      },
+      {
+        ansattNr: 6,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
+      },
+      {
+        ansattNr: 7,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
+      },
+      {
+        ansattNr: 8,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Halden.no',
       },
     ],
   },
@@ -17,82 +66,110 @@ const kontorer = [
     sted: 'Fredrikstad',
     kontaktInfo: [
       {
-        ansattNr: 0,
-        navn: 'test tester2',
-        adresse: 'Ola nordmanns gate 2',
-        telefon: '69990000',
-        email: 'test@tester2.no',
+        ansattNr: 1,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Fredrikstad.no',
+      },
+      {
+        ansattNr: 2,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Fredrikstad.no',
+      },
+      {
+        ansattNr: 3,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Fredrikstad.no',
+      },
+      {
+        ansattNr: 4,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Fredrikstad.no',
+      },
+      {
+        ansattNr: 5,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Fredrikstad.no',
+      },
+    ],
+  },
+  {
+    id: 2,
+    sted: 'Moss',
+    kontaktInfo: [
+      {
+        ansattNr: 1,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Moss.no',
+      },
+      {
+        ansattNr: 2,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Moss.no',
+      },
+      {
+        ansattNr: 3,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Moss.no',
+      },
+      {
+        ansattNr: 4,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Moss.no',
+      },
+    ],
+  },
+  {
+    id: 3,
+    sted: 'Oslo',
+    kontaktInfo: [
+      {
+        ansattNr: 1,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Oslo.no',
+      },
+      {
+        ansattNr: 2,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Oslo.no',
+      },
+      {
+        ansattNr: 3,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Oslo.no',
+      },
+      {
+        ansattNr: 4,
+        navn: 'Rørlegger',
+        adresse: 'Rørleggerveien',
+        telefon: '69 99 00 00',
+        email: 'Rørlegger@Rørlegger-Oslo.no',
       },
     ],
   },
 ];
 
 export default kontorer;
-/*
-const dataArr = 
-      [
-        {
-          sted: 'Halden',
-          kontaktInfo: [
-            {
-              navn: 'test tester',
-              adresse: 'Ola nordmanns gate 1',
-              telefon: '69990000',
-              email: 'test@tester.no',
-            },
-          ],
-        },
-        {
-          sted: 'Fredrikstad',
-          kontaktInfo: [
-            {
-              navn: 'test tester2',
-              adresse: 'Ola nordmanns gate 2',
-              telefon: '69990000',
-              email: 'test@tester2.no',
-            },
-          ],
-        },
-      ];
-
-
-export default new Map([
-  [
-    '1',
-    {
-      sted: 'Halden',
-      kontaktInfo: [
-      {
-        ansattNr: 0,
-        navn: 'test tester',
-        adresse: 'Ola nordmanns gate 1',
-        telefon: '69990000',
-        email: 'test@tester.no',
-      },
-      {
-        ansattNr: 1,
-        navn: 'test tester3',
-        adresse: 'Ola nordmanns gate 3',
-        telefon: '69990000',
-        email: 'test@tester3.no',
-      },
-    ],
-    },
-  ],
-  [
-    '2',
-    {
-      id: 1,
-    sted: 'Fredrikstad',
-    kontaktInfo: [
-      {
-        ansattNr: 0,
-        navn: 'test tester2',
-        adresse: 'Ola nordmanns gate 2',
-        telefon: '69990000',
-        email: 'test@tester2.no',
-      },
-    ],
-    },
-  ],
-]); */
