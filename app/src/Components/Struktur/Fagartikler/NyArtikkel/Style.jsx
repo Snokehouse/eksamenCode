@@ -2,33 +2,66 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0 auto;
-  width: 100%;
+  width: 50%;
+  max-width: 900px;
+  text-align: center;
 `;
 // Overskrifter
 export const Tittel = styled.h1`
-  margin: 0;
+  margin: 0 auto;
+  padding: 10% 20%;
+  text-align: center;
+  background-color: grey;
 `;
 // Form Artikkel
 export const ArtikkelForm = styled.form`
-  margin: 0;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 14px;
 `;
 export const ArtikkelInput = styled.input`
-  margin: 0;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 `;
 export const ArtikkelLabel = styled.label`
   margin: 0;
 `;
 export const ArtikkelButton = styled.button`
-  margin: 0;
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 `;
 export const ArtikkelSelect = styled.select`
-  margin: 0;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 `;
 export const ArtikkelOption = styled.option`
   margin: 0;
 `;
 export const Nybutton = styled.button`
-  margin: 0;
+  width: 20%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 `;
 
 // Dropdown
