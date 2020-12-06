@@ -1,4 +1,8 @@
 import React from 'react';
+//import { FaBars } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
+import { FaThLarge } from 'react-icons/fa';
+
 import PropTypes from 'prop-types';
 import {
   Container,
@@ -41,8 +45,12 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
                 )}
               </DropdownContent>
             </Dropdown>
-            <KnappListe onClick={() => setListeVisning(true)}>List</KnappListe>
-            <KnappCard onClick={() => setListeVisning(false)}>Card</KnappCard>
+            <KnappListe>
+              <FaBars onClick={() => setListeVisning(true)}>List</FaBars>
+            </KnappListe>
+            <KnappCard>
+              <FaThLarge onClick={() => setListeVisning(false)}>Card</FaThLarge>
+            </KnappCard>
           </KnappContainer>
         </Container>
         <Container>
@@ -81,8 +89,12 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
               )}
             </DropdownContent>
           </Dropdown>
-          <KnappListe onClick={() => setListeVisning(true)}>List</KnappListe>
-          <KnappCard onClick={() => setListeVisning(false)}>Card</KnappCard>
+          <KnappListe>
+            <FaBars onClick={() => setListeVisning(true)}>List</FaBars>
+          </KnappListe>
+          <KnappCard>
+            <FaThLarge onClick={() => setListeVisning(false)}>Card</FaThLarge>
+          </KnappCard>
         </KnappContainer>
       </Container>
       <Container>
