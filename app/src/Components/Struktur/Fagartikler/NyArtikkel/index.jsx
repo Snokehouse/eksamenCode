@@ -41,7 +41,8 @@ const NyArtikkel = () => {
       ...inputValue,
     }));
   };
-  const submitHandle = (event) => {
+
+  /*const submitHandle = (event) => {
     console.log('Du prøvde å sende inn ny artikkel!');
     /* event.preventDefault();
     pollData.author = inloggetData.id;
@@ -54,7 +55,30 @@ const NyArtikkel = () => {
         setPollData({ sporsmal: '' });
       }
     };
-    createData(); */
+    createData(); 
+  };*/
+
+  const submitHandle = (event) => {
+    event.preventDefault();
+    const createData = async () => {
+      const { data, error } = await create(formdata);
+      if (error) {
+        console.log(error);
+        setError(error);
+      } else {
+        /*setArtikkel(true);
+        setArtikkelData({ 
+          id: `${data._id}`, 
+          tittel: `${data.tittel}`, 
+          dato: `${data.dato}`, 
+          beskrivelse: `${data.beskrivelse}`,
+          kategori: `${data.kategori}`,
+          forfatter: `${data.forfatter}`,
+        });*/
+        alert("Artikkel Registrert");
+      }
+    };
+    createData();
   };
 
   return (

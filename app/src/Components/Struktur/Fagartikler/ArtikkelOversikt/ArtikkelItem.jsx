@@ -14,7 +14,7 @@ const ArtikkelItem = ({ artikkel }) => {
     artikkel: PropTypes.object,
   };
   return (
-    <LinkWrapper href={`/fagartikkel/${artikkel.id}`}>
+    <LinkWrapper href={`/fagartikkel/${artikkel._id}`}>
       <Container>
         <UnderTittel>{`${artikkel.tittel}`}</UnderTittel>
         <SmallTittel>{`${artikkel.kategori}`}</SmallTittel>
