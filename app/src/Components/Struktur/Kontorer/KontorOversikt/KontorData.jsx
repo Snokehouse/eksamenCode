@@ -1,7 +1,5 @@
 import React from 'react';
-//import { FaBars } from 'react-icons/fa';
-import { FaBars } from 'react-icons/fa';
-import { FaThLarge } from 'react-icons/fa';
+import { FaBars, FaThLarge } from 'react-icons/fa';
 
 import PropTypes from 'prop-types';
 import {

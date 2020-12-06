@@ -27,28 +27,35 @@ export const Paragraf = styled.p`
   width: 100%;
 `;
 // Knapper
-export const KnappContainer = styled.div`
+export const KnappContainer = styled.section`
   margin: 20px auto auto auto;
   display: flex;
   justify-content: flex-end;
 `;
 
-export const KnappListe = styled.div`
+export const KnappListe = styled.button`
   margin: auto 5px auto 5px;
+  padding: 10px;
   font-size: 20px;
-  color:black;
+  color: black;
+  border: none;
+  background-color: white;
 
-  &:active {
+  &:focus {
+    outline: 0;
     color: #4caf50;
   }
-
 `;
-export const KnappCard = styled.div`
+export const KnappCard = styled.button`
   margin: auto 5px auto 5px;
+  padding: 10px;
   font-size: 20px;
-  color:black;
+  color: black;
+  border: none;
+  background-color: white;
 
-  &:active {
+  &:focus {
+    outline: 0;
     color: #4caf50;
   }
 `;
