@@ -43,22 +43,6 @@ const NyArtikkel = () => {
     }));
   };
 
-  /*const submitHandle = (event) => {
-    console.log('Du prøvde å sende inn ny artikkel!');
-    /* event.preventDefault();
-    pollData.author = inloggetData.id;
-    const createData = async () => {
-      const { data, error } = await create(pollData);
-      if (error) {
-        console.log(error);
-        setError(error);
-      } else {
-        setPollData({ sporsmal: '' });
-      }
-    };
-    createData(); 
-  };*/
-
   const submitHandle = (event) => {
     event.preventDefault();
     const createData = async () => {
@@ -139,7 +123,7 @@ const NyArtikkel = () => {
             value={formdata.forfatter}
             onChange={updateValue}
           />
-          <ArtikkelButton type="submit" form="form1" value="Submit">
+          <ArtikkelButton type="submit" value="Submit">
             Create
           </ArtikkelButton>
         </ArtikkelForm>
