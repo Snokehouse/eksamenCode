@@ -22,7 +22,7 @@ const NavMenu = styled.ul`
     justify-content: space-between;
   }
   @media screen and (max-width: 1050px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+    grid-template-columns: 5fr 1fr 1fr 1fr 1fr 2fr;
   }
   @media screen and (min-width: 1050px) {
     grid-template-columns: 10fr 1fr 1fr 1fr 1fr 2fr;
