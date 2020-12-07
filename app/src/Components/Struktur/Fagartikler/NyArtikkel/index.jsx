@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { create } from '../../../Utils/Artikkel.js';
+import { upload } from '../../../Utils/Image.js';
 import { listKategori, lagKategori } from '../../../Utils/Kategori.js';
 import { listForfatter } from '../../../Utils/Forfatter.js';
 
@@ -114,7 +115,7 @@ const NyArtikkel = () => {
   };
 
   const createData2222222 = async () => {
-    const { data, error } = await create(formdata);
+    const { data, error } = await upload(file);
     if (error) {
       console.log(error);
     } else {
