@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0 auto;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 0px 20px 0px;
   width: 100%;
 
   & .MenyItems {

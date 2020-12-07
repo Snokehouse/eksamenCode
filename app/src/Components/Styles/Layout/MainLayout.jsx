@@ -20,7 +20,7 @@ const StyledHeader = styled.header`
   box-shadow: 1px 1px 2px #f5f5f5;
   margin-bottom: 0;
   width: 100%;
-  padding: 0 2rem;
+  //padding: 0 2rem;
 `;
 
 const MainLayout = ({ children }) => {

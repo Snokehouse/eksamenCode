@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   html {
     font-size: 10px;
-    margin-bottom: 40px; //Sørger for at footer alrdi overlapper elementer på bunn av siden
+    margin-bottom: 40px; //Sørger for at footer alrdi overlapper elementer på bunn av siden;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
