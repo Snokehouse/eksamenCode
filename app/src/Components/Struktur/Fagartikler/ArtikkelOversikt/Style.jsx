@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0px auto;
-  padding: 5% 12%;
+  padding: 5% 5%;
+  max-width: 90%;
   width: 100%;
 
   & .MenyItems {
@@ -22,13 +23,15 @@ export const Tittel = styled.h1`
 `;
 
 export const ArtikkelWrapper = styled.section`
-  float: right;
+  text-align: center;
+  padding: 15px;
 `;
 
 export const ImageStyle = styled.img`
-  max-width: 50%;
+  max-width: 125px;
   height: auto;
   border-radius: 8px;
+  float: left;
 `;
 
 export const UnderTittel = styled.h2`
