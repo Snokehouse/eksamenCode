@@ -1,25 +1,35 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  margin: 0 auto;
+  margin: 0px auto;
   padding: 5% 15%;
   width: 100%;
 
   & .MenyItems {
     margin: 20px 0px 0px 0px;
-    padding: 0;
+    padding: 0px;
     width: 100%;
     display: grid;
     grid-template-columns: 8fr 1fr 1fr;
   }
 `;
-// Overskrifter
+
 // Overskrifter
 export const Tittel = styled.h1`
   margin: 0 auto;
   padding: 10% 20%;
   text-align: center;
   background-color: lightgray;
+`;
+
+export const ArtikkelWrapper = styled.section`
+  float: right;
+`;
+
+export const ImageStyle = styled.img`
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
 `;
 
 export const UnderTittel = styled.h2`
