@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { create } from '../../../Utils/Artikkel.js';
 import { listKategori, lagKategori } from '../../../Utils/Kategori.js';
 import { listForfatter } from '../../../Utils/Forfatter.js';
@@ -18,6 +19,7 @@ import {
 import Modal from './Modal';
 
 const NyArtikkel = () => {
+  const history = useHistory();
   const [modal, setModal] = useState(false);
   const [formdata, setFormdata] = useState([
     {
@@ -60,7 +62,7 @@ const NyArtikkel = () => {
     };
     updateData();
   }, [updateRender]);
-  
+
   const addKategori = async (value) => {
     const { data, error } = await lagKategori(value);
     if (error) {
@@ -108,8 +110,8 @@ const NyArtikkel = () => {
         kategori: `${data.kategori}`,
         forfatter: `${data.forfatter}`,
       }); */
-      console.log(data);
       alert('Artikkel Registrert');
+      history.push('/fagartikler');
     }
   };
 

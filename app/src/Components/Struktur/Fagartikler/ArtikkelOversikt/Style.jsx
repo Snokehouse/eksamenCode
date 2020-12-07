@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0 auto;
-  padding: 0px 0px 20px 0px;
+  padding: 5% 15%;
   width: 100%;
 
   & .MenyItems {
     margin: 20px 0px 0px 0px;
     padding: 0;
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    grid-template-columns: 8fr 1fr 1fr;
   }
 `;
 // Overskrifter

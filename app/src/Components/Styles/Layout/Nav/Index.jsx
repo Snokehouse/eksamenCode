@@ -55,7 +55,6 @@ const NavMenuItem = styled.li`
       color: #007b5f;
       border-bottom: 4px solid #007b5f;
     }
-    
   }
 
   &:last-child {
@@ -70,7 +69,6 @@ const NavMenuItem = styled.li`
       }
     }
   }
-
 `;
 
 const NavBreakpoints = {
