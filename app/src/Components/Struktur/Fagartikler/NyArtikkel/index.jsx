@@ -69,6 +69,20 @@ const NyArtikkel = () => {
       setModal(!modal);
     }
   };
+  // Validere form
+  const validateForm = () => {
+    if (
+      formdata.tittel !== undefined &&
+      formdata.dato !== undefined &&
+      formdata.beskrivelse !== undefined &&
+      formdata.kategori !== undefined &&
+      formdata.forfatter !== undefined
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   // Oppdater inputs
   const updateValue = (event) => {
     const inputValue = { [event.target.name]: event.target.value };
@@ -76,6 +90,7 @@ const NyArtikkel = () => {
       ...prev,
       ...inputValue,
     }));
+    validateForm();
   };
   // sende data til api og lage data
   const createData = async () => {
@@ -101,7 +116,6 @@ const NyArtikkel = () => {
     event.preventDefault();
     createData();
   };
-
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
@@ -184,7 +198,11 @@ const NyArtikkel = () => {
               ))
             )}
           </ArtikkelSelectF>
-          <ArtikkelButton type="submit" value="Submit">
+          <ArtikkelButton
+            disabled={validateForm() === false}
+            type="submit"
+            value="Submit"
+          >
             Create
           </ArtikkelButton>
         </ArtikkelForm>

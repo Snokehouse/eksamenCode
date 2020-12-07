@@ -44,6 +44,10 @@ export const ArtikkelButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+  & :disabled {
+    background-color: grey;
+  }
 `;
 export const ArtikkelSelectK = styled.select`
   width: 80%;
