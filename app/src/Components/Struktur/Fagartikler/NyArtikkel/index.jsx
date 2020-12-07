@@ -82,7 +82,8 @@ const NyArtikkel = () => {
       formdata.dato !== undefined &&
       formdata.beskrivelse !== undefined &&
       formdata.kategori !== undefined &&
-      formdata.forfatter !== undefined
+      formdata.forfatter !== undefined &&
+      file !== undefined
     ) {
       return true;
     }
@@ -99,8 +100,7 @@ const NyArtikkel = () => {
     validateForm();
   };
   // sende data til api og lage data
-  const createData = async (id) => {
-    formdata.bildeID = id;
+  const createData = async () => {
     const { data, error } = await create(formdata);
     if (error) {
       console.log(error);
@@ -114,22 +114,21 @@ const NyArtikkel = () => {
     if (error) {
       console.log(error);
     } else {
-      console.log(data.data._id);
-      return data.data._id;
+      formdata.bildeID = data.data._id;
     }
   };
   // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
-    const bildeId = lasteOppBilde();
-    createData(bildeId);
+    if (validateForm()) {
+      lasteOppBilde();
+      console.log(formdata.bildeID);
+      console.log(formdata);
+      createData();
+    } else {
+      console.log('Feil');
+    }
   };
-
-  const submitHandle2222222 = (event) => {
-    event.preventDefault();
-    lasteOppBilde();
-  };
-
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
@@ -223,6 +222,7 @@ const NyArtikkel = () => {
             onChange={(event) => {
               const imageFile = event.target.files[0];
               setFile(imageFile);
+              validateForm();
             }}
           />
           <ArtikkelButton
