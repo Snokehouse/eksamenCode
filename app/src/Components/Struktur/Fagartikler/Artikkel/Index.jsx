@@ -4,6 +4,7 @@ import { getArtikkel } from '../../../Utils/Artikkel.js';
 
 import {
   Container,
+  TittelWrap,
   Tittel,
   UnderTittel,
   SmallTittel,
@@ -25,9 +26,17 @@ const Artikkel = () => {
     };
     updateData();
   }, [artikkelID]);
+  const finnesDetBakgrunn = () => {
+    if (innLastetData.bildeID !== undefined) {
+      return `url(http://localhost:5000/api/v1/image/${innLastetData.bildeID})`;
+    }
+    return 'url()';
+  };
   return (
     <Container>
-      <Tittel>{`${innLastetData.tittel}`}</Tittel>
+      <TittelWrap background={finnesDetBakgrunn()}>
+        <Tittel>{`${innLastetData.tittel}`}</Tittel>
+      </TittelWrap>
       <KontorArticle>
         <SmallTittel>{`${innLastetData.dato}`}</SmallTittel>
         <SmallTittel>{`Skrevet av: ${innLastetData.forfatter}`}</SmallTittel>

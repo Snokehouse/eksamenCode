@@ -14,7 +14,6 @@ export const Container = styled.section`
   }
 `;
 // Overskrifter
-// Overskrifter
 export const Tittel = styled.h1`
   margin: 0 auto;
   padding: 10% 20%;

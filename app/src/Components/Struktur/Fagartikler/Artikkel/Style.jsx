@@ -4,12 +4,19 @@ export const Container = styled.section`
   margin: 0 auto;
   width: 100%;
 `;
-// Overskrifter background-image: url('http://localhost:5000/api/v1/image/5fce7da89beaf5373cae3022');
+export const TittelWrap = styled.div`
+  margin: 0;
+  background-image: ${(props) => props.background};
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+// Overskrifter
 export const Tittel = styled.h1`
   margin: 0;
   padding: 10% 20%;
   text-align: center;
-  background-color: lightgrey;
 `;
 export const UnderTittel = styled.h2`
   margin: 0;
