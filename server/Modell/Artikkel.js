@@ -34,6 +34,11 @@ const ArtikkelSchema = new Schema({
     required: [true, 'Fyll ut forfatter'],
     unique: true,
   },
+  bildeID: {
+    type: String,
+    required: [true, 'Ingen bildeID funnet'],
+    unique: true,
+  },
 });
 
 const Artikkel = mongoose.model('Artikkel', ArtikkelSchema);

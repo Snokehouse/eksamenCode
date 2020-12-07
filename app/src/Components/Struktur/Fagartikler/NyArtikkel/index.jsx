@@ -30,6 +30,7 @@ const NyArtikkel = () => {
       beskrivelse: '',
       kategori: '',
       forfatter: '',
+      bildeID: '',
     },
   ]);
   // Forfatter
@@ -98,7 +99,8 @@ const NyArtikkel = () => {
     validateForm();
   };
   // sende data til api og lage data
-  const createData = async () => {
+  const createData = async (id) => {
+    formdata.bildeID = id;
     const { data, error } = await create(formdata);
     if (error) {
       console.log(error);
@@ -107,24 +109,25 @@ const NyArtikkel = () => {
       history.push('/fagartikler');
     }
   };
-
-  // Submit form
-  const submitHandle = (event) => {
-    event.preventDefault();
-    createData();
-  };
-
-  const createData2222222 = async () => {
+  const lasteOppBilde = async () => {
     const { data, error } = await upload(file);
     if (error) {
       console.log(error);
     } else {
-      console.log('Bilde lastet opp');
+      console.log(data.data._id);
+      return data.data._id;
     }
   };
+  // Submit form
+  const submitHandle = (event) => {
+    event.preventDefault();
+    const bildeId = lasteOppBilde();
+    createData(bildeId);
+  };
+
   const submitHandle2222222 = (event) => {
     event.preventDefault();
-    createData2222222();
+    lasteOppBilde();
   };
 
   return (
@@ -211,15 +214,6 @@ const NyArtikkel = () => {
               ))
             )}
           </ArtikkelSelectF>
-          <ArtikkelButton
-            disabled={validateForm() === false}
-            type="submit"
-            value="Submit"
-          >
-            Create
-          </ArtikkelButton>
-        </ArtikkelForm>
-        <ArtikkelForm onSubmit={submitHandle2222222}>
           <ArtikkelLabel htmlFor="image">Last opp Bilde:</ArtikkelLabel>
           <ArtikkelInput
             type="file"
@@ -231,7 +225,11 @@ const NyArtikkel = () => {
               setFile(imageFile);
             }}
           />
-          <ArtikkelButton type="submit" value="Submit">
+          <ArtikkelButton
+            disabled={validateForm() === false}
+            type="submit"
+            value="Submit"
+          >
             Create
           </ArtikkelButton>
         </ArtikkelForm>

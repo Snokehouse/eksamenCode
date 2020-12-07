@@ -4,7 +4,7 @@ export const Container = styled.section`
   margin: 0 auto;
   width: 100%;
 `;
-// Overskrifter
+// Overskrifter background-image: url('http://localhost:5000/api/v1/image/5fce7da89beaf5373cae3022');
 export const Tittel = styled.h1`
   margin: 0;
   padding: 10% 20%;
