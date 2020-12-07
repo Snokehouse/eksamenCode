@@ -86,7 +86,6 @@ const NyArtikkel = () => {
   // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
-    console.log('pressed create');
     createData();
   };
 
