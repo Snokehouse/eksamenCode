@@ -19,10 +19,8 @@ export const get = catchAsyncErrors(async (req, res, next) => {
   if (!image) {
     return next(new ErrorHandler('Fant ikke bildefil', 404));
   }
-
   res.set({
     'Content-Type': image.file_mimetype,
   });
-
   res.sendFile(path.join(__dirname, '..', image.file_path));
 });

@@ -225,7 +225,7 @@ const NyArtikkel = () => {
             type="file"
             id="image"
             name="image"
-            accept=".jpg"
+            accept=".gif, .jpg, .png, .jpeg"
             onChange={(event) => {
               const imageFile = event.target.files[0];
               setFile(imageFile);
