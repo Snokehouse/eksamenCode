@@ -2,7 +2,7 @@ import multer from 'multer';
 import ErrorHandler from '../utils/errorHandler.js';
 
 function fileFilter(req, file, cb) {
-  const filetypes = /\.(jpeg|jpg|png)$/;
+  const filetypes = /\.(jpeg|jpg|png|gif)$/;
   if (!file.originalname.match(filetypes)) {
     return cb(new ErrorHandler('Kun bildefiler er lov', 400));
   }
