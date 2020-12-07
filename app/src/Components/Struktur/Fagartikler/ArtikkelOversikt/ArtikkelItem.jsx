@@ -7,6 +7,8 @@ import {
   Paragraf,
   UnderTittel,
   SmallTittel,
+  ImageStyle,
+  ArtikkelWrapper,
 } from './Style';
 
 const ArtikkelItem = ({ artikkel }) => {
@@ -16,13 +18,15 @@ const ArtikkelItem = ({ artikkel }) => {
   return (
     <LinkWrapper href={`/fagartikkel/${artikkel._id}`}>
       <Container>
-        <img
+        <ImageStyle
           src={`http://localhost:5000/api/v1/image/${artikkel.bildeID}`}
           alt={`Bilde til Artikkelen ${artikkel.tittel}`}
         />
-        <UnderTittel>{`${artikkel.tittel}`}</UnderTittel>
-        <SmallTittel>{`${artikkel.kategori}`}</SmallTittel>
-        <Paragraf>{`${artikkel.beskrivelse}`}</Paragraf>
+        <ArtikkelWrapper>
+          <UnderTittel>{`${artikkel.tittel}`}</UnderTittel>
+          <SmallTittel>{`${artikkel.kategori}`}</SmallTittel>
+          <Paragraf>{`${artikkel.beskrivelse}`}</Paragraf>
+        </ArtikkelWrapper>
       </Container>
     </LinkWrapper>
   );

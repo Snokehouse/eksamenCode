@@ -8,13 +8,13 @@ const ArtikkelSchema = new Schema({
   tittel: {
     type: String,
     required: [true, 'Fyll ut tittel'],
-    unique: true,
+    unique: false,
   },
 
   dato: {
     type: Date,
     required: [true, 'Fyll ut dato'],
-    unique: true, // unique index and value
+    unique: false, // unique index and value
   },
 
   beskrivelse: {
@@ -26,18 +26,18 @@ const ArtikkelSchema = new Schema({
   kategori: {
     type: String,
     required: [true, 'Fyll ut kategori'],
-    unique: true,
+    unique: false,
   },
 
   forfatter: {
     type: String,
     required: [true, 'Fyll ut forfatter'],
-    unique: true,
+    unique: false,
   },
   bildeID: {
     type: String,
     required: [true, 'Ingen bildeID funnet'],
-    unique: true,
+    unique: false,
   },
 });
 

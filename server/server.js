@@ -18,6 +18,7 @@ import image from './Route/Image.js';
 const app = express();
 // initialiserer at app skal bruke json
 app.use(express.json());
+app.use(express.static(`${__dirname}/public`));
 
 // morgan for bedre feilmeldinger i development mode
 if (process.env.NODE_ENV === 'development') {
