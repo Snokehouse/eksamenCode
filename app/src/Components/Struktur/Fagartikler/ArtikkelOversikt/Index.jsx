@@ -32,6 +32,7 @@ const Fagartikler = () => {
   const handleChange = () => {
     console.log('fagartikkel');
   };
+  console.log(innLastetData);
   return (
     <>
       <Tittel>Artikkel Oversikt</Tittel>
