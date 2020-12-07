@@ -24,5 +24,5 @@ export const get = catchAsyncErrors(async (req, res, next) => {
     'Content-Type': image.file_mimetype,
   });
 
-  res.sendFile(path.join(_dirname, '..', image.file_path));
+  res.sendFile(path.join(__dirname, '..', image.file_path));
 });
