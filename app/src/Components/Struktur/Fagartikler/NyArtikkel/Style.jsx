@@ -14,7 +14,7 @@ export const Tittel = styled.h1`
   margin: 0 auto;
   padding: 10% 20%;
   text-align: center;
-  background-color: grey;
+  background-color: lightgray;
 `;
 // Form Artikkel
 export const ArtikkelForm = styled.form`

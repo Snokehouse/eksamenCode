@@ -46,6 +46,7 @@ const NyArtikkel = () => {
     updateData();
     console.log('re-rendering snoke');
   }, [updateRender]);
+  
   const addKategori = async (value) => {
     const { data, error } = await lagKategori(value);
     if (error) {

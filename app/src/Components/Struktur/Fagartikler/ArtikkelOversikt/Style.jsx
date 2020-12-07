@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0 auto;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   width: 100%;
 
   & .MenyItems {
@@ -12,9 +12,14 @@ export const Container = styled.section`
   }
 `;
 // Overskrifter
+// Overskrifter
 export const Tittel = styled.h1`
-  margin: 0;
+  margin: 0 auto;
+  padding: 10% 20%;
+  text-align: center;
+  background-color: lightgray;
 `;
+
 export const UnderTittel = styled.h2`
   margin: 0;
 `;
