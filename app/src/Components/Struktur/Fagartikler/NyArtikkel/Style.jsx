@@ -45,8 +45,17 @@ export const ArtikkelButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
 `;
-export const ArtikkelSelect = styled.select`
+export const ArtikkelSelectK = styled.select`
   width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+`;
+export const ArtikkelSelectF = styled.select`
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;

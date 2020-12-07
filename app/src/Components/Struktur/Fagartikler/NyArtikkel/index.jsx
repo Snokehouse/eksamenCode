@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { create } from '../../../Utils/Artikkel.js';
-import { list, lagKategori } from '../../../Utils/Kategori.js';
+import { listKategori, lagKategori } from '../../../Utils/Kategori.js';
+import { listForfatter } from '../../../Utils/Forfatter.js';
 
 import {
   Wrapper,
@@ -8,7 +9,8 @@ import {
   ArtikkelForm,
   ArtikkelInput,
   ArtikkelLabel,
-  ArtikkelSelect,
+  ArtikkelSelectK,
+  ArtikkelSelectF,
   ArtikkelOption,
   ArtikkelButton,
   Nybutton,
@@ -26,6 +28,19 @@ const NyArtikkel = () => {
       forfatter: '',
     },
   ]);
+  // Forfatter
+  const [forfatterData, setforfatterData] = useState([]);
+  useEffect(() => {
+    const updateData = async () => {
+      const { data, error } = await listForfatter();
+      if (error) {
+        console.log(`Error: ${error}`);
+      } else {
+        setforfatterData(data.data);
+      }
+    };
+    updateData();
+  }, []);
   // Kategori
   const [modalData, setModalData] = useState([
     {
@@ -36,7 +51,7 @@ const NyArtikkel = () => {
   const [updateRender, setUpdateRender] = useState(false);
   useEffect(() => {
     const updateData = async () => {
-      const { data, error } = await list();
+      const { data, error } = await listKategori();
       if (error) {
         console.log(`Error: ${error}`);
       } else {
@@ -44,7 +59,6 @@ const NyArtikkel = () => {
       }
     };
     updateData();
-    console.log('re-rendering snoke');
   }, [updateRender]);
   const addKategori = async (value) => {
     const { data, error } = await lagKategori(value);
@@ -117,7 +131,9 @@ const NyArtikkel = () => {
             value={formdata.beskrivelse}
             onChange={updateValue}
           />
-          <ArtikkelSelect
+          <br />
+          <ArtikkelLabel htmlFor="kategori">Kategori: </ArtikkelLabel>
+          <ArtikkelSelectK
             id="kategori"
             name="kategori"
             form="artikkelForm"
@@ -139,18 +155,35 @@ const NyArtikkel = () => {
                 >{`${kategori.kategori}`}</ArtikkelOption>
               ))
             )}
-          </ArtikkelSelect>
+          </ArtikkelSelectK>
           <Nybutton type="button" onClick={() => setModal(!modal)}>
             Ny
           </Nybutton>
-          <ArtikkelLabel htmlFor="txtForfatter">Forfatter: </ArtikkelLabel>
-          <ArtikkelInput
-            id="txtForfatter"
+          <br />
+          <ArtikkelLabel htmlFor="forfatter">Forfatter: </ArtikkelLabel>
+          <ArtikkelSelectF
+            id="forfatter"
             name="forfatter"
-            type="text"
+            form="artikkelForm"
             value={formdata.forfatter}
             onChange={updateValue}
-          />
+          >
+            <ArtikkelOption value="" hidden>
+              Velg Forfatter
+            </ArtikkelOption>
+            {forfatterData < 1 ? (
+              <ArtikkelOption value={null}>
+                Ingen kategorier funnet, lag en ny!
+              </ArtikkelOption>
+            ) : (
+              forfatterData.map((forfatter) => (
+                <ArtikkelOption
+                  key={`${forfatter.forfatter}`}
+                  value={`${forfatter.forfatter}`}
+                >{`${forfatter.forfatter}`}</ArtikkelOption>
+              ))
+            )}
+          </ArtikkelSelectF>
           <ArtikkelButton type="submit" value="Submit">
             Create
           </ArtikkelButton>
