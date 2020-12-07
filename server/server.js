@@ -13,6 +13,7 @@ import kontorer from './Route/Kontorer.js';
 import artikkel from './Route/Artikkel.js';
 import kategori from './Route/Kategori.js';
 import forfatter from './Route/Forfatter.js';
+//import image from './Route/Image.js';
 
 //lager "app" med express slik at vi får satt opp server
 const app = express();
