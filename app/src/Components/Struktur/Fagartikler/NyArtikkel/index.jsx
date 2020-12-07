@@ -70,6 +70,20 @@ const NyArtikkel = () => {
       setModal(!modal);
     }
   };
+  // Validere form
+  const validateForm = () => {
+    if (
+      formdata.tittel !== undefined &&
+      formdata.dato !== undefined &&
+      formdata.beskrivelse !== undefined &&
+      formdata.kategori !== undefined &&
+      formdata.forfatter !== undefined
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   // Oppdater inputs
   const updateValue = (event) => {
     const inputValue = { [event.target.name]: event.target.value };
@@ -77,6 +91,7 @@ const NyArtikkel = () => {
       ...prev,
       ...inputValue,
     }));
+    validateForm();
   };
   // sende data til api og lage data
   const createData = async () => {
@@ -97,49 +112,19 @@ const NyArtikkel = () => {
       alert('Artikkel Registrert');
     }
   };
+
   // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
-
-    if(this.handleValidation()){
-      alert("Form submitted");
-      createData();
-    }else{
-      alert("Form has errors.")
-    }
+    createData();
   };
-
-  //Validation start
-
-  handleValidation = () => {
-    let fields = this.state.fields;
-    let errors = {};
-    let formIsValid = true;
-
-    //Name
-    if(!fields["tittel"]){
-       formIsValid = false;
-       errors["tittel"] = "Cannot be empty";
-    }
-
-    this.setState({errors: errors});
-    return formIsValid;
-  };
-
-  handleChange = (field, e) => {         
-      let fields = this.state.fields;
-      fields[field] = e.target.value;        
-      this.setState({fields});
-  };
-
-  //Validation end
 
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
       <Wrapper>
         <ArtikkelForm id="artikkelForm" onSubmit={submitHandle}>
-          <ArtikkelLabel htmlFor="txtTittel" onChange={this.handleChange.bind(this, "tittel")} value={this.state.fields["tittel"]}>Tittel: </ArtikkelLabel>
+          <ArtikkelLabel htmlFor="txtTittel">Tittel: </ArtikkelLabel>
           <ArtikkelInput
             id="txtTittel"
             name="tittel"
@@ -165,6 +150,7 @@ const NyArtikkel = () => {
           />
           <br />
           <ArtikkelLabel htmlFor="kategori">Kategori: </ArtikkelLabel>
+          <br />
           <ArtikkelSelectK
             id="kategori"
             name="kategori"
@@ -193,6 +179,7 @@ const NyArtikkel = () => {
           </Nybutton>
           <br />
           <ArtikkelLabel htmlFor="forfatter">Forfatter: </ArtikkelLabel>
+          <br />
           <ArtikkelSelectF
             id="forfatter"
             name="forfatter"
@@ -216,7 +203,11 @@ const NyArtikkel = () => {
               ))
             )}
           </ArtikkelSelectF>
-          <ArtikkelButton type="submit" value="Submit">
+          <ArtikkelButton
+            disabled={validateForm() === false}
+            type="submit"
+            value="Submit"
+          >
             Create
           </ArtikkelButton>
         </ArtikkelForm>
