@@ -115,6 +115,7 @@ const NyArtikkel = () => {
       console.log(error);
     } else {
       formdata.bildeID = data.data._id;
+      createData();
     }
   };
   // Submit form
@@ -122,9 +123,6 @@ const NyArtikkel = () => {
     event.preventDefault();
     if (validateForm()) {
       lasteOppBilde();
-      console.log(formdata.bildeID);
-      console.log(formdata);
-      createData();
     } else {
       console.log('Feil');
     }
