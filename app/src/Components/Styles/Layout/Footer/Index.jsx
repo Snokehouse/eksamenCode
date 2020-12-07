@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterSection = styled.section`
+  margin-top: auto;
   position: fixed;
   left: 0;
   bottom: 0;

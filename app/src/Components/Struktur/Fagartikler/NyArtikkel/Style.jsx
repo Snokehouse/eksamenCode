@@ -4,7 +4,7 @@ export const Container = styled.section`
   margin: 0 auto;
 `;
 export const Wrapper = styled.section`
-  margin: 10px auto;
+  margin: 20px auto;
   width: 50%;
   max-width: 900px;
   text-align: center;

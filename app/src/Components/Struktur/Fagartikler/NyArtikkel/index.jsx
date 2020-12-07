@@ -112,11 +112,13 @@ const NyArtikkel = () => {
       alert('Artikkel Registrert');
     }
   };
+
   // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
     createData();
   };
+
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
