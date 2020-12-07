@@ -19,6 +19,7 @@ import {
 import Modal from './Modal';
 
 const NyArtikkel = () => {
+  const [file, setFile] = useState();
   const history = useHistory();
   const [modal, setModal] = useState(false);
   const [formdata, setFormdata] = useState([
@@ -101,15 +102,6 @@ const NyArtikkel = () => {
     if (error) {
       console.log(error);
     } else {
-      /* setArtikkel(true);
-      setArtikkelData({ 
-        id: `${data._id}`, 
-        tittel: `${data.tittel}`, 
-        dato: `${data.dato}`, 
-        beskrivelse: `${data.beskrivelse}`,
-        kategori: `${data.kategori}`,
-        forfatter: `${data.forfatter}`,
-      }); */
       alert('Artikkel Registrert');
       history.push('/fagartikler');
     }
@@ -119,6 +111,19 @@ const NyArtikkel = () => {
   const submitHandle = (event) => {
     event.preventDefault();
     createData();
+  };
+
+  const createData2222222 = async () => {
+    const { data, error } = await create(formdata);
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Bilde lastet opp');
+    }
+  };
+  const submitHandle2222222 = (event) => {
+    event.preventDefault();
+    createData2222222();
   };
 
   return (
@@ -210,6 +215,22 @@ const NyArtikkel = () => {
             type="submit"
             value="Submit"
           >
+            Create
+          </ArtikkelButton>
+        </ArtikkelForm>
+        <ArtikkelForm onSubmit={submitHandle2222222}>
+          <ArtikkelLabel htmlFor="image">Last opp Bilde:</ArtikkelLabel>
+          <ArtikkelInput
+            type="file"
+            id="image"
+            name="image"
+            accept=".jpg"
+            onChange={(event) => {
+              const imageFile = event.target.files[0];
+              setFile(imageFile);
+            }}
+          />
+          <ArtikkelButton type="submit" value="Submit">
             Create
           </ArtikkelButton>
         </ArtikkelForm>
