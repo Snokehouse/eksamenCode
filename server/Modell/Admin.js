@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcrypt';
-//struktur av data som skal inn
+// struktur av data som skal inn
 
 const { Schema } = mongoose;
 
@@ -29,18 +29,16 @@ const AdminSchema = new Schema({
 });
 
 // Tatt fra en youtube video som linka en git branch, sjekk README nr. 1
-AdminSchema.pre('save', async function(next) {
-    try {
+AdminSchema.pre('save', async function (next) {
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(this.password, salt);
 
-      const salt = await bcrypt.genSalt(10);
-      const passwordHash = await bcrypt.hash(this.password, salt);
-
-      this.password = passwordHash;
-      next();
-
-    } catch(error) {
-      next(error);
-    }
+    this.password = passwordHash;
+    next();
+  } catch (error) {
+    next(error);
+  }
 });
 
 const Admin = mongoose.model('Admin', AdminSchema);
