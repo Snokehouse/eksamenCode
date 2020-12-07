@@ -148,6 +148,7 @@ const NyArtikkel = () => {
           />
           <br />
           <ArtikkelLabel htmlFor="kategori">Kategori: </ArtikkelLabel>
+          <br />
           <ArtikkelSelectK
             id="kategori"
             name="kategori"
@@ -176,6 +177,7 @@ const NyArtikkel = () => {
           </Nybutton>
           <br />
           <ArtikkelLabel htmlFor="forfatter">Forfatter: </ArtikkelLabel>
+          <br />
           <ArtikkelSelectF
             id="forfatter"
             name="forfatter"
