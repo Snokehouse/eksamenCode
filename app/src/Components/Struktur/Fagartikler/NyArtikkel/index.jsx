@@ -100,15 +100,46 @@ const NyArtikkel = () => {
   // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
-    createData();
+
+    if(this.handleValidation()){
+      alert("Form submitted");
+      createData();
+    }else{
+      alert("Form has errors.")
+    }
   };
+
+  //Validation start
+
+  handleValidation = () => {
+    let fields = this.state.fields;
+    let errors = {};
+    let formIsValid = true;
+
+    //Name
+    if(!fields["tittel"]){
+       formIsValid = false;
+       errors["tittel"] = "Cannot be empty";
+    }
+
+    this.setState({errors: errors});
+    return formIsValid;
+  };
+
+  handleChange = (field, e) => {         
+      let fields = this.state.fields;
+      fields[field] = e.target.value;        
+      this.setState({fields});
+  };
+
+  //Validation end
 
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
       <Wrapper>
         <ArtikkelForm id="artikkelForm" onSubmit={submitHandle}>
-          <ArtikkelLabel htmlFor="txtTittel">Tittel: </ArtikkelLabel>
+          <ArtikkelLabel htmlFor="txtTittel" onChange={this.handleChange.bind(this, "tittel")} value={this.state.fields["tittel"]}>Tittel: </ArtikkelLabel>
           <ArtikkelInput
             id="txtTittel"
             name="tittel"
