@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0px auto;
-  padding: 5% 15%;
+  padding: 5% 12%;
   width: 100%;
 
   & .MenyItems {
     margin: 20px 0px 0px 0px;
-    padding: 0px;
+    padding: 0% 15%;
     width: 100%;
     display: grid;
     grid-template-columns: 8fr 1fr 1fr;
