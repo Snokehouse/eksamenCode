@@ -2,7 +2,7 @@ import http from './http';
 
 const API_URL = '/kategori';
 
-export const list = async () => {
+export const listKategori = async () => {
   try {
     return await http.get(`${API_URL}`);
   } catch (feilmelding) {
