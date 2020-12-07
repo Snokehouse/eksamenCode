@@ -43,7 +43,7 @@ export const KnappListe = styled.button`
 
   &:focus {
     outline: 0;
-    color: #4caf50;
+    color: #007b5f;
   }
 `;
 export const KnappCard = styled.button`
@@ -56,7 +56,7 @@ export const KnappCard = styled.button`
 
   &:focus {
     outline: 0;
-    color: #4caf50;
+    color: #007b5f;
   }
 `;
 // Dropdown
@@ -69,7 +69,7 @@ export const DropdownContent = styled.section`
   z-index: 1;
 `;
 export const Dropdownbtn = styled.button`
-  background-color: #4caf50;
+  background-color: #007b5f;
   color: white;
   padding: 16px;
   font-size: 16px;

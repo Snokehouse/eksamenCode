@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from 'react';
 
 import { list } from '../../../Utils/Artikkel.js';
+import { Tittel } from '../../Home/Style.jsx';
 
 import ArtikkelItem from './ArtikkelItem';
 import {
@@ -33,6 +34,7 @@ const Fagartikler = () => {
   };
   return (
     <Container>
+      <Tittel>Artikkel Oversikt</Tittel>
       <Container className="MenyItems">
         <Linkbtn href="/fagartikler/new">Ny Artikkel</Linkbtn>
         <SokeFelt

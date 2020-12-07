@@ -9,7 +9,7 @@ export const Tittel = styled.h1`
   margin: 0;
   padding: 10% 20%;
   text-align: center;
-  background-color: grey;
+  background-color: lightgrey;
 `;
 export const UnderTittel = styled.h2`
   margin: 0;

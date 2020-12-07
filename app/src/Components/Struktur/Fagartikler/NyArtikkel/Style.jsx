@@ -14,7 +14,7 @@ export const Tittel = styled.h1`
   margin: 0 auto;
   padding: 10% 20%;
   text-align: center;
-  background-color: grey;
+  background-color: lightgray;
 `;
 // Form Artikkel
 export const ArtikkelForm = styled.form`
@@ -37,7 +37,7 @@ export const ArtikkelLabel = styled.label`
 `;
 export const ArtikkelButton = styled.button`
   float: right;
-  background-color: #4caf50;
+  background-color: #007b5f;
   color: white;
   padding: 14px 20px;
   margin: 8px 5px;
@@ -72,7 +72,7 @@ export const ArtikkelOption = styled.option`
 `;
 export const Nybutton = styled.button`
   width: 20%;
-  background-color: #4caf50;
+  background-color: #007b5f;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -123,7 +123,7 @@ export const DropdownContent = styled.section`
   z-index: 1;
 `;
 export const Dropdownbtn = styled.button`
-  background-color: #4caf50;
+  background-color: #007b5f;
   color: white;
   padding: 16px;
   font-size: 16px;

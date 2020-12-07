@@ -2,25 +2,33 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0 auto;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   width: 100%;
 
   & .MenyItems {
+    margin: 20px 0px 0px 0px;
     padding: 0;
-    display: grid;
-    grid-template-columns: 1fr auto 1.5fr 1fr;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
 // Overskrifter
+// Overskrifter
 export const Tittel = styled.h1`
-  margin: 0;
+  margin: 0 auto;
+  padding: 10% 20%;
+  text-align: center;
+  background-color: lightgray;
 `;
+
 export const UnderTittel = styled.h2`
   margin: 0;
 `;
 export const SmallTittel = styled.p`
   margin: 0;
 `;
+
 // Artikkel elementer
 export const KontorArticle = styled.article`
   margin: 0 auto;
@@ -31,13 +39,13 @@ export const Paragraf = styled.p`
 `;
 // Link
 export const Linkbtn = styled.a`
-  margin: 0 auto;
+  margin: 0px 5px;
   padding: 20px 5px;
   width: 65px;
   height: 55px;
-  background-color: green;
+  background-color: #007b5f;
   text-align: center;
-  color: black;
+  color: white;
   font-weight: bold;
   font-size: 1.031rem;
 
@@ -64,7 +72,7 @@ export const LinkWrapper = styled.a`
 `;
 // Søkefelt
 export const SokeFelt = styled.input`
-  margin: 0 auto;
+  margin: 0px 5px;
 `;
 // Dropdown
 export const DropdownContent = styled.section`
@@ -76,6 +84,7 @@ export const DropdownContent = styled.section`
   z-index: 1;
 `;
 export const Dropdownbtn = styled.button`
+  margin: auto 0px;
   background-color: #4caf50;
   color: white;
   padding: 16px;

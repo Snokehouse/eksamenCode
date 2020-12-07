@@ -60,6 +60,7 @@ const NyArtikkel = () => {
     };
     updateData();
   }, [updateRender]);
+  
   const addKategori = async (value) => {
     const { data, error } = await lagKategori(value);
     if (error) {
