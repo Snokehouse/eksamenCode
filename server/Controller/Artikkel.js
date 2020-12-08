@@ -21,6 +21,7 @@ export const getArtikler = catchAsyncErrors(async (req, res, next) => {
   const result = await artikkelService.listArtikkel();
   res.status(200).json(result);
 });
+
 export const update = catchAsyncErrors(async (req, res, next) => {
   let event = await artikkelService.getArtikkelById(req.params.id);
   if (!event) {
