@@ -22,7 +22,7 @@ const AdminSchema = new Schema({
   password: {
     type: String,
     required: [true, 'Fyll ut passord'],
-    minlength: [8, 'Passord må bestå av minst 4 verdier'],
+    minlength: [8, 'Passord må bestå av minst 8 verdier'],
     maxlength: [40, 'Passord kan maks inneholde 40 verdier'],
     select: false,
   },
