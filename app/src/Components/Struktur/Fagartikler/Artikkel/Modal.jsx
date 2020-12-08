@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 import moment from 'moment';
+
+import { listKategori, lagKategori } from '../../../Utils/Kategori.js';
+import { listForfatter } from '../../../Utils/Forfatter.js';
+
+import Modal2 from './Modal2';
 
 import {
   ModalContainer,
@@ -13,6 +17,10 @@ import {
   ArtikkelInput,
   ArtikkelLabel,
   ArtikkelButton,
+  ArtikkelSelectK,
+  ArtikkelSelectF,
+  ArtikkelOption,
+  Nybutton,
 } from '../NyArtikkel/Style';
 
 const Modal = ({
@@ -28,6 +36,54 @@ const Modal = ({
     innLastetData: PropTypes.object,
     setInnLastetData: PropTypes.func,
   };
+  const [modal2, setModal2] = useState(false);
+
+  // Forfatter
+  const [forfatterData, setforfatterData] = useState([]);
+  useEffect(() => {
+    const updateData = async () => {
+      const { data, error } = await listForfatter();
+      if (error) {
+        console.log(`Error: ${error}`);
+      } else {
+        setforfatterData(data.data);
+      }
+    };
+    updateData();
+  }, []);
+
+  // Kategori
+  const [modalData, setModalData] = useState([
+    {
+      modalValue: '',
+    },
+  ]);
+
+  const [kategoriData, setkategoriData] = useState([]);
+  const [updateRender, setUpdateRender] = useState(false);
+  useEffect(() => {
+    const updateData = async () => {
+      const { data, error } = await listKategori();
+      if (error) {
+        console.log(`Error: ${error}`);
+      } else {
+        setkategoriData(data);
+      }
+    };
+    updateData();
+  }, [updateRender]);
+
+  const addKategori = async (value) => {
+    const { data, error } = await lagKategori(value);
+    if (error) {
+      console.log(`Error: ${error}`);
+    } else {
+      setUpdateRender(true);
+      setModal2(!modal2);
+    }
+  };
+
+  // formatere dato string
   let datoStr = innLastetData.dato;
   datoStr = moment(datoStr).format('yyyy-MM-DD');
   innLastetData.dato = datoStr;
@@ -82,27 +138,72 @@ const Modal = ({
             value={innLastetData.beskrivelse}
             onChange={updateValue}
           />
+          <br />
           <ArtikkelLabel htmlFor="kategori">Kategori: </ArtikkelLabel>
-          <ArtikkelInput
+          <br />
+          <ArtikkelSelectK
             id="kategori"
             name="kategori"
-            type="text"
+            form="artikkelForm"
             value={innLastetData.kategori}
             onChange={updateValue}
-            readOnly
-          />
-          <ArtikkelLabel htmlFor="txtForfatter">Forfatter: </ArtikkelLabel>
-          <ArtikkelInput
-            id="txtForfatter"
+          >
+            <ArtikkelOption value="" hidden>
+              Velg Kategori
+            </ArtikkelOption>
+            {kategoriData < 1 ? (
+              <ArtikkelOption value={null}>
+                Ingen kategorier funnet, lag en ny!
+              </ArtikkelOption>
+            ) : (
+              kategoriData.map((kategori) => (
+                <ArtikkelOption
+                  key={`${kategori.kategori}`}
+                  value={`${kategori.kategori}`}
+                >{`${kategori.kategori}`}</ArtikkelOption>
+              ))
+            )}
+          </ArtikkelSelectK>
+          <Nybutton type="button" onClick={() => setModal2(!modal2)}>
+            Ny
+          </Nybutton>
+          <br />
+          <ArtikkelLabel htmlFor="forfatter">Forfatter: </ArtikkelLabel>
+          <br />
+          <ArtikkelSelectF
+            id="forfatter"
             name="forfatter"
-            type="text"
+            form="artikkelForm"
             value={innLastetData.forfatter}
             onChange={updateValue}
-            readOnly
-          />
+          >
+            <ArtikkelOption value="" hidden>
+              Velg Forfatter
+            </ArtikkelOption>
+            {forfatterData < 1 ? (
+              <ArtikkelOption value={null}>
+                Ingen forfatter funnet!
+              </ArtikkelOption>
+            ) : (
+              forfatterData.map((forfatter) => (
+                <ArtikkelOption
+                  key={`${forfatter.forfatter}`}
+                  value={`${forfatter.forfatter}`}
+                >{`${forfatter.forfatter}`}</ArtikkelOption>
+              ))
+            )}
+          </ArtikkelSelectF>
           <ArtikkelButton type="submit">Submit</ArtikkelButton>
         </ArtikkelForm>
       </ModalWrapper>
+      {modal2 && (
+        <Modal2
+          addKategori={addKategori}
+          setModal2={setModal2}
+          modalData={modalData}
+          setModalData={setModalData}
+        />
+      )}
     </ModalContainer>
   );
 };
