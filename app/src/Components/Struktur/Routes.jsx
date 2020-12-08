@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from 'react-router-dom';
+
+import { useAuthContext } from '../Struktur/Context/AuthProvider.jsx';
 
 import MainLayout from '../Styles/Layout/MainLayout';
 
@@ -20,6 +22,41 @@ import Kontakt from './Kontakt/Index';
 
 import LoggInn from './LoggInn/Index'
 import NoMatch from './NoMatch/Index';
+
+
+const AuthenticatedRoutes = ({ children, ...rest }) => {
+  const { isLoggedIn, isLoading } = useAuthContext();
+
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        isLoggedIn && !isLoading ? (
+          <div>{children}</div>
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+};
+
+const AdminRoutes = ({ children, ...rest }) => {
+  const { isLoggedIn, isAdmin, isLoading } = useAuthContext();
+
+  return (
+    <Route
+      {...rest}
+      render={() => isLoggedIn && isAdmin && !isLoading && children}
+    />
+  );
+};
+
 
 const Routes = () => (
   <Router>
@@ -49,7 +86,7 @@ const Routes = () => (
         <Route exact path="/kontakt">
           <Kontakt />
         </Route>
-        <Route exact path="/logginn">
+        <Route exact path="/login">
           <LoggInn />
         </Route>
         <Redirect exact from="/" to="/home" />
