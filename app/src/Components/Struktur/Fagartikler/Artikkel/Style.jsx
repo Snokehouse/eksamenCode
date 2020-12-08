@@ -32,3 +32,29 @@ export const KontorArticle = styled.article`
 export const Paragraf = styled.p`
   margin: 0 auto;
 `;
+export const SlettKnapp = styled.button`
+  background-color: #b22222;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  & :disabled {
+    display: none;
+  }
+`;
+export const RedigerKnapp = styled.button`
+  background-color: #f4a460;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  & :disabled {
+    display: none;
+  }
+`;

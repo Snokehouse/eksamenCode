@@ -25,3 +25,17 @@ export const create = async (data) => {
     return feilmelding.response.data;
   }
 };
+export const updateArtikkel = async (id, data) => {
+  try {
+    return await http.put(`${API_URL}/${id}`, data);
+  } catch (feilmelding) {
+    return feilmelding.response.data;
+  }
+};
+export const deleteArtikkel = async (id) => {
+  try {
+    return await http.delete(`${API_URL}/${id}`);
+  } catch (feilmelding) {
+    return feilmelding.response.data;
+  }
+};

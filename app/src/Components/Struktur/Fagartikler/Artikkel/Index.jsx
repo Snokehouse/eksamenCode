@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getArtikkel } from '../../../Utils/Artikkel.js';
-
+import { useParams, useHistory } from 'react-router-dom';
+import {
+  getArtikkel,
+  deleteArtikkel,
+  updateArtikkel,
+} from '../../../Utils/Artikkel.js';
+import Modal from './Modal';
 import {
   Container,
   TittelWrap,
@@ -10,11 +14,16 @@ import {
   SmallTittel,
   KontorArticle,
   Paragraf,
+  SlettKnapp,
+  RedigerKnapp,
 } from './Style';
 
 const Artikkel = () => {
+  const [modal, setModal] = useState(false);
+  const history = useHistory();
   const [innLastetData, setInnLastetData] = useState([]);
   const { artikkelID } = useParams();
+  const [updateRender, setUpdateRender] = useState(false);
   useEffect(() => {
     const updateData = async () => {
       const { data, error } = await getArtikkel(artikkelID);
@@ -25,12 +34,37 @@ const Artikkel = () => {
       }
     };
     updateData();
-  }, [artikkelID]);
+  }, [artikkelID, updateRender]);
+  // sjekke om det går ann å få tak i bilde for bakgrunn så sette det
   const finnesDetBakgrunn = () => {
     if (innLastetData.bildeID !== undefined) {
       return `url(http://localhost:5000/api/v1/image/${innLastetData.bildeID})`;
     }
     return 'url()';
+  };
+  // funksjon for slette og redigere
+
+  const slettArtikkel = () => {
+    if (confirm('Vil du slette artikkelen?')) {
+      const sletteData = async () => {
+        const { data, error } = await deleteArtikkel(artikkelID);
+        if (error) {
+          console.log(`Error: ${error}`);
+        } else {
+          history.push('/fagartikler');
+        }
+      };
+      sletteData();
+    }
+  };
+  const redigereSubmit = async () => {
+    const { data, error } = await updateArtikkel(artikkelID, innLastetData);
+    if (error) {
+      console.log(`Error: ${error}`);
+    } else {
+      setUpdateRender(true);
+      setModal(!modal);
+    }
   };
   return (
     <Container>
@@ -85,7 +119,21 @@ const Artikkel = () => {
           palpatine omas gado anakin ti jade.
         </Paragraf>
         <SmallTittel>{`${innLastetData.kategori}`}</SmallTittel>
+        <SlettKnapp disabled={false} onClick={slettArtikkel}>
+          Slett
+        </SlettKnapp>
+        <RedigerKnapp disabled={false} onClick={() => setModal(!modal)}>
+          Rediger
+        </RedigerKnapp>
       </KontorArticle>
+      {modal && (
+        <Modal
+          redigereSubmit={redigereSubmit}
+          setModal={setModal}
+          innLastetData={innLastetData}
+          setInnLastetData={setInnLastetData}
+        />
+      )}
     </Container>
   );
 };
