@@ -59,7 +59,7 @@ const Fagartikler = () => {
             <Paragraf>Fant ingen artikler å vise.</Paragraf>
           ) : (
             innLastetData.map((artikkel) => (
-              <ArtikkelItem key={artikkel.tittel} artikkel={artikkel} />
+              <ArtikkelItem key={artikkel._id} artikkel={artikkel} />
             ))
           )}
         </Container>
