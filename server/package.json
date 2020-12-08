@@ -17,7 +17,8 @@
     "nodemon": "^2.0.6",
     "validator": "^13.1.17",
     "jsonwebtoken": "8.5.1",
-    "joi": "17.3.0"
+    "joi": "17.3.0",
+    "slugify": "1.4.6"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
