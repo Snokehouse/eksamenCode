@@ -34,9 +34,13 @@ const UserSchema = new Schema({
       values: ['user', 'admin'],
       message: 'Rolle ikke fylt ut',
     },
-    default: 'user'
-  }
-});
+    default: 'user',
+  },
+},
+
+{ timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
+
+);
 
 // Tatt fra en youtube video som linka en git branch, sjekk README nr. 1
 UserSchema.pre('save', async function (next) {
@@ -64,6 +68,13 @@ UserSchema.methods.getJwtToken = function () {
     expiresIn: process.env.JWT_EXPIRES_TIME,
   });
 };
+
+UserSchema.virtual('events', {
+  ref: 'Event',
+  localField: '_id',
+  foreignField: 'user',
+  justOne: false,
+});
 
 const User = mongoose.model('User', UserSchema);
 

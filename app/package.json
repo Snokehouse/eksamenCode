@@ -50,9 +50,15 @@
     "webpack-merge": "^5.1.0"
   },
   "dependencies": {
+    "@chakra-ui/core": "0.8.0",
+    "@chakra-ui/react": "^1.0.2",
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
+    "emotion-theming": "^10.0.27",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
+    "framer-motion": "^2.9.5",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
@@ -61,6 +67,7 @@
     "react-icons": "^4.1.0",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
+    "react-hook-form": "^6.11.0",
     "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7"
   }
