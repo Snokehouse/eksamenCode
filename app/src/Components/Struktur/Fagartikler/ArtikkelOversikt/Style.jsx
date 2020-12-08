@@ -14,6 +14,10 @@ export const Container = styled.section`
     grid-template-columns: 8fr 1fr 1fr;
   }
 `;
+export const ArtikkelWrapper = styled.section`
+  text-align: center;
+  padding: 15px;
+`;
 // Overskrifter
 export const Tittel = styled.h1`
   margin: 0 auto;
@@ -21,12 +25,7 @@ export const Tittel = styled.h1`
   text-align: center;
   background-color: lightgray;
 `;
-
-export const ArtikkelWrapper = styled.section`
-  text-align: center;
-  padding: 15px;
-`;
-
+// image
 export const ImageStyle = styled.img`
   max-width: 125px;
   height: auto;

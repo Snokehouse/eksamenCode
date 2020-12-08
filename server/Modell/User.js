@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 const { Schema } = mongoose;
 
-const AdminSchema = new Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Fyll ut navn'],
@@ -29,7 +29,7 @@ const AdminSchema = new Schema({
 });
 
 // Tatt fra en youtube video som linka en git branch, sjekk README nr. 1
-AdminSchema.pre('save', async function (next) {
+UserSchema.pre('save', async function (next) {
   try {
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(this.password, salt);
@@ -41,6 +41,6 @@ AdminSchema.pre('save', async function (next) {
   }
 });
 
-const Admin = mongoose.model('Admin', AdminSchema);
+const User = mongoose.model('User', UserSchema);
 
-export default Admin;
+export default User;
