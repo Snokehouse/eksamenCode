@@ -7,12 +7,13 @@ import 'dotenv/config.js';
 import errorMiddleware from './middleware/errors.js';
 
 import connectDatabase from './Config/db.js';
-import admin from './Route/Admin.js';
+import user from './Route/User.js';
 import kontorer from './Route/Kontorer.js';
 import artikkel from './Route/Artikkel.js';
 import kategori from './Route/Kategori.js';
 import forfatter from './Route/Forfatter.js';
 import image from './Route/Image.js';
+import auth from './Route/Auth.js';
 
 // lager "app" med express slik at vi får satt opp server
 const app = express();
@@ -35,7 +36,7 @@ app.use(
 );
 
 // url som blir brukt localhost:5000/api/v1/admin
-app.use(`${process.env.BASEURL}/admin`, admin);
+app.use(`${process.env.BASEURL}/user`, user);
 
 // url som blir brukt localhost:5000/api/v1/kontorer
 app.use(`${process.env.BASEURL}/kontorer`, kontorer);
@@ -51,6 +52,8 @@ app.use(`${process.env.BASEURL}/kategori`, kategori);
 
 // url som blir brukt localhost:5000/api/v1/image
 app.use(`${process.env.BASEURL}/image`, image);
+
+app.use(`${process.env.BASEURL}/`, auth);
 
 // global error håndtering
 app.use(errorMiddleware);
