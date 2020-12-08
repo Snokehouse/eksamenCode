@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';  // , { lazy, Suspense } 
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { useAuthContext } from '../Struktur/Context/AuthProvider.jsx';
+//import { useAuthContext } from '../Struktur/Context/AuthProvider.jsx';
 
 import MainLayout from '../Styles/Layout/MainLayout';
 
@@ -24,7 +24,7 @@ import LoggInn from './LoggInn/Index'
 import NoMatch from './NoMatch/Index';
 
 
-const AuthenticatedRoutes = ({ children, ...rest }) => {
+/*const AuthenticatedRoutes = ({ children, ...rest }) => {
   const { isLoggedIn, isLoading } = useAuthContext();
 
   return (
@@ -55,7 +55,7 @@ const AdminRoutes = ({ children, ...rest }) => {
       render={() => isLoggedIn && isAdmin && !isLoading && children}
     />
   );
-};
+};*/
 
 const Routes = () => (
   <Router>
