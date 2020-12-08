@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Break from 'react-break';
+import { useAuthContext } from '../../../Struktur/Context/AuthProvider';
+import { logout } from '../../../Utils/AuthService';
 
 const StyledNav = styled.nav`
   font-family: Lato;
@@ -77,7 +79,14 @@ const NavBreakpoints = {
   desktop: 800,
 };
 
-const Nav = () => (
+const Nav = () => {
+  const { isLoggedIn, setUser } = useAuthContext();
+  const handleLogout = async () => {
+    await logout();
+    setUser(null);
+  };
+
+  return (
   <>
     <Break
       breakpoints={NavBreakpoints}
@@ -105,11 +114,20 @@ const Nav = () => (
               Kontakt
             </NavLink>
           </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/login" activeClassName="active">
-              Logg inn
+            {!isLoggedIn && (
+              <NavMenuItem style={{ marginLeft: 'auto' }}>
+                <NavLink exact to="/login" activeClassName="active">
+                  Logg inn
+                </NavLink>
+              </NavMenuItem>
+            )}
+               {isLoggedIn && (
+          <NavMenuItem style={{ marginLeft: 'auto' }}>
+            <NavLink exact to="/logout" onClick={handleLogout}>
+              Logg ut
             </NavLink>
           </NavMenuItem>
+        )}
         </NavMenu>
       </StyledNav>
     </Break>
@@ -139,11 +157,20 @@ const Nav = () => (
               Kontakt
             </NavLink>
           </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/login" activeClassName="active">
+          {!isLoggedIn && (
+          <NavMenuItem style={{ marginLeft: 'auto' }}>
+            <NavLink exact to="/login" activeClassName="active">
               Logg inn
             </NavLink>
           </NavMenuItem>
+        )}
+           {isLoggedIn && (
+          <NavMenuItem style={{ marginLeft: 'auto' }}>
+            <NavLink exact to="/logout" onClick={handleLogout}>
+              Logg ut
+            </NavLink>
+          </NavMenuItem>
+        )}
         </NavMenu>
       </StyledNav>
     </Break>
@@ -174,15 +201,26 @@ const Nav = () => (
               Kontakt
             </NavLink>
           </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/login" activeClassName="active">
+          {!isLoggedIn && (
+          <NavMenuItem style={{ marginLeft: 'auto' }}>
+            <NavLink exact to="/login" activeClassName="active">
               Logg inn
             </NavLink>
           </NavMenuItem>
+        )}
+           {isLoggedIn && (
+          <NavMenuItem style={{ marginLeft: 'auto' }}>
+            <NavLink exact to="/logout" onClick={handleLogout}>
+              Logg ut
+            </NavLink>
+          </NavMenuItem>
+        )}
         </NavMenu>
       </StyledNav>
     </Break>
   </>
 );
+
+};
 
 export default Nav;
