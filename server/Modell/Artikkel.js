@@ -20,7 +20,7 @@ const ArtikkelSchema = new Schema({
   beskrivelse: {
     type: String,
     required: [true, 'Fyll ut beskrivelse'],
-    unique: true,
+    unique: false,
   },
 
   kategori: {
