@@ -200,7 +200,7 @@ const NyArtikkel = () => {
             </ArtikkelOption>
             {forfatterData < 1 ? (
               <ArtikkelOption value={null}>
-                Ingen kategorier funnet, lag en ny!
+                Ingen forfatter funnet!
               </ArtikkelOption>
             ) : (
               forfatterData.map((forfatter) => (
