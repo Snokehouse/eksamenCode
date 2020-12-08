@@ -140,7 +140,7 @@ const Nav = () => (
             </NavLink>
           </NavMenuItem>
           <NavMenuItem>
-            <NavLink to="/logginn" activeClassName="active">
+            <NavLink to="/login" activeClassName="active">
               Logg inn
             </NavLink>
           </NavMenuItem>
@@ -175,7 +175,7 @@ const Nav = () => (
             </NavLink>
           </NavMenuItem>
           <NavMenuItem>
-            <NavLink to="/logginn" activeClassName="active">
+            <NavLink to="/login" activeClassName="active">
               Logg inn
             </NavLink>
           </NavMenuItem>

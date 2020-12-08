@@ -20,7 +20,7 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -125,12 +125,12 @@ const LoggInn = () => {
 
         <Button
           mt={4}
-          variantColor="teal"
           isLoading={formState.isSubmitting}
           type="submit"
         >
           Logg Inn
         </Button>
+
       </Box>
     </>
   );
