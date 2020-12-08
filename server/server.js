@@ -32,13 +32,14 @@ app.use(express.static(`${__dirname}/public`));
 app.use(
   cors({
     origin: 'http://localhost:3000',
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   })
 );
 
 app.use(`${process.env.BASEURL}/events`, event);
 
-// url som blir brukt localhost:5000/api/v1/admin
+// url som blir brukt localhost:5000/api/v1/user
 app.use(`${process.env.BASEURL}/user`, user);
 
 // url som blir brukt localhost:5000/api/v1/kontorer
