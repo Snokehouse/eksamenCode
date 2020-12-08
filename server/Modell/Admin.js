@@ -41,6 +41,14 @@ AdminSchema.pre('save', async function (next) {
   }
 });
 
+AdminSchema.methods.isValidPassword = async function (newPassword) {
+    try {
+      return await bcrypt.compare(newPassword, this.password);
+    } catch(error) {
+      throw new Error(error);
+    }
+};
+
 const Admin = mongoose.model('Admin', AdminSchema);
 
 export default Admin;
