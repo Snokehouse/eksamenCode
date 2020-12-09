@@ -23,8 +23,9 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, 'Fyll ut passord'],
-    minlength: [8, 'Passord må bestå av minst 8 verdier'],
+    minlength: [3, 'Passord må bestå av minst 3 verdier'],
     maxlength: [40, 'Passord kan maks inneholde 40 verdier'],
+    match: [/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%* #+=\(\)\^?&])[A-Za-z\d$@$!%* #+=\(\)\^?&]{3,}$/, 'Passord må inneholde mins 3 verdier som må inneholde minst; 1 tall, 1 bokstav og 1 spesialtegn.'],
     select: false,
   },
 
