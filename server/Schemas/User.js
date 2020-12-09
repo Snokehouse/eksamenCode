@@ -6,9 +6,9 @@ const userValues = {
     'string.email': 'Bruk riktig format på epost',
     'string.empty': 'Fyll ut epost',
   }),
-  password: Joi.string().min(4).required().messages({
+  password: Joi.string().min(3).required().messages({
     'any.required': 'Passord må fylles ut',
-    'string.min': 'Må bestå av minst 4 tall/bokaster',
+    'string.min': 'Må bestå av minst 3 tall/bokstaver',
     'string.empty': 'Fyll ut passord',
   }),
 };
