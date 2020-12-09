@@ -15,6 +15,9 @@ import {
   Dropdownbtn,
 } from './Style';
 
+import { useAuthContext } from '../../../Struktur/Context/AuthProvider';
+import { logout } from '../../../Utils/AuthService';
+
 const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([]);
 
@@ -32,12 +35,22 @@ const Fagartikler = () => {
   const handleChange = () => {
     console.log('fagartikkel');
   };
+
+  //Sjekker om bruker er logget inn som admin
+  const { isLoggedIn, setUser } = useAuthContext();
+  const handleLogout = async () => {
+    await logout();
+    setUser(null);
+  };
+
   return (
     <>
       <Tittel>Artikkel Oversikt</Tittel>
       <Container>
         <Container className="MenyItems">
+        {isLoggedIn && (
           <Linkbtn href="/fagartikler/new">Ny Artikkel</Linkbtn>
+        )}
           <SokeFelt
             id="sokTxt"
             name="sokTxt"
