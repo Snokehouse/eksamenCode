@@ -1,5 +1,16 @@
 import React from 'react';
 
-const Kontakt = () => <h2>404 Error not found.</h2>;
+import { Container, FormWrapper, Tittel, UnderTittel } from './Style';
+
+const Kontakt = () => (
+  <>
+    <Tittel>Kontakt oss</Tittel>
+    <Container>
+      <FormWrapper>
+        <UnderTittel>Kontaktskjema</UnderTittel>
+      </FormWrapper>
+    </Container>
+  </>
+);
 
 export default Kontakt;
