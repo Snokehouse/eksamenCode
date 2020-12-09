@@ -57,7 +57,6 @@ const AdminRoutes = ({ children, ...rest }) => {
   );
 };*/
 
-
 const Routes = () => (
   <Router>
     <MainLayout>
