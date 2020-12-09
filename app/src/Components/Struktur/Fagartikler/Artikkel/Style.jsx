@@ -19,24 +19,30 @@ export const Tittel = styled.h1`
   text-align: center;
 `;
 export const UnderTittel = styled.h2`
-  margin: 0;
+  margin: 50px 0px 0px 0px;
 `;
 export const SmallTittel = styled.h4`
-  margin: 0;
+  margin: 10px 0px;
 `;
+
 // Artikkel elementer
 export const KontorArticle = styled.article`
   margin: 0 auto;
-  padding: 10% 20%;
+  padding: 5% 20%;
+
+  > .datoTittel {
+    float: right;
+  }
+
 `;
 export const Paragraf = styled.p`
-  margin: 0 auto;
+  margin: 10px auto;
 `;
 export const SlettKnapp = styled.button`
   background-color: #b22222;
   color: white;
   padding: 14px 20px;
-  margin: 8px 5px;
+  margin: 10px 0px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -49,7 +55,7 @@ export const RedigerKnapp = styled.button`
   background-color: #f4a460;
   color: white;
   padding: 14px 20px;
-  margin: 8px 5px;
+  margin: 10px 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
