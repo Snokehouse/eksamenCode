@@ -5,9 +5,9 @@ import {
   AlertIcon,
   AlertTitle,
   Box,
-  Button,
+  //Button,
   CloseButton,
-  Input,
+  //Input,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -88,16 +88,10 @@ const LoggInn = () => {
           >
             {error &&
               Array.isArray(error) &&
-              error.map((err) => (
-                <AlertTitle mr={2}>
-                  <span>Passord må fylles ut og bestå av 3 tall/bokstaver</span>
-                </AlertTitle>
-              ))}
-
+              error.map((err) => <AlertTitle mr={2}>{err.message}</AlertTitle>)}
             {error && !Array.isArray(error) && (
               <AlertTitle mr={2}>{error}</AlertTitle>
             )}
-
             <CloseButton
               position="absolute"
               right="8px"
