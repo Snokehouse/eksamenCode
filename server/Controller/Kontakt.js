@@ -4,17 +4,17 @@ import catchAsyncErrors from '../middleware/catchAsync.js';
 import { sendMail } from '../utils/sendEmail.js';
 
 export const createKontaktcase = catchAsyncErrors(async (req, res, next) => {
-  const artikkel = await kontaktService.createKontaktcase(req.body);
+  const kontakt = await kontaktService.createKontaktcase(req.body);
   try {
     await sendMail({
-      email: artikkel.email,
+      email: kontakt.email,
       subject: 'Test',
-      message: artikkel.hendvendelse,
+      message: kontakt.hendvendelse,
     });
   } catch (error) {
     console.log(error);
   }
-  res.status(201).json(artikkel);
+  res.status(201).json(kontakt);
 });
 
 export const getKontaktcase = catchAsyncErrors(async (req, res, next) => {
