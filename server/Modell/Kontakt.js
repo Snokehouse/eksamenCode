@@ -15,11 +15,16 @@ const KontaktSchema = new Schema({
     validate: [validator.isEmail, 'Eposten er ikke gyldig'],
   },
 
+  emne: {
+    type: String,
+    required: [true, 'Fyll ut emne'],
+  },
+
   hendvendelse: {
     type: String,
     required: [true, 'Fyll ut hendvendelse'],
   },
 });
-const Kontakt = mongoose.model('Kontakt', KontaktSchema);
+const Kontaktcase = mongoose.model('Kontakt', KontaktSchema);
 
-export default Kontakt;
+export default Kontaktcase;

@@ -1,5 +1,5 @@
 import Artikkel from '../Modell/Artikkel.js';
-import Kontakt from '../Modell/Kontakt.js';
+import Kontaktcase from '../Modell/Kontakt.js';
 
-export const createKontaktcase = async (data) => Kontakt.create(data);
-export const listKontaktcases = async () => Kontakt.find();
+export const createKontaktcase = async (data) => Kontaktcase.create(data);
+export const listKontaktcases = async () => Kontaktcase.find();
