@@ -1,13 +1,4 @@
 import React, { useEffect, useState } from 'react';
-/* import {
-  Container,
-  Wrapper,
-  Tittel,
-  LoginForm,
-  LoginInput,
-  LoginLabel,
-  LoginButton,
-} from './Style.jsx'; */
 
 import {
   Alert,
@@ -42,15 +33,17 @@ const LoggInn = () => {
     let mounted = true;
     if (isLoggedIn && state) {
       if (mounted) {
-      history.push(state?.from.pathname);
-      console.log("banan");
+        history.push(state?.from.pathname);
+      }
     }
+    return () => {
+      mounted = false;
     };
-    return () => {mounted = false};
   }, [isLoggedIn, state]);
 
   const onSubmit = async (credentials) => {
     const { data } = await login(credentials);
+    console.log(data);
     if (!data.success) {
       setCloseBtnState(true);
       setError(data.message);
@@ -62,7 +55,6 @@ const LoggInn = () => {
       history.push('/');
     }
   };
-
   return (
     <>
       <Box as="form" onSubmit={handleSubmit(onSubmit)}>
@@ -135,7 +127,6 @@ const LoggInn = () => {
         >
           Logg Inn
         </Button>
-
       </Box>
     </>
   );
