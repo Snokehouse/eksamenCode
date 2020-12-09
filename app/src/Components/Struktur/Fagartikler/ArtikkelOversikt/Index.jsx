@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { listKategori } from '../../../Utils/Kategori.js';
+
 import { list } from '../../../Utils/Artikkel.js';
 import { Tittel } from '../../Home/Style.jsx';
 
@@ -21,13 +23,35 @@ import { useAuthContext } from '../../Context/AuthProvider';
 const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([]);
   const history = useHistory();
+  const [kategoriData, setkategoriData] = useState([]);
+  const [updateRender, setUpdateRender] = useState(false);
+  const [queryStr] = useState([
+    {
+      limit: '',
+      page: '',
+      q: '',
+      kategori: '',
+    },
+  ]);
   useEffect(() => {
     const updateData = async () => {
-      const { data, error } = await list();
+      const { data, error } = await list(queryStr);
       if (error) {
         console.log(`Error: ${error}`);
       } else {
-        setInnLastetData(data);
+        setInnLastetData(data.data);
+      }
+    };
+    updateData();
+  }, [queryStr, updateRender]);
+
+  useEffect(() => {
+    const updateData = async () => {
+      const { data, error } = await listKategori();
+      if (error) {
+        console.log(`Error: ${error}`);
+      } else {
+        setkategoriData(data);
       }
     };
     updateData();
@@ -35,8 +59,17 @@ const Fagartikler = () => {
   const handleChange = () => {
     console.log('fagartikkel');
   };
+  const filterArtikler = (value) => {
+    if (value !== undefined) {
+      queryStr.kategori = value;
+      setUpdateRender(true);
+    } else {
+      queryStr.kategori = '';
+      setUpdateRender(true);
+    }
+  };
 
-  //Sjekker om bruker er logget inn som admin
+  // Sjekker om bruker er logget inn som admin
   const { isLoggedIn } = useAuthContext();
 
   return (
@@ -44,11 +77,11 @@ const Fagartikler = () => {
       <Tittel>Artikkel Oversikt</Tittel>
       <Container>
         <Container className="MenyItems">
-        {isLoggedIn && (
-          <Linkbtn onClick={() => history.push('/fagartikler/new')}>
-            Ny Artikkel
-          </Linkbtn>
-        )}
+          {isLoggedIn && (
+            <Linkbtn onClick={() => history.push('/fagartikler/new')}>
+              Ny Artikkel
+            </Linkbtn>
+          )}
           <SokeFelt
             id="sokTxt"
             name="sokTxt"
@@ -59,9 +92,19 @@ const Fagartikler = () => {
           <Dropdown>
             <Dropdownbtn>Filter</Dropdownbtn>
             <DropdownContent>
-              <DropdownItem href="#">Link 1</DropdownItem>
-              <DropdownItem href="#">Link 2</DropdownItem>
-              <DropdownItem href="#">Link 3</DropdownItem>
+              <DropdownItem onClick={() => filterArtikler()}>
+                Fjern Filter
+              </DropdownItem>
+              {kategoriData.length < 1 ? (
+                <DropdownItem>Mangler data</DropdownItem>
+              ) : (
+                kategoriData.map((kategori) => (
+                  <DropdownItem
+                    key={kategori._id}
+                    onClick={() => filterArtikler(kategori.kategori)}
+                  >{`${kategori.kategori}`}</DropdownItem>
+                ))
+              )}
             </DropdownContent>
           </Dropdown>
         </Container>

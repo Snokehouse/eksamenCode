@@ -2,9 +2,16 @@ import http from './http';
 
 const API_URL = '/artikkel';
 
-export const list = async () => {
+export const list = async (data) => {
   try {
-    return await http.get(`${API_URL}`);
+    if (data[0].kategori === '') {
+      return await http.get(
+        `${API_URL}?limit=${data[0].limit}&page=${data[0].limit}&q=${data[0].q}`
+      );
+    }
+    return await http.get(
+      `${API_URL}?limit=${data[0].limit}&page=${data[0].limit}&q=${data[0].q}&kategori=${data[0].kategori}`
+    );
   } catch (feilmelding) {
     return feilmelding.response.data;
   }

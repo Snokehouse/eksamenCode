@@ -58,7 +58,7 @@ export class ApiFilters {
   // page => what "group-selection" to return
   pagination() {
     const page = parseInt(this.queryStr.page, 10) || 1;
-    const limit = parseInt(this.queryStr.limit, 3) || 3;
+    const limit = parseInt(this.queryStr.limit, 10) || 10;
     const skipResults = (page - 1) * limit;
     this.query = this.query.skip(skipResults).limit(limit);
     return this;
