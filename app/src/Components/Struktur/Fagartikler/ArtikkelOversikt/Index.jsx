@@ -24,7 +24,6 @@ const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([]);
   const history = useHistory();
   const [kategoriData, setkategoriData] = useState([]);
-  
   const [updateRender, setUpdateRender] = useState(false);
   const [queryStr] = useState([
     {
@@ -45,13 +44,13 @@ const Fagartikler = () => {
     };
     updateData();
   }, [queryStr, updateRender]);
+
   useEffect(() => {
     const updateData = async () => {
       const { data, error } = await listKategori();
       if (error) {
         console.log(`Error: ${error}`);
       } else {
-        console.log(data);
         setkategoriData(data);
       }
     };

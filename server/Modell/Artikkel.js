@@ -33,8 +33,7 @@ const ArtikkelSchema = new Schema({
     type: String,
     required: [true, 'Ingen bildeID funnet'],
   },
-}
-);
+});
 
 ArtikkelSchema.index({
   tittel: 'text',
