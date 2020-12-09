@@ -54,7 +54,7 @@ const Kontakt = () => {
       console.log(error);
     } else {
       alert(
-        'Hendvendelsen er registrert, forventet behandlingstid: hvertfall 100 år vi har ikke ansatt noen til det enda :/'
+        'Hendvendelsen er registrert, forventet behandlingstid: hvertfall 100 år, vi har ikke ansatt noen til det enda :/'
       );
       history.push('/');
     }
