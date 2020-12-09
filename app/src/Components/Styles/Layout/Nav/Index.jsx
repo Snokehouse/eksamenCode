@@ -87,33 +87,33 @@ const Nav = () => {
   };
 
   return (
-  <>
-    <Break
-      breakpoints={NavBreakpoints}
-      query={{ method: 'is', breakpoint: 'mobile' }}
-    >
-      <StyledNav>
-        <NavMenu>
-          <NavMenuItem>
-            <NavLink exact to="/home" activeClassName="active">
-              Home
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/kontorer" activeClassName="active">
-              Kontorer
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/fagartikler" activeClassName="active">
-              Fagartikler
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/kontakt" activeClassName="active">
-              Kontakt
-            </NavLink>
-          </NavMenuItem>
+    <>
+      <Break
+        breakpoints={NavBreakpoints}
+        query={{ method: 'is', breakpoint: 'mobile' }}
+      >
+        <StyledNav>
+          <NavMenu>
+            <NavMenuItem>
+              <NavLink exact to="/home" activeClassName="active">
+                Home
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/kontorer" activeClassName="active">
+                Kontorer
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/fagartikler" activeClassName="active">
+                Fagartikler
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/kontakt" activeClassName="active">
+                Kontakt
+              </NavLink>
+            </NavMenuItem>
             {!isLoggedIn && (
               <NavMenuItem style={{ marginLeft: 'auto' }}>
                 <NavLink exact to="/login" activeClassName="active">
@@ -121,106 +121,105 @@ const Nav = () => {
                 </NavLink>
               </NavMenuItem>
             )}
-               {isLoggedIn && (
-          <NavMenuItem style={{ marginLeft: 'auto' }}>
-            <NavLink exact to="/logout" onClick={handleLogout}>
-              Logg ut
-            </NavLink>
-          </NavMenuItem>
-        )}
-        </NavMenu>
-      </StyledNav>
-    </Break>
-    <Break
-      breakpoints={NavBreakpoints}
-      query={{ method: 'is', breakpoint: 'tablet' }}
-    >
-      <StyledNav>
-        <NavMenu>
-          <NavMenuItem>
-            <NavLink exact to="/home" activeClassName="active">
-              Home
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/kontorer" activeClassName="active">
-              Kontorer
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/fagartikler" activeClassName="active">
-              Fagartikler
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/kontakt" activeClassName="active">
-              Kontakt
-            </NavLink>
-          </NavMenuItem>
-          {!isLoggedIn && (
-          <NavMenuItem style={{ marginLeft: 'auto' }}>
-            <NavLink exact to="/login" activeClassName="active">
-              Logg inn
-            </NavLink>
-          </NavMenuItem>
-        )}
-           {isLoggedIn && (
-          <NavMenuItem style={{ marginLeft: 'auto' }}>
-            <NavLink exact to="/logout" onClick={handleLogout}>
-              Logg ut
-            </NavLink>
-          </NavMenuItem>
-        )}
-        </NavMenu>
-      </StyledNav>
-    </Break>
-    <Break
-      breakpoints={NavBreakpoints}
-      query={{ method: 'is', breakpoint: 'desktop' }}
-    >
-      <StyledNav>
-        <NavMenu>
-          <Logo>LG</Logo>
-          <NavMenuItem>
-            <NavLink exact to="/home" activeClassName="active">
-              Home
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/kontorer" activeClassName="active">
-              Kontorer
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/fagartikler" activeClassName="active">
-              Fagartikler
-            </NavLink>
-          </NavMenuItem>
-          <NavMenuItem>
-            <NavLink to="/kontakt" activeClassName="active">
-              Kontakt
-            </NavLink>
-          </NavMenuItem>
-          {!isLoggedIn && (
-          <NavMenuItem style={{ marginLeft: 'auto' }}>
-            <NavLink exact to="/login" activeClassName="active">
-              Logg inn
-            </NavLink>
-          </NavMenuItem>
-        )}
-           {isLoggedIn && (
-          <NavMenuItem style={{ marginLeft: 'auto' }}>
-            <NavLink exact to="/logout" onClick={handleLogout}>
-              Logg ut
-            </NavLink>
-          </NavMenuItem>
-        )}
-        </NavMenu>
-      </StyledNav>
-    </Break>
-  </>
-);
-
+            {isLoggedIn && (
+              <NavMenuItem style={{ marginLeft: 'auto' }}>
+                <NavLink exact to="/" onClick={handleLogout}>
+                  Logg ut
+                </NavLink>
+              </NavMenuItem>
+            )}
+          </NavMenu>
+        </StyledNav>
+      </Break>
+      <Break
+        breakpoints={NavBreakpoints}
+        query={{ method: 'is', breakpoint: 'tablet' }}
+      >
+        <StyledNav>
+          <NavMenu>
+            <NavMenuItem>
+              <NavLink exact to="/home" activeClassName="active">
+                Home
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/kontorer" activeClassName="active">
+                Kontorer
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/fagartikler" activeClassName="active">
+                Fagartikler
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/kontakt" activeClassName="active">
+                Kontakt
+              </NavLink>
+            </NavMenuItem>
+            {!isLoggedIn && (
+              <NavMenuItem style={{ marginLeft: 'auto' }}>
+                <NavLink exact to="/login" activeClassName="active">
+                  Logg inn
+                </NavLink>
+              </NavMenuItem>
+            )}
+            {isLoggedIn && (
+              <NavMenuItem style={{ marginLeft: 'auto' }}>
+                <NavLink exact to="/" onClick={handleLogout}>
+                  Logg ut
+                </NavLink>
+              </NavMenuItem>
+            )}
+          </NavMenu>
+        </StyledNav>
+      </Break>
+      <Break
+        breakpoints={NavBreakpoints}
+        query={{ method: 'is', breakpoint: 'desktop' }}
+      >
+        <StyledNav>
+          <NavMenu>
+            <Logo>LG</Logo>
+            <NavMenuItem>
+              <NavLink exact to="/home" activeClassName="active">
+                Home
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/kontorer" activeClassName="active">
+                Kontorer
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/fagartikler" activeClassName="active">
+                Fagartikler
+              </NavLink>
+            </NavMenuItem>
+            <NavMenuItem>
+              <NavLink to="/kontakt" activeClassName="active">
+                Kontakt
+              </NavLink>
+            </NavMenuItem>
+            {!isLoggedIn && (
+              <NavMenuItem style={{ marginLeft: 'auto' }}>
+                <NavLink exact to="/login" activeClassName="active">
+                  Logg inn
+                </NavLink>
+              </NavMenuItem>
+            )}
+            {isLoggedIn && (
+              <NavMenuItem style={{ marginLeft: 'auto' }}>
+                <NavLink exact to="/" onClick={handleLogout}>
+                  Logg ut
+                </NavLink>
+              </NavMenuItem>
+            )}
+          </NavMenu>
+        </StyledNav>
+      </Break>
+    </>
+  );
 };
 
 export default Nav;
