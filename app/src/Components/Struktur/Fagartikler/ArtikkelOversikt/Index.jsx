@@ -17,7 +17,6 @@ import {
 } from './Style';
 
 import { useAuthContext } from '../../Context/AuthProvider';
-import { logout } from '../../../Utils/AuthService';
 
 const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([]);
@@ -38,11 +37,7 @@ const Fagartikler = () => {
   };
 
   //Sjekker om bruker er logget inn som admin
-  const { isLoggedIn, setUser } = useAuthContext();
-  const handleLogout = async () => {
-    await logout();
-    setUser(null);
-  };
+  const { isLoggedIn } = useAuthContext();
 
   return (
     <>
