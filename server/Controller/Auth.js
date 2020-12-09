@@ -2,16 +2,16 @@ import catchAsyncErrors from '../middleware/catchAsync.js';
 import { userService } from '../Service/Index.js';
 import ErrorHandler from '../utils/errorHandler.js';
 import { sendToken } from '../utils/jwtToken.js';
-//import { sendMail } from '../utils/sendEmail.js';
+// import { sendMail } from '../utils/sendEmail.js';
 
 export const register = catchAsyncErrors(async (req, res, next) => {
   const user = await userService.createUser(req.body);
   try {
-      alert("Du er registrert, velkommen!!");
-    /*await sendMail({
+    alert('Du er registrert, velkommen!!');
+    /* await sendMail({
       email: user.email,
       subject: 'Velkommen som bruker',
-      message: `Du har fått en ny brukerkonto med epost: ${user.email}`,*/
+      message: `Du har fått en ny brukerkonto med epost: ${user.email}`, */
   } catch (error) {
     console.log(error);
   }

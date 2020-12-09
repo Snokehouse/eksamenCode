@@ -7,7 +7,7 @@ import {
   LoginInput,
   //LoginLabel,
   LoginButton,
-} from './Style.jsx'; 
+} from './Style.jsx';
 
 import {
   Alert,
@@ -42,11 +42,12 @@ const LoggInn = () => {
     let mounted = true;
     if (isLoggedIn && state) {
       if (mounted) {
-      history.push(state?.from.pathname);
-      console.log("banan");
+        history.push(state?.from.pathname);
+      }
     }
+    return () => {
+      mounted = false;
     };
-    return () => {mounted = false};
   }, [isLoggedIn, state]);
 
   const onSubmit = async (credentials) => {
@@ -62,15 +63,15 @@ const LoggInn = () => {
       history.push('/');
     }
   };
-
   return (
     <>
-    <Tittel>Logg inn</Tittel>
-      <Box 
-      w="500px"
-      margin="20px auto"
-      as="form" 
-      onSubmit={handleSubmit(onSubmit)}>
+      <Tittel>Logg inn</Tittel>
+      <Box
+        w="500px"
+        margin="20px auto"
+        as="form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         {success && (
           <Alert status="success">
             <AlertIcon />
@@ -78,22 +79,23 @@ const LoggInn = () => {
           </Alert>
         )}
         {error && closeBtnState && (
-          <Alert color="red" padding="20px" margin="30px auto" mr={3} status="error">
-
-            {error &&
+          <Alert
+            color="red"
+            padding="20px"
+            margin="30px auto"
+            mr={3}
+            status="error"
+          >
+          {error &&
               Array.isArray(error) &&
               error.map((err) => (
                 <AlertTitle mr={2}>
-
-                  {<span> {err.message} </span>}
-
+                  {err.message}
                 </AlertTitle>
               ))}
-
             {error && !Array.isArray(error) && (
               <AlertTitle mr={2}>{error}</AlertTitle>
             )}
-            
             <CloseButton
               position="absolute"
               right="8px"
@@ -136,13 +138,9 @@ const LoggInn = () => {
           </FormErrorMessage>
         </FormControl>
 
-        <LoginButton
-          isLoading={formState.isSubmitting}
-          type="submit"
-        >
+        <LoginButton isLoading={formState.isSubmitting} type="submit">
           Logg Inn
         </LoginButton>
-
       </Box>
     </>
   );

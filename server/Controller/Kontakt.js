@@ -8,7 +8,7 @@ export const createKontaktcase = catchAsyncErrors(async (req, res, next) => {
   try {
     await sendMail({
       email: kontakt.email,
-      subject: 'Test',
+      subject: kontakt.emne,
       message: kontakt.hendvendelse,
     });
   } catch (error) {
