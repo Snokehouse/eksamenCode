@@ -43,7 +43,6 @@ const LoggInn = () => {
 
   const onSubmit = async (credentials) => {
     const { data } = await login(credentials);
-    console.log(data);
     if (!data.success) {
       setCloseBtnState(true);
       setError(data.message);
