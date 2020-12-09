@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -37,6 +39,7 @@ const KontorCard = ({ kontor, kontaktInfo }) => {
     kontor: PropTypes.object,
     kontaktInfo: PropTypes.array,
   };
+  const history = useHistory();
   return (
     <>
       <UnderTittel>{`${kontor.sted} card`}</UnderTittel>
@@ -44,7 +47,9 @@ const KontorCard = ({ kontor, kontaktInfo }) => {
         {kontaktInfo.map((value) => (
           <KontorArticle
             key={`${value.ansattNr}${kontor.sted}`}
-            href={`/kontor/${kontor.sted}&${value.ansattNr}`}
+            onClick={() =>
+              history.push(`/kontor/${kontor.sted}&${value.ansattNr}`)
+            }
           >
             <Paragraf key={value.ansattNr}>{`${value.ansattNr}`}</Paragraf>
             <Paragraf

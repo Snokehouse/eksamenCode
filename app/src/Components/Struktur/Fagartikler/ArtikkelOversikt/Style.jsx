@@ -49,27 +49,22 @@ export const Paragraf = styled.p`
   margin: 0 auto;
 `;
 // Link
-export const Linkbtn = styled.a`
-  margin: 0px 5px;
-  padding: 20px 5px;
-  width: 65px;
-  height: 55px;
-  background-color: #007b5f;
-  text-align: center;
+export const Linkbtn = styled.button`
+  margin: auto 0px;
+  background-color: #4caf50;
   color: white;
-  font-weight: bold;
-  font-size: 1.031rem;
+  max-width: 70px;
+  padding: 16px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
 
-  & :link,
-  :visited {
-    text-decoration: none;
-  }
   & :hover {
-    background-color: darkgreen;
+    background-color: #3e8e41;
   }
 `;
 // link-wrapper
-export const LinkWrapper = styled.a`
+export const LinkWrapper = styled.div`
   margin: 0;
   color: black;
 
