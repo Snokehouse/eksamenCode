@@ -49,9 +49,11 @@ const Fagartikler = () => {
       <Tittel>Artikkel Oversikt</Tittel>
       <Container>
         <Container className="MenyItems">
+        {isLoggedIn && (
           <Linkbtn onClick={() => history.push('/fagartikler/new')}>
             Ny Artikkel
           </Linkbtn>
+        )}
           <SokeFelt
             id="sokTxt"
             name="sokTxt"
