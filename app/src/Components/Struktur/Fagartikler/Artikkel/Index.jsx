@@ -18,6 +18,8 @@ import {
   RedigerKnapp,
 } from './Style';
 
+import { useAuthContext } from '../../Context/AuthProvider';
+
 const Artikkel = () => {
   const [modal, setModal] = useState(false);
   const history = useHistory();
@@ -66,14 +68,17 @@ const Artikkel = () => {
       setModal(!modal);
     }
   };
+
+  const { isLoggedIn, isAdmin } = useAuthContext();
+
   return (
     <Container>
       <TittelWrap background={finnesDetBakgrunn()}>
         <Tittel>{`${innLastetData.tittel}`}</Tittel>
       </TittelWrap>
       <KontorArticle>
-        <SmallTittel>{`${innLastetData.dato}`}</SmallTittel>
-        <SmallTittel>{`Skrevet av: ${innLastetData.forfatter}`}</SmallTittel>
+        <SmallTittel className="datoTittel">{`${innLastetData.dato}`}</SmallTittel>
+        <SmallTittel className="forfatterTittel">{`Skrevet av: ${innLastetData.forfatter}`}</SmallTittel>
         <Paragraf>{`${innLastetData.beskrivelse}`}</Paragraf>
         <UnderTittel>SubTitle</UnderTittel>
         <Paragraf>
@@ -119,12 +124,17 @@ const Artikkel = () => {
           palpatine omas gado anakin ti jade.
         </Paragraf>
         <SmallTittel>{`${innLastetData.kategori}`}</SmallTittel>
+        {isLoggedIn && isAdmin && (
         <SlettKnapp disabled={false} onClick={slettArtikkel}>
           Slett
         </SlettKnapp>
+        )}
+        {isLoggedIn && isAdmin && (
         <RedigerKnapp disabled={false} onClick={() => setModal(!modal)}>
           Rediger
         </RedigerKnapp>
+        )}
+        
       </KontorArticle>
       {modal && (
         <Modal

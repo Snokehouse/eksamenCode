@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-//import { useAuthContext } from '../Struktur/Context/AuthProvider.jsx';
+import { useAuthContext } from '../Struktur/Context/AuthProvider.jsx';
 
 import MainLayout from '../Styles/Layout/MainLayout';
 
@@ -44,7 +44,7 @@ import NoMatch from './NoMatch/Index';
       }
     />
   );
-};
+};*/
 
 const AdminRoutes = ({ children, ...rest }) => {
   const { isLoggedIn, isAdmin, isLoading } = useAuthContext();
@@ -55,7 +55,7 @@ const AdminRoutes = ({ children, ...rest }) => {
       render={() => isLoggedIn && isAdmin && !isLoading && children}
     />
   );
-};*/
+};
 
 const Routes = () => (
   <Router>
@@ -76,9 +76,9 @@ const Routes = () => (
         <Route exact path="/fagartikler">
           <FagArtikler />
         </Route>
-        <Route exact path="/fagartikler/new">
+        <AdminRoutes exact path="/fagartikler/new">
           <NyArtikkel />
-        </Route>
+        </AdminRoutes>
         <Route path="/fagartikkel/:artikkelID">
           <Artikkel />
         </Route>
