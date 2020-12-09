@@ -73,14 +73,14 @@ const Fagartikler = () => {
   };
 
   // Sjekker om bruker er logget inn som admin
-  const { isLoggedIn } = useAuthContext();
+  const { isLoggedIn, isAdmin } = useAuthContext();
 
   return (
     <>
       <Tittel>Artikkel Oversikt</Tittel>
       <Container>
         <Container className="MenyItems">
-          {isLoggedIn && (
+          {isLoggedIn && isAdmin && (
             <Linkbtn onClick={() => history.push('/fagartikler/new')}>
               Ny Artikkel
             </Linkbtn>

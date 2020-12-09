@@ -1,4 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import {
+  //Container,
+  //Wrapper,
+  Tittel,
+  //LoginForm,
+  LoginInput,
+  //LoginLabel,
+  LoginButton,
+} from './Style.jsx';
 
 import {
   Alert,
@@ -56,7 +65,13 @@ const LoggInn = () => {
   };
   return (
     <>
-      <Box as="form" onSubmit={handleSubmit(onSubmit)}>
+      <Tittel>Logg inn</Tittel>
+      <Box
+        w="500px"
+        margin="20px auto"
+        as="form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         {success && (
           <Alert status="success">
             <AlertIcon />
@@ -64,18 +79,27 @@ const LoggInn = () => {
           </Alert>
         )}
         {error && closeBtnState && (
-          <Alert mb={4} status="error">
-            <AlertIcon />
+          <Alert
+            color="red"
+            padding="20px"
+            margin="30px auto"
+            mr={3}
+            status="error"
+          >
             {error &&
               Array.isArray(error) &&
               error.map((err) => (
                 <AlertTitle mr={2}>
-                  {err.field && <span>{err.field}</span>} {err.message}
+                  {
+                  {<span> Passord må fylles ut og bestå av 3 tall/bokstaver </span>}
+                  }
                 </AlertTitle>
               ))}
+
             {error && !Array.isArray(error) && (
               <AlertTitle mr={2}>{error}</AlertTitle>
             )}
+
             <CloseButton
               position="absolute"
               right="8px"
@@ -87,7 +111,7 @@ const LoggInn = () => {
 
         <FormControl isInvalid={errors.email}>
           <FormLabel htmlFor="email">Email: </FormLabel>
-          <Input
+          <LoginInput
             id="email"
             placeholder="Epost"
             name="email"
@@ -103,7 +127,7 @@ const LoggInn = () => {
 
         <FormControl margin="25px 0" isInvalid={errors.password}>
           <FormLabel htmlFor="password">Passord: </FormLabel>
-          <Input
+          <LoginInput
             type="password"
             name="password"
             id="password"
@@ -118,14 +142,9 @@ const LoggInn = () => {
           </FormErrorMessage>
         </FormControl>
 
-        <Button
-          mt={4}
-          colorScheme="teal"
-          isLoading={formState.isSubmitting}
-          type="submit"
-        >
+        <LoginButton isLoading={formState.isSubmitting} type="submit">
           Logg Inn
-        </Button>
+        </LoginButton>
       </Box>
     </>
   );

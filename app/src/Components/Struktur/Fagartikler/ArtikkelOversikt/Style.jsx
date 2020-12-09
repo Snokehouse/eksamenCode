@@ -53,7 +53,8 @@ export const Linkbtn = styled.button`
   margin: auto 0px;
   background-color: #4caf50;
   color: white;
-  max-width: 70px;
+  max-width: 100px;
+  width: 100px;
   padding: 16px;
   font-size: 14px;
   border: none;
