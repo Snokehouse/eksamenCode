@@ -39,9 +39,14 @@ const LoggInn = () => {
   });
 
   useEffect(() => {
+    let mounted = true;
     if (isLoggedIn && state) {
+      if (mounted) {
       history.push(state?.from.pathname);
+      console.log("banan");
     }
+    };
+    return () => {mounted = false};
   }, [isLoggedIn, state]);
 
   const onSubmit = async (credentials) => {
@@ -114,11 +119,11 @@ const LoggInn = () => {
             placeholder="Passord"
             ref={register({
               required: true,
-              minLength: 8,
+              minLength: 3,
             })}
           />
           <FormErrorMessage valid={!errors.password}>
-            Passord må fylles ut og bestå av 8 tall/bokstaver
+            Passord må fylles ut og bestå av 3 tall/bokstaver
           </FormErrorMessage>
         </FormControl>
 

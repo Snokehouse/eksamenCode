@@ -16,6 +16,9 @@ import {
   Dropdownbtn,
 } from './Style';
 
+import { useAuthContext } from '../../Context/AuthProvider';
+import { logout } from '../../../Utils/AuthService';
+
 const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([]);
   const history = useHistory();
@@ -33,6 +36,14 @@ const Fagartikler = () => {
   const handleChange = () => {
     console.log('fagartikkel');
   };
+
+  //Sjekker om bruker er logget inn som admin
+  const { isLoggedIn, setUser } = useAuthContext();
+  const handleLogout = async () => {
+    await logout();
+    setUser(null);
+  };
+
   return (
     <>
       <Tittel>Artikkel Oversikt</Tittel>
