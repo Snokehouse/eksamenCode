@@ -19,9 +19,8 @@ export class ApiFilters {
     return this;
   }
 
-  // Sort QueryObject (Event.find()) [{...}, {...}, {...}]
-  // events?sort=-createdAt
-  /*
+  //Sort QueryObject (Event.find()) [{...}, {...}, {...}]
+  //events?sort=-createdAt
   sort() {
     if (this.queryStr.sort) {
       const sortBy = this.queryStr.sort.split(',').join(' ');
@@ -30,9 +29,10 @@ export class ApiFilters {
       this.query = this.query.sort('-updated');
     }
     return this;
-  } */
+  } 
 
-  // events?q=string
+  //events?q=string
+
   searchByQuery() {
     if (this.queryStr.q) {
       const term = this.queryStr.q.split('-').join(' ');
@@ -41,8 +41,8 @@ export class ApiFilters {
     return this;
   }
 
-  // events?fields=?,?
-  /*
+  //events?fields=?,?
+
   limitFields() {
     if (this.queryStr.fields) {
       const fields = this.queryStr.fields.split(',').join(' ');
@@ -51,7 +51,7 @@ export class ApiFilters {
       this.query = this.query.select('-__v');
     }
     return this;
-  } */
+  } 
 
   // events?limit=2&page=4
   // limit => how to group events
@@ -63,4 +63,4 @@ export class ApiFilters {
     this.query = this.query.skip(skipResults).limit(limit);
     return this;
   }
-}
+};
