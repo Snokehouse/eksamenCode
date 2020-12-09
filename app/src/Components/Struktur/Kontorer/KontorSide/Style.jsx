@@ -5,11 +5,17 @@ export const Container = styled.section`
   width: 90%;
   //background-color: black;
 `;
+export const Wrapper = styled.section`
+  margin: 0;
+`;
 export const CardWrapper = styled.section`
   margin: 0;
 `;
 export const DummyWrapper = styled.section`
   margin: 0;
+  background-color: #c0c0c0;
+  width: 100px;
+  height: 100px;
 `;
 // Overskrifter
 export const Tittel = styled.h1`
@@ -32,7 +38,6 @@ export const ExitTittel = styled.h2`
 // Artikkel elementer
 export const KontorArticle = styled.article`
   margin: 0 auto;
-  background-color: grey;
   width: 100%;
 `;
 export const Paragraf = styled.p`

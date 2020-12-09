@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import {
   Container,
+  Wrapper,
   CardWrapper,
   DummyWrapper,
   Tittel,
@@ -32,12 +33,14 @@ const KontorSide = () => {
         </Paragraf>
         <KontorArticle>
           <UnderTittel>Våre Ansatte</UnderTittel>
-          {hvormangedummydata.map((id) => (
-            <CardWrapper key={id}>
-              <DummyWrapper />
-              <Paragraf>Ansatt Ansattnavn Stilling</Paragraf>
-            </CardWrapper>
-          ))}
+          <Wrapper>
+            {hvormangedummydata.map((id) => (
+              <CardWrapper key={id}>
+                <DummyWrapper />
+                <Paragraf>Ansatt Ansattnavn Stilling</Paragraf>
+              </CardWrapper>
+            ))}
+          </Wrapper>
         </KontorArticle>
         <ExitTittel>Kontakt oss på 69 99 00 00</ExitTittel>
       </Container>
