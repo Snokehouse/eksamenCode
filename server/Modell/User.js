@@ -6,41 +6,44 @@ import jwt from 'jsonwebtoken';
 
 const { Schema } = mongoose;
 
-const UserSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, 'Fyll ut navn'],
-    unique: true,
-  },
-
-  email: {
-    type: String,
-    required: [true, 'Fyll ut epost'],
-    unique: true, // unique index and value
-    validate: [validator.isEmail, 'Eposten er ikke gyldig'],
-  },
-
-  password: {
-    type: String,
-    required: [true, 'Fyll ut passord'],
-    minlength: [3, 'Passord må bestå av minst 3 verdier'],
-    maxlength: [40, 'Passord kan maks inneholde 40 verdier'],
-    match: [/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%* #+=\(\)\^?&])[A-Za-z\d$@$!%* #+=\(\)\^?&]{3,}$/, 'Passord må inneholde mins 3 verdier som må inneholde minst; 1 tall, 1 bokstav og 1 spesialtegn.'],
-    select: false,
-  },
-
-  role: {
-    type: String,
-    enum: {
-      values: ['user', 'admin'],
-      message: 'Rolle ikke fylt ut',
+const UserSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: [true, 'Fyll ut navn'],
+      unique: true,
     },
-    default: 'user',
+
+    email: {
+      type: String,
+      required: [true, 'Fyll ut epost'],
+      unique: true, // unique index and value
+      validate: [validator.isEmail, 'Eposten er ikke gyldig'],
+    },
+
+    password: {
+      type: String,
+      required: [true, 'Fyll ut passord'],
+      minlength: [3, 'Passord må bestå av minst 3 verdier'],
+      maxlength: [40, 'Passord kan maks inneholde 40 verdier'],
+      match: [
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%* #+=\(\)\^?&])[A-Za-z\d$@$!%* #+=\(\)\^?&]{3,}$/,
+        'Passord må inneholde mins 3 verdier som må inneholde minst; 1 tall, 1 bokstav og 1 spesialtegn.',
+      ],
+      select: false,
+    },
+
+    role: {
+      type: String,
+      enum: {
+        values: ['user', 'admin'],
+        message: 'Rolle ikke fylt ut',
+      },
+      default: 'user',
+    },
   },
-},
 
-{ timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
-
+  { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
 // Tatt fra en youtube video som linka en git branch, sjekk README nr. 1
@@ -56,10 +59,10 @@ UserSchema.pre('save', async function (next) {
   }
 });
 
-UserSchema.methods.comparePassword = async function(password) {
+UserSchema.methods.comparePassword = async function (password) {
   try {
     return await bcrypt.compare(password, this.password);
-  } catch(error) {
+  } catch (error) {
     throw new Error(error);
   }
 };
