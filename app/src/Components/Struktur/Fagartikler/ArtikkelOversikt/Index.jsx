@@ -22,11 +22,11 @@ import { useAuthContext } from '../../Context/AuthProvider';
 
 const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([]);
+  const [dataInfo, setDataInfo] = useState([]);
   const history = useHistory();
   const [kategoriData, setkategoriData] = useState([]);
   const [updateRender, setUpdateRender] = useState(false);
   const [queryStr, setQueryStr] = useState({
-    limit: '',
     page: '',
     q: '',
     kategori: '',
@@ -37,6 +37,7 @@ const Fagartikler = () => {
       if (error) {
         console.log(`Error: ${error}`);
       } else {
+        setDataInfo(data);
         setInnLastetData(data.data);
         setUpdateRender(false);
       }
@@ -75,6 +76,15 @@ const Fagartikler = () => {
   // Sjekker om bruker er logget inn som admin
   const { isLoggedIn, isAdmin } = useAuthContext();
 
+  // paginering
+  const pagesInfo = [];
+  for (let i = 1; i <= dataInfo.totalPages; i++) {
+    pagesInfo.push(i);
+  }
+  const updatePage = (page) => {
+    queryStr.page = page;
+    setUpdateRender(true);
+  };
   return (
     <>
       <Tittel>Artikkel Oversikt</Tittel>
@@ -121,6 +131,13 @@ const Fagartikler = () => {
             ))
           )}
         </Container>
+        {pagesInfo.map((page) => (
+          <button
+            type="button"
+            key={page}
+            onClick={() => updatePage(page)}
+          >{`${page}`}</button>
+        ))}
       </Container>
     </>
   );
