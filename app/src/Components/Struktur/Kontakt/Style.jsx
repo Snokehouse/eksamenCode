@@ -24,12 +24,12 @@ export const UnderTittel = styled.h2`
   padding: 20px;
 `;
 // Form Artikkel
-export const ArtikkelForm = styled.form`
+export const KontaktForm = styled.form`
   margin: 0 auto;
   text-align: left;
   font-size: 14px;
 `;
-export const ArtikkelInput = styled.input`
+export const KontaktInput = styled.input`
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -38,11 +38,20 @@ export const ArtikkelInput = styled.input`
   border-radius: 4px;
   box-sizing: border-box;
 `;
-export const ArtikkelLabel = styled.label`
+export const KontaktLabel = styled.label`
   margin: 0;
   padding: 10px;
 `;
-export const ArtikkelButton = styled.button`
+export const KontaktArea = styled.textarea`
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+`;
+export const KontaktButton = styled.button`
   float: right;
   background-color: #007b5f;
   color: white;

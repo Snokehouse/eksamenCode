@@ -5,12 +5,10 @@ const API_URL = '/artikkel';
 export const list = async (data) => {
   try {
     if (data.kategori === '') {
-      return await http.get(
-        `${API_URL}?limit=${data.limit}&page=${data.limit}&q=${data.q}`
-      );
+      return await http.get(`${API_URL}?limit=5&page=${data.page}&q=${data.q}`);
     }
     return await http.get(
-      `${API_URL}?limit=${data.limit}&page=${data.limit}&q=${data.q}&kategori=${data.kategori}`
+      `${API_URL}?limit=5&page=${data.page}&q=${data.q}&kategori=${data.kategori}`
     );
   } catch (feilmelding) {
     return feilmelding.response.data;
