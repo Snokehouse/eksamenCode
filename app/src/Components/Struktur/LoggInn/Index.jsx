@@ -1,13 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {
-  //Container,
-  //Wrapper,
-  Tittel,
-  //LoginForm,
-  LoginInput,
-  //LoginLabel,
-  LoginButton,
-} from './Style.jsx';
 
 import {
   Alert,
@@ -23,6 +14,15 @@ import {
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router-dom';
+import {
+  // Container,
+  // Wrapper,
+  Tittel,
+  // LoginForm,
+  LoginInput,
+  // LoginLabel,
+  LoginButton,
+} from './Style.jsx';
 import { login } from '../../Utils/AuthService.js';
 import { useAuthContext } from '../Context/AuthProvider.jsx';
 
@@ -90,9 +90,7 @@ const LoggInn = () => {
               Array.isArray(error) &&
               error.map((err) => (
                 <AlertTitle mr={2}>
-                  {
-                  {<span> Passord må fylles ut og bestå av 3 tall/bokstaver </span>}
-                  }
+                  <span>Passord må fylles ut og bestå av 3 tall/bokstaver</span>
                 </AlertTitle>
               ))}
 
