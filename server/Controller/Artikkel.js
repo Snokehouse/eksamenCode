@@ -18,7 +18,7 @@ export const createArtikkel = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const getArtikler = catchAsyncErrors(async (req, res, next) => {
-  const result = await artikkelService.listArtikkel();
+  const result = await artikkelService.listArtikkel(req.query);
   res.status(200).json(result);
 });
 
