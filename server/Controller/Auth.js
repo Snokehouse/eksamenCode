@@ -6,15 +6,6 @@ import { sendToken } from '../utils/jwtToken.js';
 
 export const register = catchAsyncErrors(async (req, res, next) => {
   const user = await userService.createUser(req.body);
-  try {
-    alert('Du er registrert, velkommen!!');
-    /* await sendMail({
-      email: user.email,
-      subject: 'Velkommen som bruker',
-      message: `Du har fått en ny brukerkonto med epost: ${user.email}`, */
-  } catch (error) {
-    console.log(error);
-  }
   sendToken(user, res);
 });
 

@@ -7,7 +7,6 @@ import 'dotenv/config.js';
 import errorMiddleware from './middleware/errors.js';
 
 import connectDatabase from './Config/db.js';
-import user from './Route/User.js';
 import kontorer from './Route/Kontorer.js';
 import artikkel from './Route/Artikkel.js';
 import kategori from './Route/Kategori.js';
@@ -37,9 +36,6 @@ app.use(
   })
 );
 
-// url som blir brukt localhost:5000/api/v1/user
-app.use(`${process.env.BASEURL}/user`, user);
-
 // url som blir brukt localhost:5000/api/v1/kontorer
 app.use(`${process.env.BASEURL}/kontorer`, kontorer);
 
@@ -58,6 +54,7 @@ app.use(`${process.env.BASEURL}/image`, image);
 // url som blir brukt localhost:5000/api/v1/kontakt
 app.use(`${process.env.BASEURL}/kontakt`, kontakt);
 
+// url som blir brukt localhost:5000/api/v1/
 app.use(`${process.env.BASEURL}/`, auth);
 
 // global error håndtering
