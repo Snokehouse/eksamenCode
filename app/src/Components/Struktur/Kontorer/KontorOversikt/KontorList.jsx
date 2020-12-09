@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -10,7 +12,7 @@ const UnderTittel = styled.h2`
   margin: 0;
 `;
 
-const KontorArticle = styled.a`
+const KontorArticle = styled.article`
   margin: 0 auto;
   padding: 5px;
   display: flex;
@@ -36,6 +38,7 @@ const KontorList = ({ kontor, kontaktInfo }) => {
     kontor: PropTypes.object,
     kontaktInfo: PropTypes.array,
   };
+  const history = useHistory();
   return (
     <>
       <UnderTittel>{`${kontor.sted} (${kontaktInfo.length} kontorer)`}</UnderTittel>
@@ -43,7 +46,9 @@ const KontorList = ({ kontor, kontaktInfo }) => {
         {kontaktInfo.map((value) => (
           <KontorArticle
             key={`${value.ansattNr}${kontor.sted}`}
-            href={`/kontor/${kontor.sted}&${value.ansattNr}`}
+            onClick={() =>
+              history.push(`/kontor/${kontor.sted}&${value.ansattNr}`)
+            }
           >
             <Paragraf key={value.ansattNr}>{`${value.ansattNr}`}</Paragraf>
             <Paragraf

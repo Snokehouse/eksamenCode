@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { list } from '../../../Utils/Artikkel.js';
 import { Tittel } from '../../Home/Style.jsx';
@@ -17,7 +18,7 @@ import {
 
 const Fagartikler = () => {
   const [innLastetData, setInnLastetData] = useState([]);
-
+  const history = useHistory();
   useEffect(() => {
     const updateData = async () => {
       const { data, error } = await list();
@@ -37,7 +38,9 @@ const Fagartikler = () => {
       <Tittel>Artikkel Oversikt</Tittel>
       <Container>
         <Container className="MenyItems">
-          <Linkbtn href="/fagartikler/new">Ny Artikkel</Linkbtn>
+          <Linkbtn onClick={() => history.push('/fagartikler/new')}>
+            Ny Artikkel
+          </Linkbtn>
           <SokeFelt
             id="sokTxt"
             name="sokTxt"

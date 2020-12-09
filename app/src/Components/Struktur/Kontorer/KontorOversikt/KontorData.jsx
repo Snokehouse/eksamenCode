@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBars, FaThLarge } from 'react-icons/fa';
 
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import {
@@ -24,6 +24,7 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
     ListeVisning: PropTypes.bool,
     setListeVisning: PropTypes.func,
   };
+  const history = useHistory();
   const { kontorerID } = useParams();
   let dataValues = innLastetData;
   if (kontorerID !== undefined) {
@@ -37,14 +38,18 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
             <Dropdown>
               <Dropdownbtn>Filter</Dropdownbtn>
               <DropdownContent>
-                <DropdownItem href="/kontorer">Fjern Filter</DropdownItem>
+                <DropdownItem onClick={() => history.push('/kontorer')}>
+                  Fjern Filter
+                </DropdownItem>
                 {dataValues.length < 1 ? (
-                  <DropdownItem href="/kontorer">Mangler data</DropdownItem>
+                  <DropdownItem onClick={() => history.push('/kontorer')}>
+                    Mangler data
+                  </DropdownItem>
                 ) : (
                   dataValues.map((kontor) => (
                     <DropdownItem
                       key={kontor.id}
-                      href={`/kontorer/${kontor.sted}`}
+                      onClick={() => history.push(`/kontorer/${kontor.sted}`)}
                     >{`${kontor.sted}`}</DropdownItem>
                   ))
                 )}
@@ -81,14 +86,18 @@ const KontorData = ({ innLastetData, ListeVisning, setListeVisning }) => {
           <Dropdown>
             <Dropdownbtn>Filter</Dropdownbtn>
             <DropdownContent>
-              <DropdownItem href="/kontorer">Fjern Filter</DropdownItem>
+              <DropdownItem onClick={() => history.push('/kontorer')}>
+                Fjern Filter
+              </DropdownItem>
               {dataValues.length < 1 ? (
-                <DropdownItem href="/kontorer">Mangler data</DropdownItem>
+                <DropdownItem onClick={() => history.push('/kontorer')}>
+                  Mangler data
+                </DropdownItem>
               ) : (
                 dataValues.map((kontor) => (
                   <DropdownItem
                     key={kontor.id}
-                    href={`/kontorer/${kontor.sted}`}
+                    onClick={() => history.push(`/kontorer/${kontor.sted}`)}
                   >{`${kontor.sted}`}</DropdownItem>
                 ))
               )}

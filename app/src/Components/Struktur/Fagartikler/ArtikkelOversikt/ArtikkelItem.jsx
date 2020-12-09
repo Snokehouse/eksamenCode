@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {
@@ -15,8 +16,9 @@ const ArtikkelItem = ({ artikkel }) => {
   ArtikkelItem.propTypes = {
     artikkel: PropTypes.object,
   };
+  const history = useHistory();
   return (
-    <LinkWrapper href={`/fagartikkel/${artikkel._id}`}>
+    <LinkWrapper onClick={() => history.push(`/fagartikkel/${artikkel._id}`)}>
       <Container>
         <ImageStyle
           src={`http://localhost:5000/api/v1/image/${artikkel.bildeID}`}
