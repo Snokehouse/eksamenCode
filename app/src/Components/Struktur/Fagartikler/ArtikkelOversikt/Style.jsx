@@ -115,6 +115,7 @@ export const DropdownItem = styled.a`
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  cursor: pointer;
 
   & :hover {
     background-color: #f1f1f1;
