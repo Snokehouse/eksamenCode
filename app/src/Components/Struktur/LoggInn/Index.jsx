@@ -14,9 +14,9 @@ import {
   AlertIcon,
   AlertTitle,
   Box,
-  Button,
+  //Button,
   CloseButton,
-  Input,
+  //Input,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -85,7 +85,7 @@ const LoggInn = () => {
               error.map((err) => (
                 <AlertTitle mr={2}>
 
-                  {<span> Passord må fylles ut og bestå av 3 tall/bokstaver </span>}
+                  {<span> {err.message} </span>}
 
                 </AlertTitle>
               ))}
