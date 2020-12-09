@@ -25,14 +25,12 @@ const Fagartikler = () => {
   const history = useHistory();
   const [kategoriData, setkategoriData] = useState([]);
   const [updateRender, setUpdateRender] = useState(false);
-  const [queryStr] = useState([
-    {
-      limit: '',
-      page: '',
-      q: '',
-      kategori: '',
-    },
-  ]);
+  const [queryStr, setQueryStr] = useState({
+    limit: '',
+    page: '',
+    q: '',
+    kategori: '',
+  });
   useEffect(() => {
     const updateData = async () => {
       const { data, error } = await list(queryStr);
@@ -40,6 +38,7 @@ const Fagartikler = () => {
         console.log(`Error: ${error}`);
       } else {
         setInnLastetData(data.data);
+        setUpdateRender(false);
       }
     };
     updateData();
@@ -56,8 +55,12 @@ const Fagartikler = () => {
     };
     updateData();
   }, []);
-  const handleChange = () => {
-    console.log('fagartikkel');
+  const handleChange = (event) => {
+    const inputValue = { [event.target.name]: event.target.value };
+    setQueryStr((prev) => ({
+      ...prev,
+      ...inputValue,
+    }));
   };
   const filterArtikler = (value) => {
     if (value !== undefined) {
@@ -84,9 +87,10 @@ const Fagartikler = () => {
           )}
           <SokeFelt
             id="sokTxt"
-            name="sokTxt"
+            name="q"
             placeholder="Søk"
             type="text"
+            value={queryStr.q}
             onChange={handleChange}
           />
           <Dropdown>

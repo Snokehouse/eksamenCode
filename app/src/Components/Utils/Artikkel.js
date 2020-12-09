@@ -4,13 +4,13 @@ const API_URL = '/artikkel';
 
 export const list = async (data) => {
   try {
-    if (data[0].kategori === '') {
+    if (data.kategori === '') {
       return await http.get(
-        `${API_URL}?limit=${data[0].limit}&page=${data[0].limit}&q=${data[0].q}`
+        `${API_URL}?limit=${data.limit}&page=${data.limit}&q=${data.q}`
       );
     }
     return await http.get(
-      `${API_URL}?limit=${data[0].limit}&page=${data[0].limit}&q=${data[0].q}&kategori=${data[0].kategori}`
+      `${API_URL}?limit=${data.limit}&page=${data.limit}&q=${data.q}&kategori=${data.kategori}`
     );
   } catch (feilmelding) {
     return feilmelding.response.data;

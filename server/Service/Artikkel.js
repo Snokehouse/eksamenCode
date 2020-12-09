@@ -6,8 +6,9 @@ export const getArtikkelById = async (id) => Artikkel.findById(id);
 export const listArtikkel = async (queryStr) => {
   console.log(queryStr.q);
   const { limit, page } = queryStr;
-  const filters = new ApiFilters(Artikkel.find(), queryStr).filter().sort().searchByQuery();
-    // .limitFields()
+  const filters = new ApiFilters(Artikkel.find(), queryStr)
+    .filter()
+    .searchByQuery();
 
   const artikkel = await filters.query;
   const paginated = await filters.pagination().query.populate();
