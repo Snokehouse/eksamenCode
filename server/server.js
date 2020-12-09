@@ -14,7 +14,7 @@ import kategori from './Route/Kategori.js';
 import forfatter from './Route/Forfatter.js';
 import image from './Route/Image.js';
 import auth from './Route/Auth.js';
-import event from './Route/Event.js';
+import kontakt from './Route/Kontakt.js';
 
 // lager "app" med express slik at vi får satt opp server
 const app = express();
@@ -37,8 +37,6 @@ app.use(
   })
 );
 
-app.use(`${process.env.BASEURL}/events`, event);
-
 // url som blir brukt localhost:5000/api/v1/user
 app.use(`${process.env.BASEURL}/user`, user);
 
@@ -56,6 +54,9 @@ app.use(`${process.env.BASEURL}/kategori`, kategori);
 
 // url som blir brukt localhost:5000/api/v1/image
 app.use(`${process.env.BASEURL}/image`, image);
+
+// url som blir brukt localhost:5000/api/v1/kontakt
+app.use(`${process.env.BASEURL}/kontakt`, kontakt);
 
 app.use(`${process.env.BASEURL}/`, auth);
 

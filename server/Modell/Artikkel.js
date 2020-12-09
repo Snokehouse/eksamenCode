@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-// import validator from 'validator';
-// struktur av data som skal inn
 
 const { Schema } = mongoose;
 
