@@ -7,11 +7,8 @@ export const listArtikkel = async (queryStr) => {
   console.log(queryStr.q);
   const { limit, page } = queryStr;
   const filters = new ApiFilters(Artikkel.find(), queryStr)
-  .filter()
-  //.sort()
-  // .limitFields()
-  .searchByQuery();
-    
+    .filter()
+    .searchByQuery();
 
   const artikkel = await filters.query;
   const paginated = await filters.pagination().query.populate();
