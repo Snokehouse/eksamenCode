@@ -128,7 +128,6 @@ export const PagButton = styled.button`
   margin: 5px;
   color: black;
   background-color: lightgray;
-  float:right;
   font-size: 15px;
 
   &:focus {
