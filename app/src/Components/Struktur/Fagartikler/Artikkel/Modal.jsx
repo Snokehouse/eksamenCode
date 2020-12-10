@@ -115,6 +115,20 @@ const Modal = ({
           </ModalButton>
         </ModalHeader>
         <ArtikkelForm id="todo_form" onSubmit={handleSubmit}>
+          <ArtikkelLabel htmlFor="hemmelig">Åpen/Hemmelig: </ArtikkelLabel>
+          <ArtikkelSelectF
+            id="hemmelig"
+            name="hemmelig"
+            form="todo_form"
+            value={innLastetData.hemmelig}
+            onChange={updateValue}
+          >
+            <ArtikkelOption value="" hidden>
+              Åpen/Hemmelig
+            </ArtikkelOption>
+            <ArtikkelOption value="false">Åpen</ArtikkelOption>
+            <ArtikkelOption value="true">Hemmelig</ArtikkelOption>
+          </ArtikkelSelectF>
           <ArtikkelLabel htmlFor="txtTittel">Tittel: </ArtikkelLabel>
           <ArtikkelInput
             id="txtTittel"

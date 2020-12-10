@@ -33,6 +33,7 @@ const NyArtikkel = () => {
       kategori: '',
       forfatter: '',
       bildeID: '',
+      hemmelig: '',
     },
   ]);
   // Forfatter
@@ -130,6 +131,20 @@ const NyArtikkel = () => {
       <Tittel>Ny Artikkel</Tittel>
       <Wrapper>
         <ArtikkelForm id="artikkelForm" onSubmit={submitHandle}>
+          <ArtikkelLabel htmlFor="hemmelig">Åpen/Hemmelig: </ArtikkelLabel>
+          <ArtikkelSelectF
+            id="hemmelig"
+            name="hemmelig"
+            form="artikkelForm"
+            value={formdata.hemmelig}
+            onChange={updateValue}
+          >
+            <ArtikkelOption value="" hidden>
+              Åpen/Hemmelig
+            </ArtikkelOption>
+            <ArtikkelOption value="false">Åpen</ArtikkelOption>
+            <ArtikkelOption value="true">Hemmelig</ArtikkelOption>
+          </ArtikkelSelectF>
           <ArtikkelLabel htmlFor="tittel">Tittel: </ArtikkelLabel>
           <ArtikkelInput
             id="tittel"

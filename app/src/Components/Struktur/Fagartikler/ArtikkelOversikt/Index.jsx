@@ -21,6 +21,9 @@ import {
 import { useAuthContext } from '../../Context/AuthProvider';
 
 const Fagartikler = () => {
+  // Sjekker om bruker er logget inn som admin
+  const { isLoggedIn, isAdmin } = useAuthContext();
+
   const [innLastetData, setInnLastetData] = useState([]);
   const [dataInfo, setDataInfo] = useState([]);
   const history = useHistory();
@@ -38,7 +41,13 @@ const Fagartikler = () => {
         console.log(`Error: ${error}`);
       } else {
         setDataInfo(data);
-        setInnLastetData(data.data);
+        if (!isLoggedIn) {
+          setInnLastetData(
+            data.data.filter((value) => value.hemmelig === false)
+          );
+        } else {
+          setInnLastetData(data.data);
+        }
         setUpdateRender(false);
       }
     };
@@ -72,9 +81,6 @@ const Fagartikler = () => {
       setUpdateRender(true);
     }
   };
-
-  // Sjekker om bruker er logget inn som admin
-  const { isLoggedIn, isAdmin } = useAuthContext();
 
   // paginering
   const pagesInfo = [];
