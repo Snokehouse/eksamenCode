@@ -31,6 +31,7 @@ const Kontakt = () => {
       hendvendelse: '',
     },
   ]);
+  // sette verdier for navn og email vis logget inn
   useEffect(() => {
     if (isLoggedIn) {
       formdata.name = user.name;
