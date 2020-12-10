@@ -9,4 +9,3 @@ export const listForfatter = async () => {
     return feilmelding.response.data;
   }
 };
-
