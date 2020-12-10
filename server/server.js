@@ -31,7 +31,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use(
   cors({
     origin: 'http://localhost:3000',
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token'],
     credentials: true,
   })
 );
