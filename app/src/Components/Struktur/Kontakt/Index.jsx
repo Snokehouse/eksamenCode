@@ -22,6 +22,7 @@ const Kontakt = () => {
   // Sjekker om bruker er logget inn som admin
   const { isLoggedIn, isAdmin, user } = useAuthContext();
   const history = useHistory();
+  const [updateRender, setUpdateRender] = useState(true);
   const [formdata, setFormdata] = useState([
     {
       name: '',
@@ -35,7 +36,8 @@ const Kontakt = () => {
       formdata.name = user.name;
       formdata.email = user.email;
     }
-  }, [isLoggedIn]);
+    setUpdateRender(false);
+  }, [isLoggedIn, updateRender]);
 
   // Validere form
   const validateForm = () => {
