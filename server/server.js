@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import xssClean from 'xss-clean';
 
 import { PORT } from './Constants/index.js';
 import 'dotenv/config.js';
@@ -17,6 +18,8 @@ import kontakt from './Route/Kontakt.js';
 
 // lager "app" med express slik at vi får satt opp server
 const app = express();
+app.use(xssClean());
+
 // initialiserer at app skal bruke json
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
@@ -39,7 +42,7 @@ app.use(
 // url som blir brukt localhost:5000/api/v1/kontorer
 app.use(`${process.env.BASEURL}/kontorer`, kontorer);
 
-// url som blir brukt localhost:5000/api/v1/kontorer
+// url som blir brukt localhost:5000/api/v1/forfatter
 app.use(`${process.env.BASEURL}/forfatter`, forfatter);
 
 // url som blir brukt localhost:5000/api/v1/artikkel

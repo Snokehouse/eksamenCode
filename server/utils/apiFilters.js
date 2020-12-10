@@ -4,7 +4,6 @@ export class ApiFilters {
     this.queryStr = queryStr;
   }
 
-  // events?price[gt]=? events?active=true
   filter() {
     const query = { ...this.queryStr };
     const removeFields = ['q', 'page', 'limit'];
@@ -19,8 +18,6 @@ export class ApiFilters {
     return this;
   }
 
-  // events?q=string
-
   searchByQuery() {
     if (this.queryStr.q) {
       const term = this.queryStr.q.split('-').join(' ');
@@ -29,7 +26,6 @@ export class ApiFilters {
     return this;
   }
 
-  // events?limit=2&page=4
   // limit => how to group events
   // page => what "group-selection" to return
   pagination() {
