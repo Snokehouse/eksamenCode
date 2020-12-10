@@ -59,6 +59,7 @@ const LoggInn = () => {
         setUser({ ...user, expire });
         setSuccess(true);
         history.push('/');
+        window.location.reload(false);
       }
     } else {
       const { data } = await login(credentials);
@@ -71,6 +72,7 @@ const LoggInn = () => {
         setUser({ ...user, expire });
         setSuccess(true);
         history.push('/');
+        window.location.reload(false);
       }
     }
   };
