@@ -88,7 +88,8 @@ const Modal = ({
   let datoStr = innLastetData.dato;
   datoStr = moment(datoStr).format('yyyy-MM-DD');
   innLastetData.dato = datoStr;
-  // legge til kategori
+  
+  // submitte endringer
   const handleSubmit = (event) => {
     event.preventDefault();
     redigereSubmit(innLastetData);
