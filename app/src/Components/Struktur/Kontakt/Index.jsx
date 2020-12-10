@@ -32,6 +32,9 @@ const Kontakt = () => {
     },
   ]);
   // sette verdier for navn og email vis logget inn
+  // hadde problemer med at user verdiene ikke ble satt når bruker logget inn, (manglet name av en eller annen grunn)
+  // fant ikke noe direkte løsning og endte opp med en refresh/reload når en bruker logger inn for å sette disse verdiene riktig
+  // vi hadde ikke tid eller krefter til å finne en bedre løsning :/
   useEffect(() => {
     if (isLoggedIn) {
       formdata.name = user.name;
