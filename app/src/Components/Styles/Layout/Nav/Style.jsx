@@ -73,33 +73,51 @@ export const NavMenuItem = styled.li`
 // Nav Burgermeny
 export const BurgerTopNav = styled.div`
   overflow: hidden;
-  background-color: #333;
+  //background-color: #333;
   position: relative;
+  //margin: 0;
 `;
 export const BurgerLinks = styled.ul`
   display: ${(props) => props.display};
+  padding: 0;
+  margin:0;
 `;
 export const BurgerLInkItem = styled.li`
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
+  //color: white;
+  margin: 0 auto;
+  padding: 14px 0px;
   font-size: 17px;
   display: block;
-  & :hover {
-    background-color: #ddd;
-    color: black;
+  text-align:center;
+  background-color: #333;
+  //width: 100%;
+  & > a {
+    color:white;
+    text-decoration: none;
+    width: 100%;
+    //height:100%;
+    //padding: 14px 0px;
+    display:block;
   }
-  & :active {
-    background-color: #4caf50;
-    color: white;
+  & :hover {
+    background-color:#4caf50;
+    color: black;
   }
 `;
 export const BurgerLogo = styled.p`
-  margin: 0;
+  margin: auto 0;
+  padding: 25px;
+  height: 40px;
+  width: 100%;
 `;
 export const BurgerIcon = styled.button`
   display: block;
   position: absolute;
+  color: white;
+  background-color: #4caf50;
+  font-size: 20px;
+  padding: 12.5px 15px;
+  border: 0;
   right: 0;
   top: 0;
 `;

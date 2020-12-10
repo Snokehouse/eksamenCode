@@ -13,6 +13,7 @@ const Container = styled.div`
 const MainLayoutContainer = styled.div`
   padding-bottom: 20px;
   min-height: 100%;
+  width: 100%;
   background-color: #fff;
 `;
 const StyledHeader = styled.header`
