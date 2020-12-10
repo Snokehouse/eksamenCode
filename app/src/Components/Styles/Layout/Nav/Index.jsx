@@ -2,10 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Break from 'react-break';
+import { FaBars } from 'react-icons/fa';
 import { useAuthContext } from '../../../Struktur/Context/AuthProvider';
 import { logout } from '../../../Utils/AuthService';
-
-import { FaBars } from 'react-icons/fa';
 
 const StyledNav = styled.nav`
   font-family: Lato;
@@ -38,7 +37,7 @@ const NavMenu = styled.ul`
       top: 0;
     }
   }
- 
+
   @media screen and (max-width: 800px) {
     display: flex;
     justify-content: space-between;
@@ -56,15 +55,14 @@ const NavMenu = styled.ul`
 
 const NavMenuItem = styled.li`
   padding: 0 20px;
-  
+
   @media screen and (max-width: 500px) {
     //grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
     //height: 62px;
     //padding: 25px;
     display: block;
-    color:white;
+    color: white;
   }
-  
 
   text-align: center;
 
@@ -108,8 +106,7 @@ const NavBreakpoints = {
   desktop: 800,
 };
 
-const myFunction = () => {
-  const x = document.getElementById('myLinks');
+const displayNav = () => {
   if (x.style.display === 'block') {
     x.style.display = 'none';
   } else {
@@ -131,7 +128,7 @@ const Nav = () => {
         query={{ method: 'is', breakpoint: 'mobile' }}
       >
         <StyledNav>
-          <NavMenu id="myLinks">
+          <NavMenu id="myLinks" onClick={displayNav}>
             <NavMenuItem>
               <NavLink exact to="/home" activeClassName="active">
                 Home
@@ -166,7 +163,13 @@ const Nav = () => {
                 </NavLink>
               </NavMenuItem>
             )}
-            <FaBars id="BurgerKnapp" href="javascript:void(0);" onClick={() => myFunction()}>List</FaBars>
+            <FaBars
+              id="BurgerKnapp"
+              href="javascript:void(0);"
+              onClick={() => myFunction()}
+            >
+              List
+            </FaBars>
           </NavMenu>
         </StyledNav>
       </Break>
