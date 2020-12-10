@@ -109,13 +109,13 @@ const NavBreakpoints = {
 };
 
 const myFunction = () => {
-  const x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
+  const x = document.getElementById('myLinks');
+  if (x.style.display === 'block') {
+    x.style.display = 'none';
   } else {
-    x.style.display = "block";
+    x.style.display = 'block';
   }
-}
+};
 
 const Nav = () => {
   const { isLoggedIn, setUser } = useAuthContext();
@@ -123,7 +123,6 @@ const Nav = () => {
     await logout();
     setUser(null);
   };
-  console.log(NavMenu.getComputedStyle().getPropertyValue('display'));
 
   return (
     <>
