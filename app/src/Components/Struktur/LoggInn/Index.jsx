@@ -42,15 +42,9 @@ const LoggInn = () => {
   });
 
   useEffect(() => {
-    let mounted = true;
     if (isLoggedIn && state) {
-      if (mounted) {
-        history.push(state?.from.pathname);
-      }
+      history.push(state?.from.pathname);
     }
-    return () => {
-      mounted = false;
-    };
   }, [isLoggedIn, state]);
 
   const onSubmit = async (credentials) => {

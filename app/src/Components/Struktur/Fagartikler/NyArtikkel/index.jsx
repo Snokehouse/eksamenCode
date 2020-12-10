@@ -139,7 +139,7 @@ const NyArtikkel = () => {
             value={formdata.hemmelig}
             onChange={updateValue}
           >
-            <ArtikkelOption value="" hidden>
+            <ArtikkelOption value="false" hidden>
               Åpen/Hemmelig
             </ArtikkelOption>
             <ArtikkelOption value="false">Åpen</ArtikkelOption>
