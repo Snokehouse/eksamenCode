@@ -2,6 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import xssClean from 'xss-clean';
+import cookieParser from 'cookie-parser';
+import csrf from 'csurf';
 
 import { PORT } from './Constants/index.js';
 import 'dotenv/config.js';
@@ -38,6 +40,13 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(cookieParser());
+app.use(csrf({ cookie: true }));
+
+app.get(`${process.env.BASEURL}/csrf-token`, (req, res) => {
+  res.status(200).json({ data: req.csrfToken() });
+});
 
 // url som blir brukt localhost:5000/api/v1/kontorer
 app.use(`${process.env.BASEURL}/kontorer`, kontorer);

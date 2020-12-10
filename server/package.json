@@ -20,7 +20,9 @@
     "nodemon": "^2.0.6",
     "slugify": "1.4.6",
     "validator": "^13.1.17",
-    "xss-clean": "^0.1.1"
+    "xss-clean": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
