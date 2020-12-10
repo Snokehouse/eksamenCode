@@ -19,7 +19,7 @@ import {
 
 const Kontakt = () => {
   // Sjekker om bruker er logget inn som admin
-  const { isLoggedIn, isAdmin } = useAuthContext();
+  const { isLoggedIn, isAdmin, user } = useAuthContext();
 
   const history = useHistory();
   const [formdata, setFormdata] = useState([
@@ -31,6 +31,9 @@ const Kontakt = () => {
     },
   ]);
 
+  if (isLoggedIn) {
+    formdata.email = user.email;
+  }
   // Validere form
   const validateForm = () => {
     if (
@@ -75,7 +78,6 @@ const Kontakt = () => {
       alert('Feil');
     }
   };
-
   return (
     <>
       <Tittel>Kontakt oss</Tittel>
