@@ -85,6 +85,7 @@ const Nav = () => {
     await logout();
     setUser(null);
   };
+  console.log(NavMenu.getComputedStyle().getPropertyValue('display'));
 
   return (
     <>
