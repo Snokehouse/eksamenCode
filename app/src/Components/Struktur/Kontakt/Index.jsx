@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { sendKontaktskjema } from '../../Utils/Kontakt.js';
 
+import { useAuthContext } from '../Context/AuthProvider';
+
 import {
   Container,
   FormWrapper,
@@ -12,9 +14,13 @@ import {
   KontaktLabel,
   KontaktArea,
   KontaktButton,
+  AdminButton,
 } from './Style';
 
 const Kontakt = () => {
+  // Sjekker om bruker er logget inn som admin
+  const { isLoggedIn, isAdmin } = useAuthContext();
+
   const history = useHistory();
   const [formdata, setFormdata] = useState([
     {
@@ -74,6 +80,11 @@ const Kontakt = () => {
     <>
       <Tittel>Kontakt oss</Tittel>
       <Container>
+        {isLoggedIn && isAdmin && (
+          <AdminButton onClick={() => history.push('/kontakt/kontaktskjemaer')}>
+            Se alle Kontakskjemaer
+          </AdminButton>
+        )}
         <FormWrapper>
           <UnderTittel>KontaktSkjema</UnderTittel>
           <KontaktForm id="kontaktSkjema" onSubmit={submitHandle}>

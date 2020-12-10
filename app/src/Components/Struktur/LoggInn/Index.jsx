@@ -247,13 +247,14 @@ const LoggInn = () => {
                 Passord må fylles ut og bestå av 3 tall/bokstaver
               </FormErrorMessage>
             </FormControl>
-            <RegistrerButton onClick={() => setRegistrere(!registrere)}>
-              Ingen bruker? Registrer en Bruker
-            </RegistrerButton>
+
             <LoginButton isLoading={formState.isSubmitting} type="submit">
               Logg Inn
             </LoginButton>
           </Box>
+          <RegistrerButton onClick={() => setRegistrere(!registrere)}>
+            Ingen bruker? Registrer en Bruker
+          </RegistrerButton>
         </>
       )}
     </>

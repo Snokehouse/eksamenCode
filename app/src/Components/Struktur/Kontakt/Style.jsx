@@ -65,3 +65,16 @@ export const KontaktButton = styled.button`
     background-color: grey;
   }
 `;
+export const AdminButton = styled.button`
+  background-color: #007b5f;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  & :disabled {
+    background-color: grey;
+  }
+`;

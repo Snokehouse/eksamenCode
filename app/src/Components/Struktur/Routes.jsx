@@ -1,4 +1,4 @@
-import React from 'react';  // , { lazy, Suspense } 
+import React from 'react'; // , { lazy, Suspense }
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { useAuthContext } from '../Struktur/Context/AuthProvider.jsx';
+import { useAuthContext } from './Context/AuthProvider.jsx';
 
 import MainLayout from '../Styles/Layout/MainLayout';
 
@@ -15,16 +15,16 @@ import Kontorer from './Kontorer/KontorOversikt/Index';
 import KontorSide from './Kontorer/KontorSide/Index';
 
 import FagArtikler from './Fagartikler/ArtikkelOversikt/Index';
-import NyArtikkel from './Fagartikler/NyArtikkel/Index';
+import NyArtikkel from './Fagartikler/NyArtikkel/index';
 import Artikkel from './Fagartikler/Artikkel/Index';
 
 import Kontakt from './Kontakt/Index';
+import KontaktSkjemaOversikt from './Kontakt/KontaktSkjemaOversikt/Index';
 
-import LoggInn from './LoggInn/Index'
+import LoggInn from './LoggInn/Index';
 import NoMatch from './NoMatch/Index';
 
-
-/*const AuthenticatedRoutes = ({ children, ...rest }) => {
+/* const AuthenticatedRoutes = ({ children, ...rest }) => {
   const { isLoggedIn, isLoading } = useAuthContext();
 
   return (
@@ -44,7 +44,7 @@ import NoMatch from './NoMatch/Index';
       }
     />
   );
-};*/
+}; */
 
 const AdminRoutes = ({ children, ...rest }) => {
   const { isLoggedIn, isAdmin, isLoading } = useAuthContext();
@@ -84,6 +84,9 @@ const Routes = () => (
         </Route>
         <Route exact path="/kontakt">
           <Kontakt />
+        </Route>
+        <Route exact path="/kontakt/kontaktskjemaer">
+          <KontaktSkjemaOversikt />
         </Route>
         <Route exact path="/login">
           <LoggInn />

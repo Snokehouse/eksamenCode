@@ -50,6 +50,7 @@ export const LoginButton = styled.button`
   }
 `;
 export const RegistrerButton = styled.button`
+  float: right;
   background-color: #007b5f;
   color: white;
   padding: 14px 20px;
