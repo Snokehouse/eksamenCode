@@ -38,7 +38,6 @@ export const NavMenuItem = styled.li`
 
   &:first-child {
     padding-left: 0;
-    //color: red;
   }
 
   & > a {
@@ -73,9 +72,7 @@ export const NavMenuItem = styled.li`
 // Nav Burgermeny
 export const BurgerTopNav = styled.div`
   overflow: hidden;
-  //background-color: #333;
   position: relative;
-  //margin: 0;
 `;
 export const BurgerLinks = styled.ul`
   display: ${(props) => props.display};
@@ -83,20 +80,17 @@ export const BurgerLinks = styled.ul`
   margin:0;
 `;
 export const BurgerLInkItem = styled.li`
-  //color: white;
   margin: 0 auto;
   padding: 14px 0px;
   font-size: 17px;
   display: block;
   text-align:center;
   background-color: #333;
-  //width: 100%;
+  
   & > a {
     color:white;
     text-decoration: none;
     width: 100%;
-    //height:100%;
-    //padding: 14px 0px;
     display:block;
   }
   & :hover {

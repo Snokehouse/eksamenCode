@@ -44,8 +44,8 @@ const Artikkel = () => {
     }
     return 'url()';
   };
-  // funksjon for slette og redigere
 
+  // funksjon for slette og redigere
   const slettArtikkel = () => {
     if (confirm('Vil du slette artikkelen?')) {
       const sletteData = async () => {
