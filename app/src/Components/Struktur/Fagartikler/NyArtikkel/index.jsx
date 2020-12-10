@@ -136,7 +136,7 @@ const NyArtikkel = () => {
             id="hemmelig"
             name="hemmelig"
             form="artikkelForm"
-            value={formdata.hemmelig}
+            value={formdata.hemmelig || ''}
             onChange={updateValue}
           >
             <ArtikkelOption value="false" hidden>
@@ -150,7 +150,7 @@ const NyArtikkel = () => {
             id="tittel"
             name="tittel"
             type="text"
-            value={formdata.tittel}
+            value={formdata.tittel || ''}
             onChange={updateValue}
           />
           <ArtikkelLabel htmlFor="dato">Dato: </ArtikkelLabel>
@@ -158,7 +158,7 @@ const NyArtikkel = () => {
             id="dato"
             name="dato"
             type="date"
-            value={formdata.dato}
+            value={formdata.dato || ''}
             onChange={updateValue}
           />
           <ArtikkelLabel htmlFor="beskrivelse">Beskrivelse: </ArtikkelLabel>
@@ -166,7 +166,7 @@ const NyArtikkel = () => {
             id="beskrivelse"
             name="beskrivelse"
             type="text"
-            value={formdata.beskrivelse}
+            value={formdata.beskrivelse || ''}
             onChange={updateValue}
           />
           <ArtikkelLabel htmlFor="innhold">Innhold: </ArtikkelLabel>
@@ -175,7 +175,7 @@ const NyArtikkel = () => {
             id="innhold"
             name="innhold"
             type="textArea"
-            value={formdata.innhold}
+            value={formdata.innhold || ''}
             onChange={updateValue}
           />
 

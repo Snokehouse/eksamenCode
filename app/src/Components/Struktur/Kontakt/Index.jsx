@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { sendKontaktskjema } from '../../Utils/Kontakt.js';
 
@@ -20,7 +21,6 @@ import {
 const Kontakt = () => {
   // Sjekker om bruker er logget inn som admin
   const { isLoggedIn, isAdmin, user } = useAuthContext();
-
   const history = useHistory();
   const [formdata, setFormdata] = useState([
     {
@@ -30,10 +30,13 @@ const Kontakt = () => {
       hendvendelse: '',
     },
   ]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      formdata.name = user.name;
+      formdata.email = user.email;
+    }
+  }, [isLoggedIn]);
 
-  if (isLoggedIn) {
-    formdata.email = user.email;
-  }
   // Validere form
   const validateForm = () => {
     if (
@@ -95,7 +98,7 @@ const Kontakt = () => {
               id="name"
               name="name"
               type="text"
-              value={formdata.name}
+              value={formdata.name || ''}
               onChange={updateValue}
             />
             <KontaktLabel>Email: </KontaktLabel>
@@ -103,7 +106,7 @@ const Kontakt = () => {
               id="email"
               name="email"
               type="text"
-              value={formdata.email}
+              value={formdata.email || ''}
               onChange={updateValue}
             />
             <KontaktLabel>Emne: </KontaktLabel>
@@ -111,7 +114,7 @@ const Kontakt = () => {
               id="emne"
               name="emne"
               type="text"
-              value={formdata.emne}
+              value={formdata.emne || ''}
               onChange={updateValue}
             />
             <KontaktLabel>Hendvendelse: </KontaktLabel>
@@ -120,7 +123,7 @@ const Kontakt = () => {
               id="hendvendelse"
               name="hendvendelse"
               type="textArea"
-              value={formdata.hendvendelse}
+              value={formdata.hendvendelse || ''}
               onChange={updateValue}
             />
             {validateForm() ? (

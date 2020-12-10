@@ -52,7 +52,7 @@ const Modal = ({ setModal, addKategori, modalData, setModalData }) => {
           <ArtikkelInput
             id="txtKategori"
             name="kategori"
-            value={modalData.modalValue}
+            value={modalData.modalValue || ''}
             onChange={updateValue}
           />
           <ArtikkelButton type="submit">Submit</ArtikkelButton>

@@ -88,7 +88,7 @@ const Modal = ({
   let datoStr = innLastetData.dato;
   datoStr = moment(datoStr).format('yyyy-MM-DD');
   innLastetData.dato = datoStr;
-  
+
   // submitte endringer
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -135,7 +135,7 @@ const Modal = ({
             id="txtTittel"
             name="tittel"
             type="text"
-            value={innLastetData.tittel}
+            value={innLastetData.tittel || ''}
             onChange={updateValue}
           />
           <ArtikkelLabel htmlFor="txtDato">Dato: </ArtikkelLabel>
@@ -143,7 +143,7 @@ const Modal = ({
             id="txtDato"
             name="dato"
             type="date"
-            value={innLastetData.dato}
+            value={innLastetData.dato || ''}
             onChange={updateValue}
           />
           <ArtikkelLabel htmlFor="txtBeskrivelse">Beskrivelse: </ArtikkelLabel>
@@ -151,7 +151,7 @@ const Modal = ({
             id="txtBeskrivelse"
             name="beskrivelse"
             type="text"
-            value={innLastetData.beskrivelse}
+            value={innLastetData.beskrivelse || ''}
             onChange={updateValue}
           />
           <ArtikkelLabel htmlFor="innhold">Innhold: </ArtikkelLabel>
@@ -160,7 +160,7 @@ const Modal = ({
             id="innhold"
             name="innhold"
             type="textArea"
-            value={innLastetData.innhold}
+            value={innLastetData.innhold || ''}
             onChange={updateValue}
           />
           <br />
