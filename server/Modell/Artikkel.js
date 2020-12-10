@@ -18,6 +18,11 @@ const ArtikkelSchema = new Schema({
     required: [true, 'Fyll ut beskrivelse'],
   },
 
+  innhold: {
+    type: String,
+    required: [true, 'Fyll ut beskrivelse'],
+  },
+
   kategori: {
     type: String,
     required: [true, 'Fyll ut kategori'],
@@ -27,9 +32,14 @@ const ArtikkelSchema = new Schema({
     type: String,
     required: [true, 'Fyll ut forfatter'],
   },
+
   bildeID: {
     type: String,
     required: [true, 'Ingen bildeID funnet'],
+  },
+
+  hemmelig: {
+    type: Boolean,
   },
 });
 

@@ -16,6 +16,7 @@ import {
   ArtikkelForm,
   ArtikkelInput,
   ArtikkelLabel,
+  ArtikkelArea,
   ArtikkelButton,
   ArtikkelSelectK,
   ArtikkelSelectF,
@@ -136,6 +137,15 @@ const Modal = ({
             name="beskrivelse"
             type="text"
             value={innLastetData.beskrivelse}
+            onChange={updateValue}
+          />
+          <ArtikkelLabel htmlFor="innhold">Innhold: </ArtikkelLabel>
+          <ArtikkelArea
+            form="artikkelForm"
+            id="innhold"
+            name="innhold"
+            type="textArea"
+            value={innLastetData.innhold}
             onChange={updateValue}
           />
           <br />

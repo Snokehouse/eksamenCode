@@ -81,6 +81,8 @@ const Artikkel = () => {
         <SmallTittel className="forfatterTittel">{`Skrevet av: ${innLastetData.forfatter}`}</SmallTittel>
         <Paragraf>{`${innLastetData.beskrivelse}`}</Paragraf>
         <UnderTittel>SubTitle</UnderTittel>
+        <Paragraf>{`${innLastetData.innhold}`}</Paragraf>
+        <UnderTittel>SubTitle</UnderTittel>
         <Paragraf>
           Lucas ipsum dolor sit amet veila dashade organa jettster airen
           antilles ansion neimoidia neimoidian nadon. K-3po kurtzen hutt

@@ -11,6 +11,7 @@ import {
   ArtikkelForm,
   ArtikkelInput,
   ArtikkelLabel,
+  ArtikkelArea,
   ArtikkelSelectK,
   ArtikkelSelectF,
   ArtikkelOption,
@@ -28,6 +29,7 @@ const NyArtikkel = () => {
       tittel: '',
       dato: '',
       beskrivelse: '',
+      innhold: '',
       kategori: '',
       forfatter: '',
       bildeID: '',
@@ -81,6 +83,7 @@ const NyArtikkel = () => {
       formdata.tittel !== undefined &&
       formdata.dato !== undefined &&
       formdata.beskrivelse !== undefined &&
+      formdata.innhold !== undefined &&
       formdata.kategori !== undefined &&
       formdata.forfatter !== undefined &&
       file !== undefined
@@ -97,7 +100,6 @@ const NyArtikkel = () => {
       ...prev,
       ...inputValue,
     }));
-    validateForm();
   };
   // sende data til api og lage data
   const createData = async () => {
@@ -121,41 +123,47 @@ const NyArtikkel = () => {
   // Submit form
   const submitHandle = (event) => {
     event.preventDefault();
-    if (validateForm()) {
-      lasteOppBilde();
-    } else {
-      console.log('Feil');
-    }
+    lasteOppBilde();
   };
   return (
     <>
       <Tittel>Ny Artikkel</Tittel>
       <Wrapper>
         <ArtikkelForm id="artikkelForm" onSubmit={submitHandle}>
-          <ArtikkelLabel htmlFor="txtTittel">Tittel: </ArtikkelLabel>
+          <ArtikkelLabel htmlFor="tittel">Tittel: </ArtikkelLabel>
           <ArtikkelInput
-            id="txtTittel"
+            id="tittel"
             name="tittel"
             type="text"
             value={formdata.tittel}
             onChange={updateValue}
           />
-          <ArtikkelLabel htmlFor="txtDato">Dato: </ArtikkelLabel>
+          <ArtikkelLabel htmlFor="dato">Dato: </ArtikkelLabel>
           <ArtikkelInput
-            id="txtDato"
+            id="dato"
             name="dato"
             type="date"
             value={formdata.dato}
             onChange={updateValue}
           />
-          <ArtikkelLabel htmlFor="txtBeskrivelse">Beskrivelse: </ArtikkelLabel>
+          <ArtikkelLabel htmlFor="beskrivelse">Beskrivelse: </ArtikkelLabel>
           <ArtikkelInput
-            id="txtBeskrivelse"
+            id="beskrivelse"
             name="beskrivelse"
             type="text"
             value={formdata.beskrivelse}
             onChange={updateValue}
           />
+          <ArtikkelLabel htmlFor="innhold">Innhold: </ArtikkelLabel>
+          <ArtikkelArea
+            form="artikkelForm"
+            id="innhold"
+            name="innhold"
+            type="textArea"
+            value={formdata.innhold}
+            onChange={updateValue}
+          />
+
           <br />
           <ArtikkelLabel htmlFor="kategori">Kategori: </ArtikkelLabel>
           <br />
@@ -220,16 +228,17 @@ const NyArtikkel = () => {
             onChange={(event) => {
               const imageFile = event.target.files[0];
               setFile(imageFile);
-              validateForm();
             }}
           />
-          <ArtikkelButton
-            disabled={validateForm() === false}
-            type="submit"
-            value="Submit"
-          >
-            Create
-          </ArtikkelButton>
+          {validateForm() ? (
+            <ArtikkelButton type="submit" value="Submit">
+              Create
+            </ArtikkelButton>
+          ) : (
+            <ArtikkelButton disabled type="submit" value="Submit">
+              Create
+            </ArtikkelButton>
+          )}
         </ArtikkelForm>
       </Wrapper>
       {modal && (
