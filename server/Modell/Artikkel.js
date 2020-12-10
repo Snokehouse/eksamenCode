@@ -40,6 +40,7 @@ const ArtikkelSchema = new Schema({
 
   hemmelig: {
     type: Boolean,
+    required: [true, 'Velg åpen/hemmelig!!!!'],
   },
 });
 
