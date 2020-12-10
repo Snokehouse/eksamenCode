@@ -31,6 +31,7 @@ const Kontakt = () => {
       hendvendelse: '',
     },
   ]);
+  
   useEffect(() => {
     if (isLoggedIn) {
       formdata.name = user.name;
