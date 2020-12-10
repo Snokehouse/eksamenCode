@@ -16,6 +16,7 @@ import {
   DropdownContent,
   DropdownItem,
   Dropdownbtn,
+  PagButton,
 } from './Style';
 
 import { useAuthContext } from '../../Context/AuthProvider';
@@ -138,11 +139,11 @@ const Fagartikler = () => {
           )}
         </Container>
         {pagesInfo.map((page) => (
-          <button
+          <PagButton
             type="button"
             key={page}
             onClick={() => updatePage(page)}
-          >{`${page}`}</button>
+          >{`${page}`}</PagButton>
         ))}
       </Container>
     </>

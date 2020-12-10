@@ -122,3 +122,17 @@ export const DropdownItem = styled.a`
     background-color: #f1f1f1;
   }
 `;
+
+export const PagButton = styled.button`
+  border: 0;
+  color: black;
+  background-color: lightgray;
+  float:right;
+  font-size: 15px;
+
+  &:focus {
+    outline: 0;
+    background-color: black;
+    color: white;
+  }
+`;
