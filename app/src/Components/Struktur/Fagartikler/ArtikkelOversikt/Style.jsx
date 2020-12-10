@@ -125,6 +125,7 @@ export const DropdownItem = styled.a`
 
 export const PagButton = styled.button`
   border: 0;
+  margin: 5px;
   color: black;
   background-color: lightgray;
   float:right;
