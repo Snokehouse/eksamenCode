@@ -5,17 +5,11 @@ import Break from 'react-break';
 import { useAuthContext } from '../../../Struktur/Context/AuthProvider';
 import { logout } from '../../../Utils/AuthService';
 
-import { FaBars } from 'react-icons/fa';
+//import { FaBars } from 'react-icons/fa';
 
 const StyledNav = styled.nav`
   font-family: Lato;
   width: 100%;
-  @media screen and (max-width: 500px) {
-    //grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
-    overflow: hidden;
-    //background-color: #333;
-    position: relative;
-  }
 `;
 const Logo = styled.p`
   margin: auto 10px;
@@ -25,18 +19,7 @@ const Logo = styled.p`
 const NavMenu = styled.ul`
   display: grid;
   @media screen and (max-width: 500px) {
-    //grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
-    //height: 62px;
-    //padding: 25px;
-    display: none;
-
-    #BurgerKnapp {
-      color: black;
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
   }
  
   @media screen and (max-width: 800px) {
@@ -56,15 +39,6 @@ const NavMenu = styled.ul`
 
 const NavMenuItem = styled.li`
   padding: 0 20px;
-  
-  @media screen and (max-width: 500px) {
-    //grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
-    //height: 62px;
-    //padding: 25px;
-    display: block;
-    color:white;
-  }
-  
 
   text-align: center;
 
@@ -107,15 +81,6 @@ const NavBreakpoints = {
   tablet: 500,
   desktop: 800,
 };
-
-const myFunction = () => {
-  const x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
 
 const Nav = () => {
   const { isLoggedIn, setUser } = useAuthContext();
@@ -166,7 +131,6 @@ const Nav = () => {
                 </NavLink>
               </NavMenuItem>
             )}
-            <FaBars id="BurgerKnapp" href="javascript:void(0);" onClick={() => myFunction()}>List</FaBars>
           </NavMenu>
         </StyledNav>
       </Break>
