@@ -17,6 +17,15 @@ export const getUserInfo = async () => {
   }
 };
 
+export const registrerBruker = async (credentials) => {
+  try {
+    await getCsrfToken();
+    return await http.post('/register', { ...credentials });
+  } catch (err) {
+    return err.response;
+  }
+};
+
 export const login = async (credentials) => {
   try {
     await getCsrfToken();
